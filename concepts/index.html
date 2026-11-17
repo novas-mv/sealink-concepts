@@ -668,6 +668,12 @@ body.bare #bar{display:none}
 /* ruled rows: keep the rule to the content width, not the padded box */
 [data-v="paper"] .stabs .w,[data-v="paper"] .brand .w,[data-v="paper"] .origins .w,[data-v="quiet"] .stabs .w,[data-v="quiet"] .brand .w{padding-inline:0;width:calc(100% - 2*var(--pad));max-width:1240px}
 
+/* sample photos fill the [PHOTO] slots */
+.ph.pic{position:relative;overflow:hidden;padding:0!important;border:0!important;background:#D9D7E6}
+.ph.pic img,.card .nph.pic img{position:absolute;inset:0;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;display:block}
+.card .nph.pic{position:relative;overflow:hidden;padding:0!important}
+[data-v="quiet"] .ph.pic img{filter:saturate(.92)}
+
 /* ============ Shared mobile ============ */
 @media (max-width:900px){
   .hero .w,.ptop .w,.trade .w{grid-template-columns:minmax(0,1fr)!important}
@@ -691,7 +697,7 @@ body.bare #bar{display:none}
     <a data-set-v="apex" href="#">1 · Apex</a><a data-set-v="quiet" href="#">2 · Quiet + Sweep</a><a data-set-v="cold" href="#">3 · Cold white</a><a data-set-v="paper" href="#">4 · Navy and paper</a></div>
   <div class="grp"><span class="lbl">Page</span>
     <a data-set-p="home" href="#">Home</a><a data-set-p="products" href="#">Products</a><a data-set-p="brands" href="#">Brands</a></div>
-  <span class="note">Items in [brackets] are content to come from Sealink.</span>
+  <span class="note">Items in [brackets] are content to come from Sealink. Photos are sample stock images.</span>
 </nav>
 <div id="site"></div>
 
@@ -719,6 +725,11 @@ const PRODUCTS=[
  {name:'Whipping Cream',brand:'Emborg',st:'Chilled'},
  {name:'Yogurt, natural',brand:'Emborg',st:'Chilled'},
 ];
+const PHOTO='assets/photos/';
+const pic=(f,alt,pos='50% 50%')=>`<div class="ph pic"><img src="${PHOTO+f}.webp" alt="Sample photo: ${alt}" style="object-position:${pos}"></div>`;
+const HERO={apex:['warehouse-racks','cold store racks and pallets','40% 50%'],quiet:['warehouse-pallets','pallets in a cold store, morning light','50% 60%'],cold:['warehouse-team','warehouse team at work','50% 55%'],paper:['chefs','chefs at work in a hotel kitchen','55% 60%']};
+const PARTNER_PIC={Emborg:['dairy-butter-cream','butter and cream','60% 50%'],Sumich:['carrots-crate','fresh carrots in a crate','55% 50%'],IOEC:['apples-oranges','apples and oranges','50% 50%']};
+const CARD_PIC={'Apples':['apples-oranges','apples','12% 50%'],'Oranges':['apples-oranges','oranges','90% 50%'],'Broccoli Mix':['frozen-veg','frozen mixed vegetables','80% 50%'],'Carrots':['carrots-crate','carrots','55% 45%'],'French Fries':['fries','French fries','50% 45%'],'Mozzarella, shredded':['cheese','cheese','50% 50%'],'Strawberries':['strawberries','strawberries','50% 50%'],'Whipping Cream':['dairy-butter-cream','cream and butter','25% 60%'],'Yogurt, natural':['yogurt','yogurt','50% 60%']};
 const x=s=>`<span class="x">${s}</span>`;
 const A=(cls='')=>`<i class="A ${cls}" aria-hidden="true"></i>`;
 const ICO_S='<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>';
@@ -761,14 +772,14 @@ function home(V){
         <p class="who">Supplying resorts, hotels and restaurants across the Maldives.</p>
         <div class="find">${search(V,'Search products, brands or codes')}${shortcuts(V)}</div>
         <div class="acts"><a class="btn" href="#">Request a quote</a><a class="btn s" href="#">WhatsApp us</a></div>
-        <figure class="fig"><div class="ph">[PHOTO: cold store, team or product]</div><i class="sweep" aria-hidden="true"><i></i></i></figure>
+        <figure class="fig">${pic(...HERO[V])}<i class="sweep" aria-hidden="true"><i></i></i></figure>
       </div></section>`
     : `<section class="hero"><div class="w"><div>
         <h1>Fresh, chilled and frozen food, kept cold since 1994.</h1>
         <p class="who">Supplying resorts, hotels and restaurants across the Maldives.</p>
         ${search(V,'Search products, brands or codes')}${shortcuts(V)}
         <div class="acts"><a class="btn" href="#">Request a quote</a><a class="btn s" href="#">WhatsApp us</a></div>
-      </div><div class="ph">[PHOTO: cold store, team or product]</div></div></section>`;
+      </div>${pic(...HERO[V])}</div></section>`;
   return header(V,'home')+`<main>${hero}${why}
    <section class="blk"><div class="w">${sh('Browse by category')}<div class="cats">${CATS.map(c=>`<a class="cat" href="#">${c}</a>`).join('')}</div></div></section>
    <section class="trade">${A('crop')}<div class="w"><h2>Supplying a resort or restaurant? Send us your list and we reply with prices.</h2>
@@ -777,7 +788,8 @@ function home(V){
    ${outlet(V)}</main>`+footer(V);
 }
 function card(p,V){
-  const img = p.img ? `<img src="${IMG+p.img}" alt="${p.brand} ${p.name}">` : `<div class="nph"><b>${p.brand}</b><span>${V==='apex'?A('ta'):''}${p.st}</span></div>`;
+  const cp = CARD_PIC[p.name];
+  const img = p.img ? `<img src="${IMG+p.img}" alt="${p.brand} ${p.name}">` : cp ? `<div class="nph pic"><img src="${PHOTO+cp[0]}.webp" alt="Sample photo: ${cp[1]}" style="object-position:${cp[2]}"></div>` : `<div class="nph"><b>${p.brand}</b><span>${V==='apex'?A('ta'):''}${p.st}</span></div>`;
   const pack = p.pack || '[PACK]';
   const st = `<p class="st">${V==='apex'?A('ta'):''}${p.st}</p>`;
   const meta = (V==='cold'||V==='paper')
@@ -816,11 +828,11 @@ function brands(V){
     if(V==='cold') return `<article class="brand"><div class="w"><div>
         <div class="txt"><h2>${p.name}</h2><p class="meta">${meta}</p><a class="btn s" href="#">See ${p.name} products</a></div>
         <div class="side2"><p class="lab">Product lines</p><p class="lines">${p.lines}</p><p class="story">${x('[STORY: 2–3 lines]')}</p></div>
-        <div class="ph">[PARTNER PHOTO]</div></div></div></article>`;
+        ${pic(...PARTNER_PIC[p.name])}</div></div></article>`;
     return `<article class="brand${lead?' lead':''}">${lead?A('crop'):''}<div class="w">
       <div class="txt"><h2>${p.name}</h2><p class="meta">${meta}</p>${linesTxt}<p class="story">${x('[STORY: 2–3 lines]')}</p>
       <a class="btn${lead?'':' s'}" href="#">See ${p.name} products</a></div>
-      <div class="ph">[PARTNER PHOTO]</div></div></article>`;
+      ${pic(...PARTNER_PIC[p.name])}</div></article>`;
   };
   return header(V,'brands')+`<main>
    <section class="btop"><div class="w"><h1>Brands</h1><p>We are the Maldives distributor for these producers, some for more than 25 years.</p>${V==='quiet'?'<i class="sweep" aria-hidden="true"><i></i></i>':''}</div></section>
