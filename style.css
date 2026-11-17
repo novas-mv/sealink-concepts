@@ -8,7 +8,7 @@
   --line:#E4E1DA;
   --soft:#F2F0EB;
   --serif:'Source Serif 4',Georgia,serif;
-  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --sans:'Source Sans 3',system-ui,-apple-system,sans-serif;
   --pad:clamp(20px,5vw,64px);
 }
 *{box-sizing:border-box}
