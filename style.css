@@ -114,7 +114,8 @@ h2{font-size:clamp(32px,4vw,46px);line-height:1.1}
 .card-explain{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start;margin-top:56px}
 .card-explain h3{font-family:var(--serif);font-weight:500;font-size:28px;color:var(--navy);margin-bottom:16px}
 .pc{background:var(--panel);border:1px solid var(--line);padding:14px;font-size:14px}
-.pc-img{height:150px;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;margin-bottom:12px}
+.pc-img{height:150px;background:#fff;border:1px solid var(--line);padding:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;margin-bottom:12px}
+.pc-img img{max-height:100%;max-width:100%;object-fit:contain}
 .pc-name{font-weight:600;color:var(--navy);font-size:16px}
 .pc-brand{color:var(--muted)}
 .pc-row{display:flex;justify-content:space-between;margin-top:6px;color:var(--muted)}
