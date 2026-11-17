@@ -5,7 +5,7 @@
 <title>Sealink · Website concepts</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&family=Red+Hat+Text:wght@400;500;700&family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&family=Red+Hat+Text:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
 <style>
 /* ============ Base (shared, no visual style) ============ */
 *{box-sizing:border-box}
@@ -228,154 +228,7 @@ body.bare #bar{display:none}
 }
 
 /* =====================================================================
-   2 · QUIET + SWEEP   [data-v="quiet"]   warm white, light serif, air, one navy sweep
-   ===================================================================== */
-[data-v="quiet"]{--ink:#26221C;--soft:#5E574B;--paper:#F6F2EA;--line:#D8D0C2;--n:#1C1266;--f:'Jost',system-ui,sans-serif;--s:'Cormorant Garamond',Georgia,serif;
-  font-family:var(--f);font-weight:400;color:var(--ink);font-size:16px;line-height:1.7;background:var(--paper)}
-[data-v="quiet"] h1,[data-v="quiet"] h2{font-family:var(--s);font-weight:300;letter-spacing:-.015em}
-[data-v="quiet"] h3{font-family:var(--s);font-weight:400}
-[data-v="quiet"] .x{background:rgba(38,34,28,.07);padding:0 6px;font-weight:400;white-space:nowrap}
-[data-v="quiet"] .sweep{display:block;position:relative;aspect-ratio:1385/106;background:var(--c,var(--n));-webkit-mask:url(assets/sweep-solid.svg) center/100% 100% no-repeat;mask:url(assets/sweep-solid.svg) center/100% 100% no-repeat}
-[data-v="quiet"] .btn{height:50px;padding:0 26px;font:400 14px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;background:var(--n);color:#fff;border:1px solid var(--n)}
-[data-v="quiet"] .btn.s{background:transparent;color:var(--ink);border-color:var(--ink)}
-[data-v="quiet"] .lnk{font-size:13px;letter-spacing:.14em;text-transform:uppercase;text-underline-offset:6px;text-decoration-thickness:1px}
-[data-v="quiet"] .hd .w{height:112px;gap:56px}
-[data-v="quiet"] .hd .logo img{width:150px}
-[data-v="quiet"] .hd nav{gap:36px;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
-[data-v="quiet"] .hd nav a[aria-current]{text-decoration:underline;text-underline-offset:8px}
-[data-v="quiet"] .hd .side{gap:28px;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
-[data-v="quiet"] .hd .side .btn{height:44px;padding:0 20px;font-size:12.5px}
-[data-v="quiet"] .hd .menu{font-size:13px;letter-spacing:.14em;text-transform:uppercase;height:44px;padding:0 4px}
-[data-v="quiet"] .search{height:60px;border-bottom:1px solid var(--ink)}
-[data-v="quiet"] .search .q{color:var(--soft);font:300 22px var(--s);font-size:24px}
-[data-v="quiet"] .search .go{font-size:13px;letter-spacing:.14em;text-transform:uppercase;height:100%;padding-left:20px}
-[data-v="quiet"] .stg{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font-size:13px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid transparent}
-[data-v="quiet"] .stg.on{border-bottom-color:var(--ink)}
-[data-v="quiet"] .ph{background:#E9E2D5;display:flex;align-items:flex-end;padding:16px 18px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#4E473C}
-[data-v="quiet"] .sweep>i{position:absolute;inset:0;transform:translateX(1.2%);background:var(--c,var(--n));-webkit-mask:url(assets/sweep-solid.svg) center/100% 100% no-repeat;mask:url(assets/sweep-solid.svg) center/100% 100% no-repeat}
-/* hero */
-[data-v="quiet"] .hero .w{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding-top:56px}
-[data-v="quiet"] .hero h1{grid-column:1/9;font-size:clamp(48px,6.6vw,100px);line-height:1;letter-spacing:-.025em}
-[data-v="quiet"] .hero .who{grid-column:9/13;align-self:end;font:300 26px/1.35 var(--s);padding-bottom:12px}
-[data-v="quiet"] .hero .find{grid-column:1/8;margin-top:72px}
-[data-v="quiet"] .hero .short{display:flex;gap:32px;margin-top:14px}
-[data-v="quiet"] .hero .acts{grid-column:9/13;margin-top:72px;display:flex;flex-direction:column;gap:12px;align-self:start}
-[data-v="quiet"] .hero .acts .btn{width:100%}
-[data-v="quiet"] .hero .fig{grid-column:1/13;position:relative;margin-top:88px}
-[data-v="quiet"] .hero .ph{height:520px}
-[data-v="quiet"] .hero .sweep{position:absolute;left:0;bottom:-34px;width:100%}
-[data-v="quiet"] .hero .ph{align-items:flex-start}
-[data-v="quiet"] section.blk{padding-top:150px}
-[data-v="quiet"] .sh{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;margin-bottom:44px}
-[data-v="quiet"] .sh h2{grid-column:1/9;font-size:clamp(36px,4vw,60px);line-height:1.05}
-/* why */
-[data-v="quiet"] .why .row{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:baseline;padding:26px 0;border-top:1px solid var(--line)}
-[data-v="quiet"] .why .row:first-child{border-top-color:var(--ink)}
-[data-v="quiet"] .why .row h3{grid-column:1/6;font-size:40px;line-height:1.1}
-[data-v="quiet"] .why .row .c{grid-column:6/9;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
-[data-v="quiet"] .why .row .r{grid-column:9/13;color:var(--soft)}
-[data-v="quiet"] .why .more{margin-top:30px;display:inline-block}
-/* categories */
-[data-v="quiet"] .cats{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;border-top:1px solid var(--ink)}
-[data-v="quiet"] .cat{display:flex;align-items:center;justify-content:space-between;height:88px;border-bottom:1px solid var(--line);text-decoration:none;font:300 32px var(--s)}
-/* trade */
-[data-v="quiet"] .trade{margin-top:150px}
-[data-v="quiet"] .trade .w{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding-block:72px;padding-inline:0;width:calc(100% - 2*var(--pad));max-width:1240px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
-[data-v="quiet"] .trade h2{grid-column:1/9;font-size:clamp(32px,3.8vw,54px);line-height:1.12}
-[data-v="quiet"] .trade .rt{grid-column:1/9;margin-top:18px;color:var(--soft)}
-[data-v="quiet"] .trade .acts{grid-column:9/13;grid-row:1/3;display:flex;flex-direction:column;gap:12px;align-self:center}
-/* outlet */
-[data-v="quiet"] .outlet .w{gap:24px;padding-block:28px;font-size:14px}
-[data-v="quiet"] .outlet .lnk{margin-left:auto}
-/* footer: the sweep is the section edge */
-[data-v="quiet"] .ft{position:relative;background:var(--n);color:#fff;margin-top:90px;padding:80px 0 64px}
-[data-v="quiet"] .ft>.sweep{position:absolute;left:0;right:0;top:-1px;width:100%;--c:var(--paper);transform:scaleY(-1)}
-[data-v="quiet"] .ft .cols{grid-template-columns:2fr 1.3fr 1fr;gap:40px}
-[data-v="quiet"] .ft img{width:170px}
-[data-v="quiet"] .ft p,[data-v="quiet"] .ft li{font-size:14.5px;line-height:26px}
-[data-v="quiet"] .ft h4{margin:0 0 10px;font-weight:400;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#D9D7EE}
-[data-v="quiet"] .ft .x{background:rgba(255,255,255,.14)}
-[data-v="quiet"] .ft a{text-decoration:underline;text-underline-offset:4px}
-/* products */
-[data-v="quiet"] .ptop .w{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding-top:64px;padding-bottom:48px}
-[data-v="quiet"] .ptop h1{grid-column:1/6;font-size:clamp(52px,6vw,88px);line-height:1}
-[data-v="quiet"] .ptop .search{grid-column:6/13;align-self:end}
-[data-v="quiet"] .ptop .sweep{grid-column:1/13;margin-top:44px;height:auto}
-[data-v="quiet"] .stabs .w{display:flex;gap:40px;padding-block:12px;border-bottom:1px solid var(--line)}
-[data-v="quiet"] .pbody{display:grid;grid-template-columns:220px 1fr;gap:64px;padding-block:44px 64px}
-[data-v="quiet"] .filters h3{font:400 12px var(--f);letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px}
-[data-v="quiet"] .filters h3:not(:first-child){margin-top:34px}
-[data-v="quiet"] .filters label{display:flex;align-items:center;gap:12px;min-height:34px;font-size:15px}
-[data-v="quiet"] .filters input{width:16px;height:16px;accent-color:var(--n);margin:0}
-[data-v="quiet"] .rbar{display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--line);font-size:14px}
-[data-v="quiet"] .rbar .sort{color:var(--soft)}
-[data-v="quiet"] .grid{grid-template-columns:repeat(3,1fr);gap:56px 32px;padding-top:36px}
-[data-v="quiet"] .card .img{height:260px;background:#fff;padding:26px}
-[data-v="quiet"] .card .img img{max-height:200px}
-[data-v="quiet"] .card .nph{background:#EFE9DE;margin:-26px;width:calc(100% + 52px);height:calc(100% + 52px);padding:22px;align-items:center;justify-content:center;gap:6px;text-align:center}
-[data-v="quiet"] .card .nph b{font:300 38px var(--s)}
-[data-v="quiet"] .card .nph span{font-size:12px;letter-spacing:.14em;text-transform:uppercase}
-[data-v="quiet"] .card h3{font-size:25px;line-height:1.2;margin-top:18px}
-[data-v="quiet"] .card .br,[data-v="quiet"] .card .pk{font-size:14px;color:var(--soft)}
-[data-v="quiet"] .card .br{margin-top:4px}
-[data-v="quiet"] .card .st{font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-top:8px}
-[data-v="quiet"] .card .add{margin-top:16px;height:44px;border:1px solid var(--ink);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
-[data-v="quiet"] .card .add.in{background:var(--n);border-color:var(--n);color:#fff}
-[data-v="quiet"] .nores{margin-top:72px;padding:36px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-[data-v="quiet"] .nores .tag{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
-[data-v="quiet"] .nores p{font:300 30px/1.3 var(--s);margin-top:8px;max-width:40ch}
-[data-v="quiet"] .qbar{background:var(--paper);border-top:1px solid var(--ink)}
-[data-v="quiet"] .qbar .w{height:76px;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
-[data-v="quiet"] .qbar b{font-weight:500}
-/* brands */
-[data-v="quiet"] .btop .w{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding-top:72px}
-[data-v="quiet"] .btop h1{grid-column:1/7;font-size:clamp(52px,6.6vw,100px);line-height:1}
-[data-v="quiet"] .btop p{grid-column:7/13;align-self:end;font:300 28px/1.35 var(--s)}
-[data-v="quiet"] .btop .sweep{grid-column:1/13;margin-top:64px}
-[data-v="quiet"] .brand .w{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding-block:88px 0}
-[data-v="quiet"] .brand .txt{grid-column:1/7}
-[data-v="quiet"] .brand .ph{grid-column:8/13;min-height:340px}
-[data-v="quiet"] .brand h2{font-size:clamp(52px,5.4vw,80px);line-height:1}
-[data-v="quiet"] .brand .meta{font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-top:16px}
-[data-v="quiet"] .brand .lines{font:300 25px/1.4 var(--s);margin-top:22px;max-width:30ch}
-[data-v="quiet"] .brand .story{margin-top:18px;color:var(--soft)}
-[data-v="quiet"] .brand .btn{margin-top:30px}
-[data-v="quiet"] .brand+.brand .w{border-top:1px solid var(--line);margin-top:88px}
-[data-v="quiet"] .origins .w{padding-block:110px 0}
-[data-v="quiet"] .origins p{font:300 32px/1.35 var(--s);max-width:34ch;border-top:1px solid var(--ink);padding-top:40px}
-[data-v="quiet"] .others .w{padding-block:96px 40px}
-[data-v="quiet"] .others .list{font:300 26px var(--s)}
-@media (max-width:900px){
-  [data-v="quiet"] .hd .w{height:76px;gap:12px}[data-v="quiet"] .hd .logo img{width:120px}
-  [data-v="quiet"] .hero .w,[data-v="quiet"] .sh,[data-v="quiet"] .trade .w,[data-v="quiet"] .why .row,[data-v="quiet"] .ptop .w,[data-v="quiet"] .btop .w,[data-v="quiet"] .brand .w{grid-template-columns:1fr}
-  [data-v="quiet"] .hero .w>*,[data-v="quiet"] .sh h2,[data-v="quiet"] .trade .w>*,[data-v="quiet"] .why .row>*,[data-v="quiet"] .ptop .w>*,[data-v="quiet"] .btop .w>*,[data-v="quiet"] .brand .w>*{grid-column:1/-1!important;grid-row:auto!important}
-  [data-v="quiet"] .hero .w{padding-top:28px}
-  [data-v="quiet"] .hero .who{font-size:22px;margin-top:20px}
-  [data-v="quiet"] .hero .find,[data-v="quiet"] .hero .acts{margin-top:40px}
-  [data-v="quiet"] .search .q{font-size:20px}
-  [data-v="quiet"] .hero .short{gap:22px}
-  [data-v="quiet"] .hero .fig{margin-top:52px}[data-v="quiet"] .hero .ph{height:260px}[data-v="quiet"] .hero .sweep{bottom:-14px}
-  [data-v="quiet"] section.blk{padding-top:96px}
-  [data-v="quiet"] .why .row h3{font-size:32px}
-  [data-v="quiet"] .cats{grid-template-columns:1fr}[data-v="quiet"] .cat{height:68px;font-size:26px}
-  [data-v="quiet"] .trade{margin-top:96px}[data-v="quiet"] .trade .acts{margin-top:28px}
-  [data-v="quiet"] .outlet .lnk{margin-left:0}
-  [data-v="quiet"] .ft{padding-top:64px}[data-v="quiet"] .ft .cols{grid-template-columns:1fr;gap:28px}
-  [data-v="quiet"] .ptop .search{margin-top:24px}
-  [data-v="quiet"] .stabs .w{gap:24px;overflow-x:auto}
-  [data-v="quiet"] .pbody{grid-template-columns:1fr;gap:20px;padding-top:24px}
-  [data-v="quiet"] .grid{grid-template-columns:1fr 1fr;gap:36px 14px}
-  [data-v="quiet"] .card .img{height:170px;padding:14px}[data-v="quiet"] .card .img img{max-height:140px}
-  [data-v="quiet"] .card .nph{margin:-14px;width:calc(100% + 28px);height:calc(100% + 28px)}[data-v="quiet"] .card .nph b{font-size:28px}
-  [data-v="quiet"] .card h3{font-size:21px}
-  [data-v="quiet"] .fbtn{display:inline-flex;height:44px;align-items:center;font-size:13px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--ink)}
-  [data-v="quiet"] .btop p{margin-top:20px;font-size:23px}
-  [data-v="quiet"] .brand .ph{min-height:220px;margin-top:28px}
-  [data-v="quiet"] .origins p{font-size:25px}
-}
-
-/* =====================================================================
-   3 · COLD WHITE   [data-v="cold"]   spec sheet: cool white, deep sea blue, Plex + mono
+   2 · COLD WHITE   [data-v="cold"]   spec sheet: cool white, deep sea blue, Plex + mono
    ===================================================================== */
 [data-v="cold"]{--ink:#0B2A3C;--ink2:#22394A;--soft:#4F6575;--line:#DCE4E9;--bg:#F7F9FA;--chip:#EEF3F6;--ice:#DCEEF7;--f:'IBM Plex Sans',system-ui,sans-serif;--m:'IBM Plex Mono',ui-monospace,monospace;
   font-family:var(--f);color:var(--ink2);font-size:16px;line-height:1.55;background:var(--bg)}
@@ -523,7 +376,7 @@ body.bare #bar{display:none}
 }
 
 /* =====================================================================
-   4 · NAVY AND PAPER   [data-v="paper"]   white page, Sealink navy, grey bands, quiet corporate
+   3 · NAVY AND PAPER   [data-v="paper"]   white page, Sealink navy, grey bands, quiet corporate
    ===================================================================== */
 [data-v="paper"]{--n:#1B1464;--ink2:#2B2A3A;--soft:#5B5A6E;--line:#E3E4EA;--band:#F5F6F8;--tint:#E7EAF6;--f:'Instrument Sans',system-ui,sans-serif;
   font-family:var(--f);color:var(--ink2);font-size:17px;line-height:1.6;background:#fff}
@@ -666,13 +519,16 @@ body.bare #bar{display:none}
 }
 
 /* ruled rows: keep the rule to the content width, not the padded box */
-[data-v="paper"] .stabs .w,[data-v="paper"] .brand .w,[data-v="paper"] .origins .w,[data-v="quiet"] .stabs .w,[data-v="quiet"] .brand .w{padding-inline:0;width:calc(100% - 2*var(--pad));max-width:1240px}
+[data-v="paper"] .stabs .w,[data-v="paper"] .brand .w,[data-v="paper"] .origins .w{padding-inline:0;width:calc(100% - 2*var(--pad));max-width:1240px}
 
 /* sample photos fill the [PHOTO] slots */
 .ph.pic{position:relative;overflow:hidden;padding:0!important;border:0!important;background:#D9D7E6}
 .ph.pic img,.card .nph.pic img{position:absolute;inset:0;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;display:block}
 .card .nph.pic{position:relative;overflow:hidden;padding:0!important}
-[data-v="quiet"] .ph.pic img{filter:saturate(.92)}
+
+/* products without a pack shot: plain white panel, same frame as the pack shots */
+.card .nph{background:#fff!important;color:var(--n,#1C1266)}
+.card .nph span{color:#6B6F80}
 
 /* ============ Shared mobile ============ */
 @media (max-width:900px){
@@ -694,10 +550,10 @@ body.bare #bar{display:none}
 <body>
 <nav id="bar" aria-label="Variant switcher">
   <div class="grp"><a class="back" href="../index.html#looks">&larr; Back to the presentation</a><span class="lbl">Look</span>
-    <a data-set-v="apex" href="#">1 · Apex</a><a data-set-v="quiet" href="#">2 · Quiet + Sweep</a><a data-set-v="cold" href="#">3 · Cold white</a><a data-set-v="paper" href="#">4 · Navy and paper</a></div>
+    <a data-set-v="apex" href="#">1 · Apex</a><a data-set-v="cold" href="#">2 · Cold white</a><a data-set-v="paper" href="#">3 · Navy and paper</a></div>
   <div class="grp"><span class="lbl">Page</span>
     <a data-set-p="home" href="#">Home</a><a data-set-p="products" href="#">Products</a><a data-set-p="brands" href="#">Brands</a></div>
-  <span class="note">Items in [brackets] are content to come from Sealink. Photos are sample stock images.</span>
+  <span class="note">Items in [brackets] are content to come from Sealink. Product photos are Emborg pack shots; other photos are sample stock images.</span>
 </nav>
 <div id="site"></div>
 
@@ -710,26 +566,108 @@ const PARTNERS=[
   {name:'Sumich',country:'Australia',role:'Partner since 2004',lines:'Carrots and other vegetables'},
   {name:'IOEC',country:'South Africa',role:'Partner since 1998',lines:'Apples and oranges'},
 ];
-const CATS=['Butter','Cheese','Cream','Milk and yogurt','Frozen vegetables','Frozen fruit','Fresh fruit','Vegetables'];
+const CATS=['Cheese','Butter and cream','Milk and yogurt','Frozen vegetables','Frozen fruit','Plant-based','Fish and sausages','Fresh produce'];
+/* Emborg range from the client name list. Pack shots from emborg.com where available. */
+const E=(name,pack,origin,st,cat,ph,o={})=>({name,pack,origin,st,cat,ph,brand:'Emborg',...o});
 const PRODUCTS=[
- {name:'Apples',brand:'IOEC',st:'Fresh'},
- {name:'Broccoli Mix',brand:'Emborg',st:'Frozen'},
- {name:'Carrots',brand:'Sumich',st:'Fresh'},
- {name:'Cook & Bake Buttery',brand:'Emborg',pack:'20 × 250 g',st:'Chilled',img:'cook-and-bake-buttery-20-x-250g.webp',inq:1},
- {name:'Cream Cheese',brand:'Emborg',pack:'12 × 200 g',st:'Chilled',img:'cream-cheese-12-x-200g.webp',inq:1},
- {name:'French Fries',brand:'Emborg',st:'Frozen'},
- {name:'Greek Style Cheese with Herbs',brand:'Emborg',pack:'6 × 300 g',st:'Chilled',img:'greek-style-cheese-with-herbs-6-x-300g.webp',inq:1},
- {name:'Mozzarella, shredded',brand:'Emborg',st:'Chilled'},
- {name:'Oranges',brand:'IOEC',st:'Fresh'},
- {name:'Strawberries',brand:'Emborg',st:'Frozen'},
- {name:'Whipping Cream',brand:'Emborg',st:'Chilled'},
- {name:'Yogurt, natural',brand:'Emborg',st:'Chilled'},
-];
+ {name:'Apples',brand:'IOEC',st:'Fresh',cat:'Fresh produce',ph:'apples'},
+ {name:'Carrots',brand:'Sumich',st:'Fresh',cat:'Fresh produce',ph:'carrots'},
+ {name:'Oranges',brand:'IOEC',st:'Fresh',cat:'Fresh produce',ph:'oranges'},
+ E('American with Cheddar, sliced','24 × 200 g','Austria','Chilled','Cheese','em-american-cheddar-slices'),
+ E('Blueberries','20 × 400 g','Belgium','Frozen','Frozen fruit','em-blueberries'),
+ E('Blueberries and Strawberries','20 × 400 g','Poland','Frozen','Frozen fruit','em-blueberries-strawberries'),
+ E('Brie Portion Cup, 50% fat','12 × 125 g','Denmark','Chilled','Cheese','em-brie-cheese'),
+ E('Broccoli Mix','12 × 450 g','Belgium','Frozen','Frozen vegetables','em-broccoli-mix'),
+ E('Burger Slices, coloured','8 × 1.033 kg','Germany','Chilled','Cheese','em-perfect-burger-slices'),
+ E('Burger Slices, white','8 × 1.033 kg','Germany','Chilled','Cheese','em-perfect-sandwich-slices'),
+ E('Butter, salted, 80% fat','20 × 200 g','Belgium','Chilled','Butter and cream','em-salted-butter'),
+ E('Butter, unsalted, 82% fat','20 × 200 g','Belgium','Chilled','Butter and cream','em-unsalted-butter'),
+ E('Butter, unsalted, 82% fat','24 × 400 g','Belgium','Chilled','Butter and cream','em-unsalted-butter'),
+ E('Butter, unsalted, 82% fat','8 × 1 kg','Belgium','Chilled','Butter and cream','em-unsalted-butter'),
+ E('Camembert Portion Cup, 50% fat','12 × 125 g','Denmark','Chilled','Cheese','em-creamy-camembert'),
+ E('Cauliflower Rice','12 × 450 g','','Frozen','Frozen vegetables','em-cauliflower-rice'),
+ E('Cheddar Mild White, 48% fat','16 × 200 g','Great Britain','Chilled','Cheese','em-natural-cheddar-block'),
+ E('Cheese Slices with Cheddar','48 × 100 g','Austria','Chilled','Cheese','em-cheddar-cheese-slices'),
+ E('Cheese Slices with Cheddar','24 × 200 g','Austria','Chilled','Cheese','em-cheddar-cheese-slices'),
+ E('Cheese Slices with Cheddar','16 × 400 g','Austria','Chilled','Cheese','em-cheddar-cheese-slices'),
+ E('Cheese Triangles Portion','16 × 140 g','Austria','Chilled','Cheese','em-cheese-triangles'),
+ E('Chicken Franks, skinless, halal, 10 pieces','32 × 340 g','Denmark','Chilled','Fish and sausages','chicken-franks'),
+ E('Chick-free Strips','4 × 200 g','','Frozen','Plant-based',''),
+ E('Chopped Spinach','24 × 450 g','Belgium','Frozen','Frozen vegetables','em-chopped-spinach'),
+ E('Cook & Bake Buttery','20 × 250 g','','Chilled','Butter and cream','',{img:'cook-and-bake-buttery-20-x-250g.webp',inq:1}),
+ E('Cook & Bake, Unsalted, 80% fat','20 × 200 g','Belgium','Chilled','Butter and cream','em-cook-and-bake'),
+ E('Cook & Whip, UHT','6 × 1 L','Spain','Chilled','Butter and cream',''),
+ E('Cooking Cream, 15% fat, UHT','12 × 1 L','Germany','Chilled','Butter and cream','em-cooking-cream'),
+ E('Cooking Cream, 20% fat, UHT','12 × 1 L','Germany','Chilled','Butter and cream','em-cooking-cream'),
+ E('Cooking Cream, 20% fat, UHT','27 × 200 g','Denmark','Chilled','Butter and cream','em-cooking-cream'),
+ E('Corn on the Cob, 4 whole','12 × 950 g','','Frozen','Frozen vegetables','em-4-whole-corn-on-the-cob'),
+ E('Cream Cheese, Natural, 70% fat','12 × 200 g','Germany','Chilled','Cheese','em-european-cream-cheese',{img:'cream-cheese-12-x-200g.webp',inq:1}),
+ E('Cream Cheese, Natural, 70% fat','2 × 1.5 kg','Germany','Chilled','Cheese','em-european-cream-cheese'),
+ E('Culinary Cooking, UHT','6 × 1 L','Spain','Chilled','Butter and cream',''),
+ E('Danablu Portion, 50% fat','10 × 100 g','Denmark','Chilled','Cheese','em-danablu-cheese'),
+ E('Dutch with Gouda, sliced','24 × 200 g','Austria','Chilled','Cheese','em-dutch-gouda-slices'),
+ E('Feta with Olives and Herbs','6 × 300 g','Germany','Chilled','Cheese','',{img:'greek-style-cheese-with-herbs-6-x-300g.webp',inq:1}),
+ E('French Fries, crinkle cut','8 × 1 kg','Denmark','Frozen','Frozen vegetables','em-crinkle-cut-fries'),
+ E('French Fries, shoestring','8 × 1 kg','Denmark','Frozen','Frozen vegetables','em-shoestring-french-fries'),
+ E('French Fries, straight cut','10 × 1 kg','Denmark','Frozen','Frozen vegetables','em-straight-cut-french-fries'),
+ E('Full Cream Milk, UHT, 3.5% fat','12 × 1 L','Poland','Chilled','Milk and yogurt','em-full-cream-milk'),
+ E('Garden Mix','24 × 450 g','Belgium','Frozen','Frozen vegetables','em-garden-mix'),
+ E('Garden Peas','24 × 450 g','Belgium','Frozen','Frozen vegetables','em-frozen-green-peas'),
+ E('Gouda Wedge, 48% fat','12 × 200 g','','Chilled','Cheese','em-natural-gouda-block'),
+ E('Gouda Wedges, portion 350 g','16 × 350 g','','Chilled','Cheese','em-natural-gouda-block'),
+ E('Gran Amici, grated','10 × 1 kg','','Chilled','Cheese',''),
+ E('Gran Amici, hard cheese','8 × 1 kg','','Chilled','Cheese',''),
+ E('Gran Amici, hard cheese Italian style, shredded','10 × 1 kg','','Chilled','Cheese',''),
+ E('Greek Style Portion, 45% fat','10 × 200 g','Germany','Chilled','Cheese','em-greek-style-cheese-block'),
+ E('Havarti Portion, 55%+ fat','12 × 200 g','Germany','Chilled','Cheese','em-havarti'),
+ E('Italian with Mozzarella, sliced','24 × 200 g','Austria','Chilled','Cheese','em-italian-mozzarella-slices'),
+ E('Malaysian Wok Mix','12 × 450 g','Belgium','Frozen','Frozen vegetables','em-malaysian-wokmix'),
+ E('Meat Free Burger, plant-based','6 × 227 g','','Frozen','Plant-based',''),
+ E('Meat Free Mince, plant-based','6 × 300 g','','Frozen','Plant-based',''),
+ E('Mixed Vegetables','24 × 450 g','Belgium','Frozen','Frozen vegetables','em-mixed-vegetables'),
+ E('Mozzarella Loaf','5 × 2.5 kg','Poland','Chilled','Cheese',''),
+ E('Mozzarella Loaf, 40% fat','4 × 2.38 kg','Belgium','Chilled','Cheese',''),
+ E('Mozzarella Portion, 40% fat','36 × 200 g','Poland','Chilled','Cheese','em-mozzarella-cheese-block'),
+ E('Mozzarella Thin Blade, shredded, 40% fat','8 × 2 kg','France','Chilled','Cheese','em-mozzarella-cheese'),
+ E('Mozzarella, shredded, 40% fat','15 × 200 g','Germany','Chilled','Cheese','em-mozzarella-cheese'),
+ E('Oriental Mix','12 × 450 g','','Frozen','Frozen vegetables',''),
+ E('Parmesan, shredded','15 × 150 g','','Chilled','Cheese','em-parmigiano-reggiano'),
+ E('Peas and Carrots, diced','24 × 450 g','Belgium','Frozen','Frozen vegetables','em-peas-carrots'),
+ E('Perfect Burger Slices','24 × 200 g','Austria','Chilled','Cheese','em-perfect-burger-slices'),
+ E('Perfect Pasta','10 × 1 L','Italy','Chilled','Butter and cream','em-perfect-pasta-cream'),
+ E('Perfect Slices','24 × 200 g','Austria','Chilled','Cheese','em-perfect-sandwich-slices'),
+ E('Pizza Topping Block','4 × 2.3 kg','','Chilled','Cheese','em-pizza-topping-block'),
+ E('Pizza Topping, shredded','15 × 200 g','Germany','Chilled','Cheese','em-natural-shredded-pizza-topping'),
+ E('Pizza Topping, shredded, IQF, 25% fat','7 × 2 kg','Spain','Frozen','Cheese','em-natural-shredded-pizza-topping'),
+ E('Plant-based Cheddar-style Slices','12 × 150 g','','Chilled','Plant-based','plant-slices-cheddar'),
+ E('Plant-based Mozzarella-style Slices','12 × 150 g','','Chilled','Plant-based','plant-slices-mozzarella'),
+ E('Plant-based Original Slices','12 × 150 g','','Chilled','Plant-based','plant-slices-original'),
+ E('Portion Butter, salted','200 × 8 g','Netherlands','Chilled','Butter and cream','em-salted-butter'),
+ E('Portion Butter, unsalted','200 × 8 g','Netherlands','Chilled','Butter and cream','em-unsalted-butter'),
+ E('Red Cheddar Portion, 48% fat','16 × 200 g','Great Britain','Chilled','Cheese','em-red-cheddar-block'),
+ E('Red Cheddar, shredded, 50% fat','15 × 200 g','Germany','Chilled','Cheese','em-natural-shredded-red-cheddar'),
+ E('Processed Cheddar, coloured','16 × 400 g','','Chilled','Cheese','em-american-cheddar-slices'),
+ E('Sliced Mushrooms','12 × 450 g','Belgium','Frozen','Frozen vegetables','em-sliced-mushrooms'),
+ E('Smoked Salmon','40 × 100 g','','Chilled','Fish and sausages',''),
+ E('Sour Cream, 24% fat, no gelatine','12 × 1 L','Germany','Chilled','Butter and cream','em-rich-sour-cream'),
+ E('Strawberries','24 × 450 g','Poland','Frozen','Frozen fruit','em-strawberries'),
+ E('Sweet Corn','24 × 450 g','Belgium','Frozen','Frozen vegetables','em-sweet-corn'),
+ E('Swiss, Emmental, sliced','24 × 200 g','Austria','Chilled','Cheese','em-swiss-cheese-slices'),
+ E('Swissano','4 × 3.4 kg','','Chilled','Cheese',''),
+ E('UGO Peach Passion Milk Dessert, 0.1% fat','20 × 100 g','Germany','Chilled','Milk and yogurt','em-ugo-peach-passion'),
+ E('UGO Raspberry Milk Dessert, 0.1% fat','20 × 100 g','Germany','Chilled','Milk and yogurt','em-ugo-raspberry'),
+ E('UGO Strawberry Milk Dessert, 0.1% fat','20 × 100 g','Germany','Chilled','Milk and yogurt','em-ugo-strawberry'),
+ E('Whip Topping, UHT','6 × 1 L','Spain','Chilled','Butter and cream','em-whip-topping'),
+ E('Whipped Cream, sweetened, spray can, 29% fat','12 × 250 g','Belgium','Chilled','Butter and cream','em-whipped-cream-spray'),
+ E('Whipped Cream, sweetened, spray can, 29% fat','12 × 500 g','Belgium','Chilled','Butter and cream','em-whipped-cream-spray'),
+ E('Whipping Cream, 35.1% fat, UHT','12 × 1 L','Germany','Chilled','Butter and cream','em-whipping-cream'),
+ E('Whipping Cream, 35.1% fat, UHT','27 × 200 ml','Denmark','Chilled','Butter and cream','em-whipping-cream'),
+ E('Yogurt, Natural, 3.5% fat','12 × 1 L','Germany','Chilled','Milk and yogurt','em-natural-yogurt'),
+].sort((a,b)=>a.name.localeCompare(b.name)||(a.pack||'').localeCompare(b.pack||'',undefined,{numeric:true}));
 const PHOTO='assets/photos/';
 const pic=(f,alt,pos='50% 50%')=>`<div class="ph pic"><img src="${PHOTO+f}.webp" alt="Sample photo: ${alt}" style="object-position:${pos}"></div>`;
-const HERO={apex:['warehouse-racks','cold store racks and pallets','40% 50%'],quiet:['warehouse-pallets','pallets in a cold store, morning light','50% 60%'],cold:['warehouse-team','warehouse team at work','50% 55%'],paper:['chefs','chefs at work in a hotel kitchen','55% 60%']};
+const HERO={apex:['warehouse-racks','cold store racks and pallets','40% 50%'],cold:['warehouse-team','warehouse team at work','50% 55%'],paper:['chefs','chefs at work in a hotel kitchen','55% 60%']};
 const PARTNER_PIC={Emborg:['dairy-butter-cream','butter and cream','60% 50%'],Sumich:['carrots-crate','fresh carrots in a crate','55% 50%'],IOEC:['apples-oranges','apples and oranges','50% 50%']};
-const CARD_PIC={'Apples':['apples-oranges','apples','12% 50%'],'Oranges':['apples-oranges','oranges','90% 50%'],'Broccoli Mix':['frozen-veg','frozen mixed vegetables','80% 50%'],'Carrots':['carrots-crate','carrots','55% 45%'],'French Fries':['fries','French fries','50% 45%'],'Mozzarella, shredded':['cheese','cheese','50% 50%'],'Strawberries':['strawberries','strawberries','50% 50%'],'Whipping Cream':['dairy-butter-cream','cream and butter','25% 60%'],'Yogurt, natural':['yogurt','yogurt','50% 60%']};
 const x=s=>`<span class="x">${s}</span>`;
 const A=(cls='')=>`<i class="A ${cls}" aria-hidden="true"></i>`;
 const ICO_S='<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>';
@@ -788,13 +726,13 @@ function home(V){
    ${outlet(V)}</main>`+footer(V);
 }
 function card(p,V){
-  const cp = CARD_PIC[p.name];
-  const img = p.img ? `<img src="${IMG+p.img}" alt="${p.brand} ${p.name}">` : cp ? `<div class="nph pic"><img src="${PHOTO+cp[0]}.webp" alt="Sample photo: ${cp[1]}" style="object-position:${cp[2]}"></div>` : `<div class="nph"><b>${p.brand}</b><span>${V==='apex'?A('ta'):''}${p.st}</span></div>`;
-  const pack = p.pack || '[PACK]';
+  const src = p.img ? IMG+p.img : p.ph && !p.ph.startsWith('X:') ? IMG+p.ph+'.webp' : '';
+  const img = src ? `<img src="${src}" alt="${p.brand} ${p.name}, ${p.pack||''}" loading="lazy">` : `<div class="nph"><b>${p.brand}</b><span>Pack photo to come</span></div>`;
+  const pack = (p.pack || '[PACK]') + (p.origin ? ' · '+p.origin : '');
   const st = `<p class="st">${V==='apex'?A('ta'):''}${p.st}</p>`;
   const meta = (V==='cold'||V==='paper')
     ? `<div class="meta"><p class="br">${p.brand}</p><h3>${p.name}</h3><div class="chips"><span class="pk">${pack}</span>${st.replace('<p','<span').replace('</p>','</span>')}</div></div>`
-    : `<h3>${p.name}</h3><p class="br">${p.brand}</p><p class="pk">${p.pack||x('[PACK]')}</p>${st}`;
+    : `<h3>${p.name}</h3><p class="br">${p.brand}</p><p class="pk">${p.pack?pack:x('[PACK]')}</p>${st}`;
   return `<article class="card"><div class="img">${img}</div>${meta}<button class="add${p.inq?' in':''}" type="button">${p.inq?'In quote list':'Add to quote'}</button></article>`;
 }
 function products(V){
@@ -812,7 +750,7 @@ function products(V){
        <h3>Brand</h3>${['Emborg','Sumich','IOEC'].map(b=>chk(b)).join('')}
      </aside>
      <div class="res">
-       <div class="rbar"><b>12 products</b><button class="fbtn" type="button">Filters</button><span class="sort">Sort: A to Z</span></div>
+       <div class="rbar"><b>${PRODUCTS.length} products</b><button class="fbtn" type="button">Filters</button><span class="sort">Sort: A to Z</span></div>
        <div class="grid">${PRODUCTS.map(p=>card(p,V)).join('')}</div>
        <div class="nores"><span class="tag">When a search finds nothing</span><p>No match for ‘lamb shank’. Try a category, or ask us on WhatsApp. We may stock it.</p></div>
      </div>
@@ -843,7 +781,7 @@ function brands(V){
 }
 
 /* ---------- Router (state in the URL hash: #v=apex&p=home) ---------- */
-const VS=['apex','quiet','cold','paper'], PS=['home','products','brands'];
+const VS=['apex','cold','paper'], PS=['home','products','brands'];
 function state(){const h=new URLSearchParams(location.hash.slice(1));return{v:VS.includes(h.get('v'))?h.get('v'):'apex',p:PS.includes(h.get('p'))?h.get('p'):'home',bare:h.has('bare')}}
 function go(o){const s={...state(),...o};location.hash=`v=${s.v}&p=${s.p}${s.bare?'&bare':''}`}
 function render(){
