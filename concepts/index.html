@@ -439,6 +439,26 @@ body.bare #bar{display:none}
 [data-v="paper"] .outlet{border-bottom:1px solid var(--line)}
 [data-v="paper"] .outlet .w{gap:18px;min-height:72px;padding-block:12px;font-size:16px}
 [data-v="paper"] .outlet .lnk{margin-left:auto}
+/* home: Meatplus line in the hero, Meatplus section; products: intro line and Meatplus row */
+[data-v="paper"] section.why.after{margin-top:96px}
+[data-v="paper"] .why.after+.trade{margin-top:0}
+[data-v="paper"] .hero .mpline{margin-top:22px;font-size:16px;color:var(--ink2)}
+[data-v="paper"] .mps{padding-block:88px;border-bottom:1px solid var(--line)}
+[data-v="paper"] .mps>.w{display:grid;grid-template-columns:1fr 1.6fr;gap:64px;align-items:start}
+[data-v="paper"] .mps .mplogo{width:150px;height:auto;margin-bottom:24px}
+[data-v="paper"] .mps h2{font-size:clamp(28px,2.8vw,40px);line-height:1.15}
+[data-v="paper"] .mps .txt p{margin-top:14px;color:var(--ink2);max-width:46ch}
+[data-v="paper"] .mps .txt .lnk{display:inline-block;margin-top:22px}
+[data-v="paper"] .mps .ol{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+[data-v="paper"] .mps .o{display:flex;flex-direction:column;gap:8px;border:1px solid var(--line);border-radius:4px;padding:20px;text-decoration:none;color:var(--ink2);font-size:15.5px}
+[data-v="paper"] .mps .o h3{font-size:19px;margin-bottom:4px}
+[data-v="paper"] .mps .o .go{margin-top:auto;padding-top:10px;font-weight:500;color:var(--n);text-decoration:underline;text-underline-offset:4px}
+[data-v="paper"] .mps .o:hover{background:var(--band)}
+[data-v="paper"] .ptop .pintro{margin-top:16px;font-size:17px;color:var(--ink2);max-width:44ch}
+[data-v="paper"] .mprow{border-bottom:1px solid var(--line)}
+[data-v="paper"] .mprow .w{display:flex;align-items:center;gap:16px;padding-block:12px;font-size:16px}
+[data-v="paper"] .mprow img{width:66px;height:auto;flex:none}
+[data-v="paper"] .mprow .lnk{margin-left:auto;white-space:nowrap}
 [data-v="paper"] .ft{background:var(--n);color:#fff;padding:64px 0 52px}
 [data-v="paper"] .ft .cols{grid-template-columns:2fr 1.3fr 1fr;gap:40px}
 [data-v="paper"] .ft img{width:170px}
@@ -509,6 +529,11 @@ body.bare #bar{display:none}
   [data-v="paper"] .cats{grid-template-columns:1fr 1fr;gap:8px}[data-v="paper"] .cat{height:64px;font-size:16px;padding:0 14px}
   [data-v="paper"] .trade{margin-top:64px}[data-v="paper"] .trade .acts{grid-column:1;grid-row:auto;justify-content:flex-start}
   [data-v="paper"] .outlet .lnk{margin-left:0}
+  [data-v="paper"] section.why.after{margin-top:64px}
+  [data-v="paper"] .mps{padding-block:56px}[data-v="paper"] .mps>.w{grid-template-columns:1fr;gap:28px}[data-v="paper"] .mps .mplogo{width:120px;margin-bottom:18px}
+  [data-v="paper"] .mps .ol{grid-template-columns:1fr;gap:10px}
+  [data-v="paper"] .ptop .pintro{font-size:16px;margin-top:12px}
+  [data-v="paper"] .mprow .w{display:grid;grid-template-columns:54px 1fr;gap:4px 14px;align-items:start;padding-block:14px;font-size:15px}[data-v="paper"] .mprow img{width:54px;grid-row:1/3}[data-v="paper"] .mprow .lnk{margin-left:0;justify-self:start}
   [data-v="paper"] .ft .cols{grid-template-columns:1fr;gap:28px}
   [data-v="paper"] .stabs .w{overflow-x:auto}
   [data-v="paper"] .pbody{grid-template-columns:1fr;gap:16px;padding-top:20px}
@@ -826,6 +851,14 @@ const shortcuts=V=>V==='cold'
   : `<div class="short">${V==='paper'?'<span class="lb">Browse:</span>':''}${['Frozen','Chilled','Fresh'].map(s=>stg(s,0,V)).join('')}</div>`;
 const sh=(t,tag='h2')=>`<div class="sh">${A('mk')}<${tag}>${t}</${tag}></div>`;
 const outlet=V=>`<div class="outlet"><div class="w"><img src="${MP}" alt="Meatplus Foods"><span>Shopping for home? Visit a Meatplus outlet in Malé.</span><span>Open today ${x('[HOURS TODAY]')}</span><a class="lnk" ${L('outlets')}>Find an outlet</a></div></div>`;
+const meatplus=V=>`<section class="mps" aria-labelledby="mps-h"><div class="w">
+  <div class="txt"><img class="mplogo" src="${MP}" alt="Meatplus Foods">
+    <h2 id="mps-h">Buying for home? Shop at Meatplus Foods.</h2>
+    <p>Meatplus Foods is Sealink’s retail brand, with shops in Malé. Anyone can walk in and buy for home.</p>
+    <p>${x('[OUTLET RANGE: what the outlets sell]')}</p>
+    <a class="lnk" ${L('outlets')}>See all outlets</a></div>
+  <div class="ol">${[1,2,3].map(n=>`<a class="o" ${L('outlets')}><h3>${x(`[OUTLET ${n} NAME]`)}</h3><span>${x('[AREA, MALÉ]')}</span><span>Open today ${x('[HOURS TODAY]')}</span><span class="go">Address and hours</span></a>`).join('')}</div>
+</div></section>`;
 const footer=V=>`<footer class="ft"><div class="w"><div class="cols">
   <div><img src="${LOGO_W}" alt="Sealink Pvt Ltd"><p style="margin-top:22px">Head office<br>G. Fanas, 5th floor, Ameenee Magu, Malé</p></div>
   <div><h4>Contact</h4><p>+960 333 2933<br>WhatsApp ${x('[NUMBER]')}<br>Viber ${x('[NUMBER]')}</p></div>
@@ -840,28 +873,30 @@ function home(V){
    + `<div class="row"><h3>Halal and delivery</h3><span class="c">${x('[HALAL CERTIFICATE]')}</span><span class="r">${x('[DELIVERY: atolls served]')}</span></div>`;
   const whyHead = sh('Why kitchens buy from Sealink');
   const why = V==='paper'
-    ? `<section class="why blk"><div class="w"><div>${whyHead}<a class="lnk more" href="#">See all brands</a></div><div class="rows">${whyRows}</div></div></section>`
-    : `<section class="why blk"><div class="w">${whyHead}<div class="rows">${whyRows}</div><a class="lnk more" href="#">See all brands</a></div></section>`;
+    ? `<section class="why blk"><div class="w"><div>${whyHead}<a class="lnk more" ${L('brands')}>See all brands</a></div><div class="rows">${whyRows}</div></div></section>`
+    : `<section class="why blk"><div class="w">${whyHead}<div class="rows">${whyRows}</div><a class="lnk more" ${L('brands')}>See all brands</a></div></section>`;
   const hero = V==='quiet'
     ? `<section class="hero"><div class="w">
         <h1>Fresh, chilled and frozen food, kept cold since 1994.</h1>
         <p class="who">Supplying resorts, hotels and restaurants across the Maldives.</p>
         <div class="find">${search(V,'Search products, brands or codes')}${shortcuts(V)}</div>
-        <div class="acts"><a class="btn" href="#">Request a quote</a><a class="btn s" href="#">WhatsApp us</a></div>
+        <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('contact')}>WhatsApp us</a></div>
         <figure class="fig">${pic(...HERO[V])}<i class="sweep" aria-hidden="true"><i></i></i></figure>
       </div></section>`
     : `<section class="hero"><div class="w"><div>
         <h1>Fresh, chilled and frozen food, kept cold since 1994.</h1>
         <p class="who">Supplying resorts, hotels and restaurants across the Maldives.</p>
         ${search(V,'Search products, brands or codes')}${shortcuts(V)}
-        <div class="acts"><a class="btn" href="#">Request a quote</a><a class="btn s" href="#">WhatsApp us</a></div>
+        <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('contact')}>WhatsApp us</a></div>
+        ${V==='paper'?`<p class="mpline">Shopping for home? <a class="lnk" ${L('outlets')}>Visit a Meatplus outlet</a></p>`:''}
       </div>${pic(...HERO[V])}</div></section>`;
-  return header(V,'home')+`<main>${hero}${why}
-   <section class="blk"><div class="w">${sh('Browse by category')}<div class="cats">${CATS.map(c=>`<a class="cat" href="#">${c}</a>`).join('')}</div></div></section>
-   <section class="trade">${A('crop')}<div class="w"><h2>Supplying a resort or restaurant? Send us your list and we reply with prices.</h2>
+  const cats = `<section class="blk"><div class="w">${sh('Browse by category')}<div class="cats">${CATS.map(c=>`<a class="cat" ${L('products')}>${c}</a>`).join('')}</div></div></section>`;
+  const tradeBand = `<section class="trade">${A('crop')}<div class="w"><h2>Supplying a resort or restaurant? Send us your list and we reply with prices.</h2>
      <p class="rt">We reply within ${x('[REPLY TIME]')}.</p>
-     <div class="acts"><a class="btn" href="#">Request a quote</a><a class="btn s" href="#">How trade accounts work</a></div></div></section>
-   ${outlet(V)}</main>`+footer(V);
+     <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('trade')}>How trade accounts work</a></div></div></section>`;
+  /* Navy and Paper (and Final): categories before "why", then the trade band, then a full Meatplus section */
+  if(V==='paper') return header(V,'home')+`<main>${hero}${cats}${why.replace('why blk','why blk after')}${tradeBand}${meatplus(V)}</main>`+footer(V);
+  return header(V,'home')+`<main>${hero}${why}${cats}${tradeBand}${outlet(V)}</main>`+footer(V);
 }
 function card(p,V){
   const src = p.img ? IMG+p.img : p.ph && !p.ph.startsWith('X:') ? IMG+p.ph+'.webp' : '';
@@ -879,7 +914,8 @@ function products(V){
     : ['All','Frozen','Chilled','Fresh'].map((s,i)=>stg(s,i===0,V)).join('');
   const chk=(l,c)=>`<label><input type="checkbox"${c?' checked':''}> ${l}</label>`;
   return header(V,'products')+`<main>
-   <section class="ptop">${A('crop')}<div class="w"><h1>Products</h1>${search(V,'Search products, brands or codes')}</div></section>
+   <section class="ptop">${A('crop')}<div class="w"><div><h1>Products</h1>${V==='paper'?'<p class="pintro">We sell to resorts, hotels, restaurants and shops by the case. Add products to a quote list and we reply with prices.</p>':''}</div>${search(V,'Search products, brands or codes')}</div></section>
+   ${V==='paper'?`<div class="mprow"><div class="w"><img src="${MP}" alt="Meatplus Foods"><p>Buying for home? Shop at Meatplus Foods, Sealink’s own outlets in Malé.</p><a class="lnk" ${L('outlets')}>Find an outlet</a></div></div>`:''}
    <div class="stabs"><div class="w" role="tablist" aria-label="Storage">${tabs}</div></div>
    <div class="w pbody">
      <aside class="filters" aria-label="Filters">
@@ -893,7 +929,7 @@ function products(V){
        <div class="nores"><span class="tag">When a search finds nothing</span><p>No match for ‘lamb shank’. Try a category, or ask us on WhatsApp. We may stock it.</p></div>
      </div>
    </div>
-   <div class="qbar"><div class="w"><b>Quote list</b><span class="n">3 items</span><a class="btn" href="#">Send list</a></div></div>
+   <div class="qbar"><div class="w"><b>Quote list</b><span class="n">3 items</span><a class="btn" ${L('trade')}>Send list</a></div></div>
   </main>`+footer(V);
 }
 function brands(V){
