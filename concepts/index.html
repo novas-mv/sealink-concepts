@@ -32,6 +32,8 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 #bar .note{margin-left:auto;color:#A1A1AA}
 #bar a.back{color:#fff;margin-right:12px;border:1px solid #3F3F46}
 body.bare #bar{display:none}
+#bar a{white-space:nowrap}
+@media (max-width:1500px){#bar{height:auto;min-height:52px;flex-wrap:wrap;gap:6px 20px;padding-block:6px}#bar .note{display:none}}
 @media (max-width:900px){#bar{height:auto;flex-wrap:wrap;gap:6px 12px;padding:8px 10px}#bar .note{display:none}#bar a{padding:7px 8px}}
 @media (max-width:600px){#bar .lbl{display:none}#bar .grp{width:100%;overflow-x:auto;scrollbar-width:none}#bar a{white-space:nowrap}#bar a.back{margin-right:4px}}
 
@@ -437,6 +439,27 @@ body.bare #bar{display:none}
 [data-v="paper"] .outlet{border-bottom:1px solid var(--line)}
 [data-v="paper"] .outlet .w{gap:18px;min-height:72px;padding-block:12px;font-size:16px}
 [data-v="paper"] .outlet .lnk{margin-left:auto}
+/* home: Meatplus line in the hero, Meatplus section; products: intro line and Meatplus row */
+[data-v="paper"] .hero+section.blk{padding-top:24px}
+[data-v="paper"] section.why.after{margin-top:96px}
+[data-v="paper"] .why.after+.trade{margin-top:0}
+[data-v="paper"] .hero .mpline{margin-top:22px;font-size:16px;color:var(--ink2)}
+[data-v="paper"] .mps{padding-block:88px;border-bottom:1px solid var(--line)}
+[data-v="paper"] .mps>.w{display:grid;grid-template-columns:1fr 1.6fr;gap:64px;align-items:start}
+[data-v="paper"] .mps .mplogo{width:150px;height:auto;margin-bottom:24px}
+[data-v="paper"] .mps h2{font-size:clamp(28px,2.8vw,40px);line-height:1.15}
+[data-v="paper"] .mps .txt p{margin-top:14px;color:var(--ink2);max-width:46ch}
+[data-v="paper"] .mps .txt .lnk{display:inline-block;margin-top:22px}
+[data-v="paper"] .mps .ol{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+[data-v="paper"] .mps .o{display:flex;flex-direction:column;gap:8px;border:1px solid var(--line);border-radius:4px;padding:20px;text-decoration:none;color:var(--ink2);font-size:15.5px}
+[data-v="paper"] .mps .o h3{font-size:19px;margin-bottom:4px}
+[data-v="paper"] .mps .o .go{margin-top:auto;padding-top:10px;font-weight:500;color:var(--n);text-decoration:underline;text-underline-offset:4px}
+[data-v="paper"] .mps .o:hover{background:var(--band)}
+[data-v="paper"] .ptop .pintro{margin-top:16px;font-size:17px;color:var(--ink2);max-width:44ch}
+[data-v="paper"] .mprow{border-bottom:1px solid var(--line)}
+[data-v="paper"] .mprow .w{display:flex;align-items:center;gap:16px;padding-block:12px;font-size:16px}
+[data-v="paper"] .mprow img{width:66px;height:auto;flex:none}
+[data-v="paper"] .mprow .lnk{margin-left:auto;white-space:nowrap}
 [data-v="paper"] .ft{background:var(--n);color:#fff;padding:64px 0 52px}
 [data-v="paper"] .ft .cols{grid-template-columns:2fr 1.3fr 1fr;gap:40px}
 [data-v="paper"] .ft img{width:170px}
@@ -507,6 +530,11 @@ body.bare #bar{display:none}
   [data-v="paper"] .cats{grid-template-columns:1fr 1fr;gap:8px}[data-v="paper"] .cat{height:64px;font-size:16px;padding:0 14px}
   [data-v="paper"] .trade{margin-top:64px}[data-v="paper"] .trade .acts{grid-column:1;grid-row:auto;justify-content:flex-start}
   [data-v="paper"] .outlet .lnk{margin-left:0}
+  [data-v="paper"] section.why.after{margin-top:64px}
+  [data-v="paper"] .mps{padding-block:56px}[data-v="paper"] .mps>.w{grid-template-columns:1fr;gap:28px}[data-v="paper"] .mps .mplogo{width:120px;margin-bottom:18px}
+  [data-v="paper"] .mps .ol{grid-template-columns:1fr;gap:10px}
+  [data-v="paper"] .ptop .pintro{font-size:16px;margin-top:12px}
+  [data-v="paper"] .mprow .w{display:grid;grid-template-columns:54px 1fr;gap:4px 14px;align-items:start;padding-block:14px;font-size:15px}[data-v="paper"] .mprow img{width:54px;grid-row:1/3}[data-v="paper"] .mprow .lnk{margin-left:0;justify-self:start}
   [data-v="paper"] .ft .cols{grid-template-columns:1fr;gap:28px}
   [data-v="paper"] .stabs .w{overflow-x:auto}
   [data-v="paper"] .pbody{grid-template-columns:1fr;gap:16px;padding-top:20px}
@@ -545,14 +573,147 @@ body.bare #bar{display:none}
   .qbar .w{gap:12px!important}
   .qbar .hm{display:none}
 }
+
+/* =====================================================================
+   4 · FINAL   [data-v="final"]   Navy and paper, plus the cut Apex A
+   The page renders inside an inner [data-v="paper"] wrapper, so every paper
+   rule applies as is. This block only adds the A and styles the new pages.
+   ===================================================================== */
+[data-v="final"]{--r:#F03010}
+[data-v="final"] .A{display:block;aspect-ratio:163/331;background:var(--c,var(--r));-webkit-mask:url(assets/apex.svg) center/contain no-repeat;mask:url(assets/apex.svg) center/contain no-repeat}
+[data-v="final"] .x{white-space:normal}
+/* section marks */
+[data-v="final"] .sh{display:flex;align-items:center;gap:14px}
+[data-v="final"] .sh .mk{display:block;width:14px;flex:none;align-self:center}
+/* storage tags */
+[data-v="final"] .stg{gap:9px}
+[data-v="final"] .stg .ta{display:block;width:8px;flex:none}
+[data-v="final"] .card .st,[data-v="final"] .tag-st{display:inline-flex;align-items:center;gap:6px}
+[data-v="final"] .card .st::before,[data-v="final"] .tag-st::before{content:"";width:6px;flex:none;aspect-ratio:163/331;background:var(--r);-webkit-mask:url(assets/apex.svg) center/contain no-repeat;mask:url(assets/apex.svg) center/contain no-repeat}
+[data-v="final"] .card .img,[data-v="final"] .card h3{cursor:pointer}
+[data-v="final"] .card h3:hover{text-decoration:underline;text-underline-offset:3px}
+/* image crops: the A rises from the bottom edge and is cut off by the frame */
+[data-v="final"] .trade,[data-v="final"] .ptop,[data-v="final"] .btop,[data-v="final"] .fband{position:relative;overflow:hidden}
+[data-v="final"] .trade .w,[data-v="final"] .ptop .w,[data-v="final"] .btop .w{position:relative}
+[data-v="final"] .crop{display:block;position:absolute;pointer-events:none}
+[data-v="final"] .trade .crop{right:max(24px,calc(50% - 620px));bottom:-28px;width:112px}
+[data-v="final"] .trade .w{padding-right:calc(var(--pad) + 150px)}
+[data-v="final"] .ptop .crop{right:max(12px,calc(50% - 720px + 22px));bottom:-12px;width:56px}
+[data-v="final"] .btop .crop{right:max(4%,calc(50% - 620px));bottom:-22px;width:104px}
+[data-v="final"] .ph.pic::after{content:"";position:absolute;right:28px;bottom:-26px;width:110px;aspect-ratio:163/331;background:var(--r);-webkit-mask:url(assets/apex.svg) center/contain no-repeat;mask:url(assets/apex.svg) center/contain no-repeat;pointer-events:none}
+[data-v="final"] .ph.pic.nocrop::after{display:none}
+
+/* new pages: shared parts */
+[data-v="final"] .btop .kick{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:var(--soft);margin-bottom:14px}
+[data-v="final"] .btop .kick img{height:40px;width:auto}
+[data-v="final"] .crumbs{font-size:14.5px;color:var(--soft);padding-block:20px 0}
+[data-v="final"] .crumbs a{color:var(--n);text-underline-offset:3px}
+[data-v="final"] .sec{padding-block:80px 0}
+[data-v="final"] .sec.last{padding-bottom:96px}
+[data-v="final"] .lede{font-size:18px;color:var(--ink2);max-width:60ch;margin-bottom:28px}
+[data-v="final"] .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+[data-v="final"] .split .ph{min-height:380px}
+[data-v="final"] .facts{border-top:1px solid var(--line)}
+[data-v="final"] .facts>div{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;padding:15px 0;border-bottom:1px solid var(--line);font-size:16px}
+[data-v="final"] .facts dt{font-weight:500;color:var(--n)}
+[data-v="final"] .facts dd{margin:0;color:var(--ink2)}
+[data-v="final"] .facts a{color:var(--n);text-underline-offset:3px}
+[data-v="final"] .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+[data-v="final"] .fband{background:var(--band);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:96px}
+[data-v="final"] .fband>.w{display:grid;grid-template-columns:1fr 1.5fr;gap:64px;padding-block:72px}
+[data-v="final"] .fband h2{font-size:clamp(28px,2.8vw,40px);line-height:1.15}
+[data-v="final"] .fband .side p{margin-top:14px;color:var(--ink2)}
+[data-v="final"] .fband .side .alt{margin-top:24px;padding-top:20px;border-top:1px solid #D5D7E0;font-size:15.5px}
+/* forms */
+[data-v="final"] .fform{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;background:#fff;border:1px solid var(--line);border-radius:4px;padding:28px}
+[data-v="final"] .fform label{display:flex;flex-direction:column;gap:7px;font-size:15px;font-weight:500;color:var(--n);min-width:0}
+[data-v="final"] .fform .full{grid-column:1/-1}
+[data-v="final"] .fform input,[data-v="final"] .fform select,[data-v="final"] .fform textarea{font:400 16px/1.4 var(--f);color:var(--ink2);height:48px;padding:0 14px;border:1px solid #C9CBD8;border-radius:4px;background:#fff;width:100%;min-width:0}
+[data-v="final"] .fform textarea{height:auto;min-height:150px;padding:12px 14px;resize:vertical}
+[data-v="final"] .fform .opt{font-weight:400;color:var(--soft)}
+[data-v="final"] .fform .send{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+[data-v="final"] .fform .send p{font-size:14.5px;color:var(--soft)}
+/* For Trade: steps */
+[data-v="final"] .steps,[data-v="final"] .tl{list-style:none;padding:0;margin:0}
+[data-v="final"] .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:st}
+[data-v="final"] .steps li{border-top:2px solid var(--n);padding-top:18px;counter-increment:st}
+[data-v="final"] .steps li::before{content:counter(st);display:block;font-size:15px;font-weight:600;color:var(--r);margin-bottom:10px}
+[data-v="final"] .steps h3{font-size:20px;margin-bottom:8px}
+[data-v="final"] .steps p{color:var(--ink2);font-size:16px}
+/* About: timeline */
+[data-v="final"] .tl{border-top:1px solid var(--line)}
+[data-v="final"] .tl li{display:grid;grid-template-columns:140px minmax(0,1fr);gap:24px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+[data-v="final"] .tl b{font-size:28px;font-weight:500;color:var(--n);letter-spacing:-.02em}
+[data-v="final"] .tl p{color:var(--ink2);font-size:17px}
+[data-v="final"] .tl h3{font-size:19px;margin-bottom:2px}
+[data-v="final"] .two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+[data-v="final"] .two h3{font-size:22px;margin-bottom:10px}
+[data-v="final"] .two p{color:var(--ink2)}
+/* Contact */
+[data-v="final"] .map{min-height:420px;position:relative;overflow:hidden;align-items:flex-end}
+[data-v="final"] .map .pin{position:absolute;left:50%;top:44%;width:22px;transform:translate(-50%,-100%)}
+/* Outlets */
+[data-v="final"] .olist{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+[data-v="final"] .oc{border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+[data-v="final"] .oc .ph{height:200px;border:0;border-bottom:1px solid var(--line);border-radius:0}
+[data-v="final"] .oc .in{padding:20px 22px 22px;display:flex;flex-direction:column;gap:14px;flex:1}
+[data-v="final"] .oc h3{font-size:22px}
+[data-v="final"] .oc .facts>div{grid-template-columns:110px minmax(0,1fr);padding:10px 0;font-size:15.5px}
+[data-v="final"] .oc .acts{margin-top:auto;padding-top:6px}
+[data-v="final"] .oc .btn{height:44px;font-size:15px}
+[data-v="final"] .onote{margin-top:18px;font-size:15px;color:var(--soft)}
+/* Product detail */
+[data-v="final"] .pd{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding-block:28px 0;align-items:start}
+[data-v="final"] .pd .shot{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:40px}
+[data-v="final"] .pd .shot img{max-height:100%;object-fit:contain}
+[data-v="final"] .pd .shot .none{text-align:center;color:var(--soft)}
+[data-v="final"] .pd .shot .none b{display:block;font-size:34px;font-weight:500;color:var(--n);letter-spacing:-.02em}
+[data-v="final"] .pd .br{font-size:16px;color:var(--soft)}
+[data-v="final"] .pd h1{font-size:clamp(30px,3.2vw,44px);line-height:1.1;margin-top:4px}
+[data-v="final"] .pd .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+[data-v="final"] .pd .chips span{font-size:14px;padding:4px 10px;border-radius:3px;background:var(--band);color:var(--ink2)}
+[data-v="final"] .pd .chips .tag-st{background:var(--tint);color:var(--n);font-weight:500}
+[data-v="final"] .pd .desc{margin-top:22px;color:var(--ink2)}
+[data-v="final"] .pd .facts{margin-top:28px}
+[data-v="final"] .pd .facts>div{grid-template-columns:150px minmax(0,1fr)}
+[data-v="final"] .pd .pnote{margin-top:14px;font-size:15px;color:var(--soft)}
+[data-v="final"] .rel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+
+@media (max-width:900px){
+  [data-v="final"] .trade .crop{width:64px;right:16px;bottom:-14px}
+  [data-v="final"] .trade .w{padding-right:var(--pad)}
+  [data-v="final"] .trade h2{padding-right:56px}
+  [data-v="final"] .ptop .crop{display:none}
+  [data-v="final"] .btop .crop{width:56px;right:16px;bottom:-12px}
+  [data-v="final"] .btop .w{padding-block:44px 40px}
+  [data-v="final"] .btop h1{font-size:40px;line-height:1.05}
+  [data-v="final"] .btop p{font-size:18px;padding-right:60px}
+  [data-v="final"] .ph.pic::after{width:58px;right:18px;bottom:-14px}
+  [data-v="final"] .sec{padding-top:56px}
+  [data-v="final"] .sec.last{padding-bottom:64px}
+  [data-v="final"] .split,[data-v="final"] .two,[data-v="final"] .fband>.w,[data-v="final"] .pd{grid-template-columns:minmax(0,1fr);gap:28px}
+  [data-v="final"] .split .ph{min-height:240px}
+  [data-v="final"] .facts>div,[data-v="final"] .pd .facts>div{grid-template-columns:minmax(0,1fr);gap:2px}
+  [data-v="final"] .fband{margin-top:64px}
+  [data-v="final"] .fband>.w{padding-block:52px}
+  [data-v="final"] .fform{grid-template-columns:minmax(0,1fr);padding:20px}
+  [data-v="final"] .steps{grid-template-columns:minmax(0,1fr);gap:24px}
+  [data-v="final"] .tl li{grid-template-columns:72px minmax(0,1fr);gap:14px}
+  [data-v="final"] .tl b{font-size:22px}
+  [data-v="final"] .map{min-height:260px}
+  [data-v="final"] .olist{grid-template-columns:minmax(0,1fr)}
+  [data-v="final"] .oc .facts>div{grid-template-columns:96px minmax(0,1fr);gap:12px}
+  [data-v="final"] .pd .shot{padding:24px}
+  [data-v="final"] .rel{grid-template-columns:1fr 1fr;gap:12px}
+}
 </style>
 </head>
 <body>
 <nav id="bar" aria-label="Variant switcher">
   <div class="grp"><a class="back" href="../index.html#looks">&larr; Back to the presentation</a><span class="lbl">Look</span>
-    <a data-set-v="apex" href="#">1 · Apex</a><a data-set-v="cold" href="#">2 · Cold white</a><a data-set-v="paper" href="#">3 · Navy and paper</a></div>
+    <a data-set-v="final" href="#">Final</a><a data-set-v="apex" href="#">1 · Apex</a><a data-set-v="cold" href="#">2 · Cold white</a><a data-set-v="paper" href="#">3 · Navy and paper</a></div>
   <div class="grp"><span class="lbl">Page</span>
-    <a data-set-p="home" href="#">Home</a><a data-set-p="products" href="#">Products</a><a data-set-p="brands" href="#">Brands</a></div>
+    <a data-set-p="home" href="#">Home</a><a data-set-p="products" href="#">Products</a><a data-set-p="brands" href="#">Brands</a><a data-set-p="trade" href="#">For Trade</a><a data-set-p="about" href="#">About</a><a data-set-p="contact" href="#">Contact</a><a data-set-p="outlets" href="#">Meatplus outlets</a><a data-set-p="product" href="#">Product</a></div>
   <span class="note">Items in [brackets] are content to come from Sealink. Product photos are Emborg pack shots; other photos are sample stock images.</span>
 </nav>
 <div id="site"></div>
@@ -673,10 +834,13 @@ const A=(cls='')=>`<i class="A ${cls}" aria-hidden="true"></i>`;
 const ICO_S='<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>';
 
 /* ---------- Shared parts ---------- */
+/* L(page): href to another page, keeping the current look (CUR is set by render) */
+let CUR={v:'final',p:'home',bare:false};
+const L=(p,extra='')=>`href="#v=${CUR.v}&p=${p}${extra}${CUR.bare?'&bare':''}"`;
 const header=(V,P)=>`<header class="hd"><div class="w">
-  <a class="logo" href="#"><img src="${LOGO}" alt="Sealink Pvt Ltd, home"></a>
-  <nav aria-label="Main">${['Products','Brands','For Trade','About'].map(n=>`<a href="#"${n.toLowerCase()===P?' aria-current="page"':''}>${n}</a>`).join('')}</nav>
-  <div class="side"><a class="hm" href="#">${ICO_S}Search</a><a class="hm" href="#">WhatsApp</a><a class="btn" href="#">Request a quote</a><button class="menu" type="button">Menu</button></div>
+  <a class="logo" ${L('home')}><img src="${LOGO}" alt="Sealink Pvt Ltd, home"></a>
+  <nav aria-label="Main">${[['Products','products'],['Brands','brands'],['For Trade','trade'],['About','about']].map(([n,k])=>`<a ${L(k)}${k===P?' aria-current="page"':''}>${n}</a>`).join('')}</nav>
+  <div class="side"><a class="hm" ${L('products')}>${ICO_S}Search</a><a class="hm" ${L('contact')}>WhatsApp</a><a class="btn" ${L('trade')}>Request a quote</a><button class="menu" type="button">Menu</button></div>
 </div></header>`;
 const search=(V,ph)=>`<form class="search" role="search" onsubmit="return false"><label class="q">${ICO_S}<span>${ph}</span></label><button class="go" type="button">Search</button></form>`;
 const stg=(name,on,V,sub)=>{
@@ -687,11 +851,19 @@ const shortcuts=V=>V==='cold'
   ? `<div class="seg">${['Frozen','Chilled','Fresh'].map(s=>stg(s,0,V)).join('')}</div>`
   : `<div class="short">${V==='paper'?'<span class="lb">Browse:</span>':''}${['Frozen','Chilled','Fresh'].map(s=>stg(s,0,V)).join('')}</div>`;
 const sh=(t,tag='h2')=>`<div class="sh">${A('mk')}<${tag}>${t}</${tag}></div>`;
-const outlet=V=>`<div class="outlet"><div class="w"><img src="${MP}" alt="Meatplus Foods"><span>Shopping for home? Visit a Meatplus outlet in Malé.</span><span>Open today ${x('[HOURS TODAY]')}</span><a class="lnk" href="#">Find an outlet</a></div></div>`;
+const outlet=V=>`<div class="outlet"><div class="w"><img src="${MP}" alt="Meatplus Foods"><span>Shopping for home? Visit a Meatplus outlet in Malé.</span><span>Open today ${x('[HOURS TODAY]')}</span><a class="lnk" ${L('outlets')}>Find an outlet</a></div></div>`;
+const meatplus=V=>`<section class="mps" aria-labelledby="mps-h"><div class="w">
+  <div class="txt"><img class="mplogo" src="${MP}" alt="Meatplus Foods">
+    <h2 id="mps-h">Buying for home? Shop at Meatplus Foods.</h2>
+    <p>Meatplus Foods is Sealink’s retail brand, with shops in Malé. Anyone can walk in and buy for home.</p>
+    <p>${x('[OUTLET RANGE: what the outlets sell]')}</p>
+    <a class="lnk" ${L('outlets')}>See all outlets</a></div>
+  <div class="ol">${[1,2,3].map(n=>`<a class="o" ${L('outlets')}><h3>${x(`[OUTLET ${n} NAME]`)}</h3><span>${x('[AREA, MALÉ]')}</span><span>Open today ${x('[HOURS TODAY]')}</span><span class="go">Address and hours</span></a>`).join('')}</div>
+</div></section>`;
 const footer=V=>`<footer class="ft"><div class="w"><div class="cols">
   <div><img src="${LOGO_W}" alt="Sealink Pvt Ltd"><p style="margin-top:22px">Head office<br>G. Fanas, 5th floor, Ameenee Magu, Malé</p></div>
   <div><h4>Contact</h4><p>+960 333 2933<br>WhatsApp ${x('[NUMBER]')}<br>Viber ${x('[NUMBER]')}</p></div>
-  <div><h4>Sealink</h4><ul><li><a href="#">Meatplus outlets</a></li><li><a href="#">Contact</a></li><li><a href="#">Careers</a></li><li><a href="#">Legal</a></li></ul></div>
+  <div><h4>Sealink</h4><ul><li><a ${L('outlets')}>Meatplus outlets</a></li><li><a ${L('contact')}>Contact</a></li><li><a href="#">Careers</a></li><li><a href="#">Legal</a></li></ul></div>
 </div></div></footer>`;
 
 /* ---------- Pages ---------- */
@@ -702,28 +874,30 @@ function home(V){
    + `<div class="row"><h3>Halal and delivery</h3><span class="c">${x('[HALAL CERTIFICATE]')}</span><span class="r">${x('[DELIVERY: atolls served]')}</span></div>`;
   const whyHead = sh('Why kitchens buy from Sealink');
   const why = V==='paper'
-    ? `<section class="why blk"><div class="w"><div>${whyHead}<a class="lnk more" href="#">See all brands</a></div><div class="rows">${whyRows}</div></div></section>`
-    : `<section class="why blk"><div class="w">${whyHead}<div class="rows">${whyRows}</div><a class="lnk more" href="#">See all brands</a></div></section>`;
+    ? `<section class="why blk"><div class="w"><div>${whyHead}<a class="lnk more" ${L('brands')}>See all brands</a></div><div class="rows">${whyRows}</div></div></section>`
+    : `<section class="why blk"><div class="w">${whyHead}<div class="rows">${whyRows}</div><a class="lnk more" ${L('brands')}>See all brands</a></div></section>`;
   const hero = V==='quiet'
     ? `<section class="hero"><div class="w">
         <h1>Fresh, chilled and frozen food, kept cold since 1994.</h1>
         <p class="who">Supplying resorts, hotels and restaurants across the Maldives.</p>
         <div class="find">${search(V,'Search products, brands or codes')}${shortcuts(V)}</div>
-        <div class="acts"><a class="btn" href="#">Request a quote</a><a class="btn s" href="#">WhatsApp us</a></div>
+        <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('contact')}>WhatsApp us</a></div>
         <figure class="fig">${pic(...HERO[V])}<i class="sweep" aria-hidden="true"><i></i></i></figure>
       </div></section>`
     : `<section class="hero"><div class="w"><div>
         <h1>Fresh, chilled and frozen food, kept cold since 1994.</h1>
         <p class="who">Supplying resorts, hotels and restaurants across the Maldives.</p>
         ${search(V,'Search products, brands or codes')}${shortcuts(V)}
-        <div class="acts"><a class="btn" href="#">Request a quote</a><a class="btn s" href="#">WhatsApp us</a></div>
+        <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('contact')}>WhatsApp us</a></div>
+        ${V==='paper'?`<p class="mpline">Shopping for home? <a class="lnk" ${L('outlets')}>Visit a Meatplus outlet</a></p>`:''}
       </div>${pic(...HERO[V])}</div></section>`;
-  return header(V,'home')+`<main>${hero}${why}
-   <section class="blk"><div class="w">${sh('Browse by category')}<div class="cats">${CATS.map(c=>`<a class="cat" href="#">${c}</a>`).join('')}</div></div></section>
-   <section class="trade">${A('crop')}<div class="w"><h2>Supplying a resort or restaurant? Send us your list and we reply with prices.</h2>
+  const cats = `<section class="blk"><div class="w">${sh('Browse by category')}<div class="cats">${CATS.map(c=>`<a class="cat" ${L('products')}>${c}</a>`).join('')}</div></div></section>`;
+  const tradeBand = `<section class="trade">${A('crop')}<div class="w"><h2>Supplying a resort or restaurant? Send us your list and we reply with prices.</h2>
      <p class="rt">We reply within ${x('[REPLY TIME]')}.</p>
-     <div class="acts"><a class="btn" href="#">Request a quote</a><a class="btn s" href="#">How trade accounts work</a></div></div></section>
-   ${outlet(V)}</main>`+footer(V);
+     <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('trade')}>How trade accounts work</a></div></div></section>`;
+  /* Navy and Paper (and Final): categories before "why", then the trade band, then a full Meatplus section */
+  if(V==='paper') return header(V,'home')+`<main>${hero}${cats}${why.replace('why blk','why blk after')}${tradeBand}${meatplus(V)}</main>`+footer(V);
+  return header(V,'home')+`<main>${hero}${why}${cats}${tradeBand}${outlet(V)}</main>`+footer(V);
 }
 function card(p,V){
   const src = p.img ? IMG+p.img : p.ph && !p.ph.startsWith('X:') ? IMG+p.ph+'.webp' : '';
@@ -741,7 +915,8 @@ function products(V){
     : ['All','Frozen','Chilled','Fresh'].map((s,i)=>stg(s,i===0,V)).join('');
   const chk=(l,c)=>`<label><input type="checkbox"${c?' checked':''}> ${l}</label>`;
   return header(V,'products')+`<main>
-   <section class="ptop">${A('crop')}<div class="w"><h1>Products</h1>${search(V,'Search products, brands or codes')}</div></section>
+   <section class="ptop">${A('crop')}<div class="w"><div><h1>Products</h1>${V==='paper'?'<p class="pintro">We sell to resorts, hotels, restaurants and shops by the case. Add products to a quote list and we reply with prices.</p>':''}</div>${search(V,'Search products, brands or codes')}</div></section>
+   ${V==='paper'?`<div class="mprow"><div class="w"><img src="${MP}" alt="Meatplus Foods"><p>Buying for home? Shop at Meatplus Foods, Sealink’s own outlets in Malé.</p><a class="lnk" ${L('outlets')}>Find an outlet</a></div></div>`:''}
    <div class="stabs"><div class="w" role="tablist" aria-label="Storage">${tabs}</div></div>
    <div class="w pbody">
      <aside class="filters" aria-label="Filters">
@@ -755,7 +930,7 @@ function products(V){
        <div class="nores"><span class="tag">When a search finds nothing</span><p>No match for ‘lamb shank’. Try a category, or ask us on WhatsApp. We may stock it.</p></div>
      </div>
    </div>
-   <div class="qbar"><div class="w"><b>Quote list</b><span class="n">3 items</span><a class="btn" href="#">Send list</a></div></div>
+   <div class="qbar"><div class="w"><b>Quote list</b><span class="n">3 items</span><a class="btn" ${L('trade')}>Send list</a></div></div>
   </main>`+footer(V);
 }
 function brands(V){
@@ -780,20 +955,173 @@ function brands(V){
   </main>`+footer(V);
 }
 
+/* ---------- Final look: new pages (styled in [data-v="final"]) ---------- */
+const PHONE='+960 333 2933', ADDR='G. Fanas, 5th floor, Ameenee Magu, Malé';
+const facts=rows=>`<dl class="facts">${rows.map(([t,d])=>`<div><dt>${t}</dt><dd>${d}</dd></div>`).join('')}</dl>`;
+const pageTop=(h,p,kick='')=>`<section class="btop">${A('crop')}<div class="w">${kick}<h1>${h}</h1><p>${p}</p></div></section>`;
+const field=(l,type='text',cls='',opt='')=>`<label class="${cls}"><span>${l}${opt?` <span class="opt">${opt}</span>`:''}</span>${
+  type==='area'?'<textarea></textarea>':Array.isArray(type)?`<select>${type.map(o=>`<option>${o}</option>`).join('')}</select>`:`<input type="${type}">`}</label>`;
+const quoteForm=()=>`<form class="fform" onsubmit="return false" aria-label="Quote request">
+  ${field('Business name')}${field('Your name')}
+  ${field('Phone or WhatsApp','tel')}${field('Email','email','','(optional)')}
+  ${field('Business type',['Resort','Hotel','Restaurant or café','Caterer','Other'])}${field('Island or atoll')}
+  ${field('Your product list','area','full')}
+  <div class="send full"><button class="btn" type="button">Send request</button><p>We reply within ${x('[REPLY TIME]')}.</p></div>
+</form>`;
+
+function trade(V){
+  const steps=[
+    ['Send your list','Use the form on this page, or send the list on WhatsApp or Viber. You can also tick items on the products page with Add to quote.'],
+    ['We reply with prices',`We send a price for each item on your list within ${x('[REPLY TIME]')}.`],
+    ['Confirm the order','Tell us what you want to order and when you need it.'],
+    ['Delivery',`${x('[DELIVERY: days, order cut-off, atolls served]')}`],
+  ];
+  return header(V,'trade')+`<main>
+   ${pageTop('For Trade','For resorts, hotels, restaurants and caterers in the Maldives. Send us your product list and we reply with trade prices.')}
+   <section class="sec"><div class="w">${sh('How a quote works')}
+     <ol class="steps">${steps.map(([h,p])=>`<li><h3>${h}</h3><p>${p}</p></li>`).join('')}</ol></div></section>
+   <section class="sec"><div class="w split">
+     <div>${sh('Trade accounts')}<p class="lede">Regular customers can open a trade account. ${x('[ACCOUNT: who can open one and what we need]')}</p>
+       <a class="lnk" ${L('products')}>Browse products</a></div>
+     ${facts([['Prices',x('[PRICE TERMS]')],['Payment',x('[PAYMENT TERMS]')],['Minimum order',x('[MINIMUM ORDER]')],['Delivery',x('[DELIVERY: atolls served]')],['Certificates',x('[HALAL CERTIFICATE]')]])}
+   </div></section>
+   <section class="fband" id="quote"><div class="w">
+     <div class="side">${sh('Request a quote')}<p>List the products and pack sizes you need. Rough quantities are fine.</p>
+       <p class="alt">Prefer to message? WhatsApp ${x('[NUMBER]')}, Viber ${x('[NUMBER]')}, or call ${PHONE}.</p></div>
+     ${quoteForm()}
+   </div></section>
+  </main>`+footer(V);
+}
+
+function about(V){
+  const ms=[
+    ['1994','Sealink is founded',x('[FOUNDING STORY: 2–3 lines]')],
+    ...PARTNERS.slice().sort((a,b)=>parseInt(a.role.match(/\d{4}/))-parseInt(b.role.match(/\d{4}/))).map(p=>[p.role.match(/\d{4}/)[0],
+      p.role.startsWith('Sole')?`Sole distributor for ${p.name}`:`Partnership with ${p.name}`,
+      `${p.maker?p.maker+', ':''}${p.country}. ${p.lines}.`]),
+    ['Today','Sealink today',x('[TODAY: staff, vehicles, customers served]')],
+  ];
+  return header(V,'about')+`<main>
+   ${pageTop('About Sealink','Sealink has imported and distributed fresh, chilled and frozen food in the Maldives since 1994.')}
+   <section class="sec"><div class="w split">
+     <div>${sh('Our story')}<p class="lede">We supply resorts, hotels and restaurants across the Maldives. Home shoppers in Malé buy from us at the Meatplus Foods outlets.</p>
+       <a class="lnk" ${L('outlets')}>Meatplus outlets</a></div>
+     <ol class="tl">${ms.map(([y,h,p])=>`<li><b>${y}</b><div><h3>${h}</h3><p>${p}</p></div></li>`).join('')}</ol>
+   </div></section>
+   <section class="sec"><div class="w split">
+     ${pic('warehouse-racks','cold store racks and pallets','40% 50%')}
+     <div>${sh('Our cold store in Malé')}<p class="lede">Frozen, chilled and fresh goods are kept in our own cold store in Malé until they go out to customers.</p>
+       ${facts([['Capacity',x('[CAPACITY]')],['Frozen',x('[TEMPERATURE]')],['Chilled',x('[TEMPERATURE]')],['Fresh',x('[TEMPERATURE]')],['Delivery',x('[DELIVERY: atolls served]')]])}</div>
+   </div></section>
+   <section class="sec"><div class="w">${sh('Partners')}
+     ${facts(PARTNERS.map(p=>[p.name,`${p.maker?p.maker+', ':''}${p.country} · ${p.role.charAt(0).toLowerCase()+p.role.slice(1)}`]))}
+     <div class="acts"><a class="btn s" ${L('brands')}>See all brands</a></div></div></section>
+   <section class="sec last"><div class="w two">
+     <div>${sh('Leadership','h2')}<p>${x('[LEADERSHIP: names, roles and photos]')}</p></div>
+     <div>${sh('Certificates','h2')}<p>Halal: ${x('[HALAL CERTIFICATE: body, number, expiry]')}</p><p style="margin-top:8px">Food safety: ${x('[MFDA OR OTHER LICENCE]')}</p></div>
+   </div></section>
+   ${outlet(V)}
+  </main>`+footer(V);
+}
+
+function contact(V){
+  return header(V,'contact')+`<main>
+   ${pageTop('Contact','Call, message or visit our head office in Malé.')}
+   <section class="sec"><div class="w split">
+     <div>${sh('Head office')}
+       ${facts([['Address',ADDR],['Phone',`<a href="tel:+9603332933">${PHONE}</a>`],['WhatsApp',x('[NUMBER]')],['Viber',x('[NUMBER]')],['Email',x('[EMAIL]')],['Office hours',x('[OFFICE HOURS]')]])}
+       <div class="acts"><a class="btn" href="tel:+9603332933">Call ${PHONE}</a><a class="btn s" href="#">WhatsApp</a><a class="btn s" href="#">Viber</a></div></div>
+     <div class="ph map">${A('pin')}${x('[MAP: head office location]')}</div>
+   </div></section>
+   <section class="fband"><div class="w">
+     <div class="side">${sh('Send a message')}<p>For trade prices, the quote form on the For Trade page is quicker.</p>
+       <p class="alt"><a class="lnk" ${L('trade')}>Request a quote</a><br><br>Questions about a Meatplus outlet? Outlet phone numbers are on the <a class="lnk" ${L('outlets')}>outlets page</a>.</p></div>
+     <form class="fform" onsubmit="return false" aria-label="Contact form">
+       ${field('Your name')}${field('Phone or WhatsApp','tel')}
+       ${field('Email','email','','(optional)')}${field('Topic',['Trade quote','Brands and partners','Meatplus outlets','Careers','Something else'])}
+       ${field('Message','area','full')}
+       <div class="send full"><button class="btn" type="button">Send message</button></div>
+     </form>
+   </div></section>
+  </main>`+footer(V);
+}
+
+function outlets(V){
+  const oc=n=>`<article class="oc"><div class="ph">${x('[OUTLET PHOTO]')}</div><div class="in">
+    <h3>${x(`[OUTLET ${n} NAME]`)}</h3>
+    ${facts([['Address',x('[ADDRESS]')],['Phone',x('[PHONE]')],['Open today',x('[HOURS TODAY]')],['Hours',x('[OPENING HOURS BY DAY]')]])}
+    <div class="acts"><a class="btn s" href="#">Directions</a><a class="btn s" href="#">Call</a></div></div></article>`;
+  return header(V,'outlets')+`<main>
+   ${pageTop('Meatplus Foods outlets','Meatplus Foods is Sealink’s retail brand, with shops in Malé. Visit an outlet to buy for home.',`<p class="kick"><img src="${MP}" alt="Meatplus Foods"></p>`)}
+   <section class="sec"><div class="w">${sh('Outlets')}
+     <div class="olist">${oc(1)}${oc(2)}</div>
+     <p class="onote">Outlet list to come: ${x('[NUMBER OF OUTLETS AND LOCATIONS]')}</p></div></section>
+   <section class="sec"><div class="w split">
+     <div>${sh('What you can buy')}<p class="lede">${x('[OUTLET RANGE: what the outlets sell]')}</p></div>
+     <div class="ph map">${A('pin')}${x('[MAP: outlet locations]')}</div>
+   </div></section>
+   <section class="trade" style="margin-top:96px">${A('crop')}<div class="w"><h2>Buying for a resort, hotel or restaurant? Order through a Sealink trade account.</h2>
+     <p class="rt">Send us your list and we reply with prices.</p>
+     <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('trade')}>How trade accounts work</a></div></div></section>
+  </main>`+footer(V);
+}
+
+const DEFAULT_PRODUCT=()=>Math.max(0,PRODUCTS.findIndex(p=>p.name.startsWith('Cream Cheese')&&p.img));
+const pimg=p=>p.img?IMG+p.img:p.ph?IMG+p.ph+'.webp':'';
+function product(V,s){
+  const i=PRODUCTS[s&&s.i]?s.i:DEFAULT_PRODUCT(), p=PRODUCTS[i], src=pimg(p);
+  const rel=PRODUCTS.map((q,j)=>[q,j]).filter(([q,j])=>j!==i&&q.cat===p.cat&&q.name!==p.name).slice(0,4);
+  return header(V,'products')+`<main>
+   <div class="w crumbs"><a ${L('products')}>Products</a> / ${p.cat} / ${p.name}</div>
+   <section class="w pd">
+     <div class="shot">${src?`<img src="${src}" alt="${p.brand} ${p.name}, ${p.pack||''}">`:`<div class="none"><b>${p.brand}</b>Pack photo to come</div>`}</div>
+     <div>
+       <p class="br">${p.brand}</p><h1>${p.name}</h1>
+       <div class="chips"><span>${p.pack||x('[PACK]')}</span><span class="tag-st">${p.st}</span></div>
+       <p class="desc">${x('[DESCRIPTION: 2–3 lines]')}</p>
+       <div class="acts"><button class="btn" type="button">Add to quote</button><a class="btn s" ${L('contact')}>Ask on WhatsApp</a></div>
+       <p class="pnote">Prices are sent with your quote.</p>
+       ${facts([['Pack size',p.pack||x('[PACK]')],['Origin',p.origin||x('[ORIGIN]')],['Storage',`${p.st}, ${x('[STORAGE TEMPERATURE]')}`],['Category',p.cat],['Product code',x('[SKU CODE]')],['Shelf life',x('[SHELF LIFE]')],['Halal',x('[HALAL STATUS]')],['Spec sheet',x('[SPEC SHEET PDF]')]])}
+     </div>
+   </section>
+   ${rel.length?`<section class="sec last"><div class="w">${sh('More in '+p.cat.toLowerCase())}<div class="rel">${rel.map(([q])=>card(q,V)).join('')}</div></div></section>`:'<div class="sec last"></div>'}
+  </main>`+footer(V);
+}
+
 /* ---------- Router (state in the URL hash: #v=apex&p=home) ---------- */
-const VS=['apex','cold','paper'], PS=['home','products','brands'];
-function state(){const h=new URLSearchParams(location.hash.slice(1));return{v:VS.includes(h.get('v'))?h.get('v'):'apex',p:PS.includes(h.get('p'))?h.get('p'):'home',bare:h.has('bare')}}
-function go(o){const s={...state(),...o};location.hash=`v=${s.v}&p=${s.p}${s.bare?'&bare':''}`}
+/* The final look renders the shared page functions with the paper content (V='paper')
+   inside an inner [data-v="paper"] wrapper, so paper CSS applies and [data-v="final"] adds to it.
+   The new pages (trade, about, contact, outlets, product) exist in the final look only. */
+const VS=['final','apex','cold','paper'], PS=['home','products','brands','trade','about','contact','outlets','product'];
+const FINAL_ONLY=['trade','about','contact','outlets','product'];
+const PAGES={home,products,brands,trade,about,contact,outlets,product};
+function state(){const h=new URLSearchParams(location.hash.slice(1));
+  const s={v:VS.includes(h.get('v'))?h.get('v'):'final',p:PS.includes(h.get('p'))?h.get('p'):'home',i:h.has('i')?parseInt(h.get('i'),10):null,bare:h.has('bare')};
+  if(FINAL_ONLY.includes(s.p)&&s.v!=='final')s.v='final';
+  return s}
+function go(o){const s={...state(),...o};
+  if(FINAL_ONLY.includes(s.p)&&s.v!=='final'){if(o.v)s.p='home';else s.v='final'}
+  if(s.p!=='product')s.i=null;
+  location.hash=`v=${s.v}&p=${s.p}${s.i!=null?'&i='+s.i:''}${s.bare?'&bare':''}`}
 function render(){
-  const s=state(), el=document.getElementById('site');
+  const s=state(), el=document.getElementById('site'); CUR=s;
   el.dataset.v=s.v; el.dataset.p=s.p; document.body.classList.toggle('bare',s.bare);
-  el.innerHTML=({home,products,brands})[s.p](s.v);
+  const html=PAGES[s.p](s.v==='final'?'paper':s.v,s);
+  el.innerHTML=s.v==='final'?`<div data-v="paper">${html}</div>`:html;
   document.querySelectorAll('[data-set-v]').forEach(a=>a.setAttribute('aria-current',a.dataset.setV===s.v));
   document.querySelectorAll('[data-set-p]').forEach(a=>a.setAttribute('aria-current',a.dataset.setP===s.p));
   document.title=`Sealink · ${s.v} · ${s.p}`;
   window.scrollTo(0,0);
 }
 document.addEventListener('click',e=>{const a=e.target.closest('[data-set-v],[data-set-p]');if(!a)return;e.preventDefault();go(a.dataset.setV?{v:a.dataset.setV}:{p:a.dataset.setP})});
+/* final look: a product card's photo or name opens the product page */
+document.addEventListener('click',e=>{
+  if(CUR.v!=='final')return;
+  const t=e.target.closest('#site .card .img,#site .card h3'); if(!t)return;
+  const c=t.closest('.card'), name=c.querySelector('h3').textContent, pk=(c.querySelector('.pk')||{}).textContent||'';
+  const i=PRODUCTS.findIndex(p=>p.name===name&&(!p.pack||pk.startsWith(p.pack)));
+  if(i>=0)go({p:'product',i});
+});
 addEventListener('hashchange',render); render();
 </script>
 </body>
