@@ -529,12 +529,9 @@ const header=(V,P)=>`<header class="hd"><div class="w">
 </div></header>`;
 const search=(V,ph)=>`<form class="search" role="search" onsubmit="return false"><label class="q">${ICO_S}<span>${ph}</span></label><button class="go" type="button">Search</button></form>`;
 const stg=(name,on,V,sub)=>{
-  if(V==='cold') return `<a class="stg${on?' on':''}" href="#">${name}${sub!==undefined?`<small>${sub}</small>`:''}</a>`;
   return `<a class="stg${on?' on':''}" href="#">${name==='All'?'':A('ta')}${name}</a>`;
 };
-const shortcuts=V=>V==='cold'
-  ? `<div class="seg">${['Frozen','Chilled','Fresh'].map(s=>stg(s,0,V)).join('')}</div>`
-  : `<div class="short">${V==='paper'?'<span class="lb">Browse:</span>':''}${['Frozen','Chilled','Fresh'].map(s=>stg(s,0,V)).join('')}</div>`;
+const shortcuts=V=>`<div class="short"><span class="lb">Browse:</span>${['Frozen','Chilled','Fresh'].map(s=>stg(s,0,V)).join('')}</div>`;
 const sh=(t,tag='h2')=>`<div class="sh">${A('mk')}<${tag}>${t}</${tag}></div>`;
 const outlet=V=>`<div class="outlet"><div class="w"><img src="${MP}" alt="Meatplus Foods"><span>Shopping for home? Visit a Meatplus outlet in Malé.</span><span>Open today ${x('[HOURS TODAY]')}</span><a class="lnk" ${L('outlets')}>Find an outlet</a></div></div>`;
 const meatplus=V=>`<section class="mps" aria-labelledby="mps-h"><div class="w">
@@ -553,55 +550,39 @@ const footer=V=>`<footer class="ft"><div class="w"><div class="cols">
 
 /* ---------- Pages ---------- */
 function home(V){
-  const whyRows = (V==='cold'?`<div class="row hdr mono"><span>Partner</span><span>Origin</span><span>Relationship</span></div>`:'')
-   + PARTNERS.map(p=>`<div class="row"><h3>${p.name}</h3><span class="c">${p.country}</span><span class="r">${p.role}</span></div>`).join('')
+  const whyRows = PARTNERS.map(p=>`<div class="row"><h3>${p.name}</h3><span class="c">${p.country}</span><span class="r">${p.role}</span></div>`).join('')
    + `<div class="row"><h3>Own cold store in Malé</h3><span class="c">${x('[CAPACITY]')}</span><span class="r">${x('[TEMPERATURE ZONES]')}</span></div>`
    + `<div class="row"><h3>Halal and delivery</h3><span class="c">${x('[HALAL CERTIFICATE]')}</span><span class="r">${x('[DELIVERY: atolls served]')}</span></div>`;
   const whyHead = sh('Why kitchens buy from Sealink');
-  const why = V==='paper'
-    ? `<section class="why blk"><div class="w"><div>${whyHead}<a class="lnk more" ${L('brands')}>See all brands</a></div><div class="rows">${whyRows}</div></div></section>`
-    : `<section class="why blk"><div class="w">${whyHead}<div class="rows">${whyRows}</div><a class="lnk more" ${L('brands')}>See all brands</a></div></section>`;
-  const hero = V==='quiet'
-    ? `<section class="hero"><div class="w">
-        <h1>Fresh, chilled and frozen food, kept cold since 1994.</h1>
-        <p class="who">Supplying resorts, hotels and restaurants across the Maldives.</p>
-        <div class="find">${search(V,'Search products, brands or codes')}${shortcuts(V)}</div>
-        <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('contact')}>WhatsApp us</a></div>
-        <figure class="fig">${pic(...HERO[V])}<i class="sweep" aria-hidden="true"><i></i></i></figure>
-      </div></section>`
-    : `<section class="hero"><div class="w"><div>
+  const why = `<section class="why blk"><div class="w"><div>${whyHead}<a class="lnk more" ${L('brands')}>See all brands</a></div><div class="rows">${whyRows}</div></div></section>`;
+  const hero = `<section class="hero"><div class="w"><div>
         <h1>Fresh, chilled and frozen food, kept cold since 1994.</h1>
         <p class="who">Supplying resorts, hotels and restaurants across the Maldives.</p>
         ${search(V,'Search products, brands or codes')}${shortcuts(V)}
         <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('contact')}>WhatsApp us</a></div>
-        ${V==='paper'?`<p class="mpline">Shopping for home? <a class="lnk" ${L('outlets')}>Visit a Meatplus outlet</a></p>`:''}
+        <p class="mpline">Shopping for home? <a class="lnk" ${L('outlets')}>Visit a Meatplus outlet</a></p>
       </div>${pic(...HERO[V])}</div></section>`;
   const cats = `<section class="blk"><div class="w">${sh('Browse by category')}<div class="cats">${CATS.map(c=>`<a class="cat" ${L('products')}>${c}</a>`).join('')}</div></div></section>`;
   const tradeBand = `<section class="trade">${A('crop')}<div class="w"><h2>Supplying a resort or restaurant? Send us your list and we reply with prices.</h2>
      <p class="rt">We reply within ${x('[REPLY TIME]')}.</p>
      <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('trade')}>How trade accounts work</a></div></div></section>`;
   /* Navy and Paper (and Final): categories before "why", then the trade band, then a full Meatplus section */
-  if(V==='paper') return header(V,'home')+`<main>${hero}${cats}${why.replace('why blk','why blk after')}${tradeBand}${meatplus(V)}</main>`+footer(V);
-  return header(V,'home')+`<main>${hero}${why}${cats}${tradeBand}${outlet(V)}</main>`+footer(V);
+  return header(V,'home')+`<main>${hero}${cats}${why.replace('why blk','why blk after')}${tradeBand}${meatplus(V)}</main>`+footer(V);
 }
 function card(p,V){
   const src = p.img ? IMG+p.img : p.ph && !p.ph.startsWith('X:') ? IMG+p.ph+'.webp' : '';
   const img = src ? `<img src="${src}" alt="${p.brand} ${p.name}, ${p.pack||''}" loading="lazy">` : `<div class="nph"><b>${p.brand}</b><span>Pack photo to come</span></div>`;
   const pack = (p.pack || '[PACK]') + (p.origin ? ' · '+p.origin : '');
-  const st = `<p class="st">${V==='apex'?A('ta'):''}${p.st}</p>`;
-  const meta = (V==='cold'||V==='paper')
-    ? `<div class="meta"><p class="br">${p.brand}</p><h3>${p.name}</h3><div class="chips"><span class="pk">${pack}</span>${st.replace('<p','<span').replace('</p>','</span>')}</div></div>`
-    : `<h3>${p.name}</h3><p class="br">${p.brand}</p><p class="pk">${p.pack?pack:x('[PACK]')}</p>${st}`;
+  const st = `<p class="st">${p.st}</p>`;
+  const meta = `<div class="meta"><p class="br">${p.brand}</p><h3>${p.name}</h3><div class="chips"><span class="pk">${pack}</span>${st.replace('<p','<span').replace('</p>','</span>')}</div></div>`;
   return `<article class="card"><div class="img">${img}</div>${meta}<button class="add${p.inq?' in':''}" type="button">${p.inq?'In quote list':'Add to quote'}</button></article>`;
 }
 function products(V){
-  const tabs = V==='cold'
-    ? `<div class="seg">${['All','Frozen','Chilled','Fresh'].map((s,i)=>stg(s,i===0,V)).join('')}</div>`
-    : ['All','Frozen','Chilled','Fresh'].map((s,i)=>stg(s,i===0,V)).join('');
+  const tabs = ['All','Frozen','Chilled','Fresh'].map((s,i)=>stg(s,i===0,V)).join('');
   const chk=(l,c)=>`<label><input type="checkbox"${c?' checked':''}> ${l}</label>`;
   return header(V,'products')+`<main>
-   <section class="ptop">${A('crop')}<div class="w"><div><h1>Products</h1>${V==='paper'?'<p class="pintro">We sell to resorts, hotels, restaurants and shops by the case. Add products to a quote list and we reply with prices.</p>':''}</div>${search(V,'Search products, brands or codes')}</div></section>
-   ${V==='paper'?`<div class="mprow"><div class="w"><img src="${MP}" alt="Meatplus Foods"><p>Buying for home? Shop at Meatplus Foods, Sealink’s own outlets in Malé.</p><a class="lnk" ${L('outlets')}>Find an outlet</a></div></div>`:''}
+   <section class="ptop">${A('crop')}<div class="w"><div><h1>Products</h1><p class="pintro">We sell to resorts, hotels, restaurants and shops by the case. Add products to a quote list and we reply with prices.</p></div>${search(V,'Search products, brands or codes')}</div></section>
+   <div class="mprow"><div class="w"><img src="${MP}" alt="Meatplus Foods"><p>Buying for home? Shop at Meatplus Foods, Sealink’s own outlets in Malé.</p><a class="lnk" ${L('outlets')}>Find an outlet</a></div></div>
    <div class="stabs"><div class="w" role="tablist" aria-label="Storage">${tabs}</div></div>
    <div class="w pbody">
      <aside class="filters" aria-label="Filters">
@@ -620,20 +601,16 @@ function products(V){
 }
 function brands(V){
   const block=(p,i)=>{
-    const lead = V==='apex' && i===0;
+    const lead = false;
     const meta = `${p.maker?p.maker+', ':''}${p.country} · ${p.role.charAt(0).toLowerCase()+p.role.slice(1)}`;
-    const linesTxt = V==='paper' ? `<div class="lines"><b>Product lines</b>${p.lines}</div>` : `<p class="lines">${p.lines}</p>`;
-    if(V==='cold') return `<article class="brand"><div class="w"><div>
-        <div class="txt"><h2>${p.name}</h2><p class="meta">${meta}</p><a class="btn s" href="#">See ${p.name} products</a></div>
-        <div class="side2"><p class="lab">Product lines</p><p class="lines">${p.lines}</p><p class="story">${x('[STORY: 2–3 lines]')}</p></div>
-        ${pic(...PARTNER_PIC[p.name])}</div></div></article>`;
+    const linesTxt = `<div class="lines"><b>Product lines</b>${p.lines}</div>`;
     return `<article class="brand${lead?' lead':''}">${lead?A('crop'):''}<div class="w">
       <div class="txt"><h2>${p.name}</h2><p class="meta">${meta}</p>${linesTxt}<p class="story">${x('[STORY: 2–3 lines]')}</p>
       <a class="btn${lead?'':' s'}" href="#">See ${p.name} products</a></div>
       ${pic(...PARTNER_PIC[p.name])}</div></article>`;
   };
   return header(V,'brands')+`<main>
-   <section class="btop"><div class="w"><h1>Brands</h1><p>We are the Maldives distributor for these producers, some for more than 25 years.</p>${V==='quiet'?'<i class="sweep" aria-hidden="true"><i></i></i>':''}</div></section>
+   <section class="btop"><div class="w"><h1>Brands</h1><p>We are the Maldives distributor for these producers, some for more than 25 years.</p></div></section>
    <div class="brands">${PARTNERS.map(block).join('')}</div>
    <section class="origins"><div class="w"><p>We also bring apples and oranges from Australia, New Zealand and France. ${x('[SEASONS]')}</p></div></section>
    <section class="others"><div class="w">${sh('Other brands we carry')}<p class="list">${x('[FULL BRAND LIST]')}</p></div></section>
