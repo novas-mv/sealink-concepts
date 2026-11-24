@@ -392,13 +392,432 @@ body.bare #bar{display:none}
   [data-v="final"] .pd .shot{padding:24px}
   [data-v="final"] .rel{grid-template-columns:1fr 1fr;gap:12px}
 }
+
+/* =====================================================================
+   5 · POLISH   fewer lines, the A only in big places, calm motion
+   ===================================================================== */
+[data-v="paper"]{--ease:cubic-bezier(.22,.7,.2,1);--rad:10px}
+/* fewer lines: spacing and soft bands instead of rules */
+[data-v="paper"] .hd,[data-v="paper"] .ptop,[data-v="paper"] .btop,[data-v="paper"] .outlet,[data-v="paper"] .mprow,[data-v="paper"] .mps,[data-v="paper"] .stabs .w,[data-v="paper"] .brand .w,[data-v="paper"] .origins .w{border:0}
+[data-v="paper"] .x{border:0;border-radius:4px}
+[data-v="paper"] .filters h3:not(:first-child){border-top:0;padding-top:0}
+[data-v="paper"] .card{border:0;border-radius:var(--rad);transition:box-shadow .35s var(--ease),transform .35s var(--ease)}
+[data-v="paper"] .card .img{border-bottom:0;border-radius:var(--rad)}
+[data-v="paper"] .card .img img{transition:transform .5s var(--ease)}
+[data-v="paper"] .card:hover{box-shadow:0 14px 36px rgba(27,20,100,.08)}
+[data-v="paper"] .card:hover .img img{transform:scale(1.04)}
+[data-v="paper"] .qbar{border-top:0}
+[data-v="paper"] .nores{border:0;background:var(--band);border-radius:var(--rad)}
+[data-v="paper"] .outlet{background:var(--band)}
+[data-v="final"] .facts,[data-v="final"] .facts>div{border:0}
+[data-v="final"] .facts>div{padding:10px 0}
+[data-v="final"] .facts dt{color:var(--soft);font-weight:500}
+[data-v="final"] .fband{border:0}
+[data-v="final"] .fband .side .alt{border-top:0;padding-top:0}
+[data-v="final"] .fform{border:0;border-radius:var(--rad);box-shadow:0 10px 40px rgba(27,20,100,.06)}
+[data-v="final"] .oc{border:0;background:var(--band);border-radius:var(--rad)}
+[data-v="final"] .oc .ph{border:0}
+[data-v="final"] .pd .shot{border:0;background:var(--band);border-radius:var(--rad)}
+[data-v="final"] .steps li{border-top:0;padding-top:0}
+[data-v="paper"] .ph{border:0;border-radius:var(--rad)}
+[data-v="paper"] .ph.pic{border-radius:var(--rad)}
+/* the A: only the hero photo crop and the navy trade band */
+[data-v="final"] .sh .mk,[data-v="final"] .stg .ta,[data-v="final"] .ptop .crop,[data-v="final"] .btop .crop{display:none}
+[data-v="final"] .card .st::before,[data-v="final"] .tag-st::before{display:none}
+[data-v="final"] .ph.pic::after{display:none}
+[data-v="final"] .hero .ph.pic::after{display:block}
+[data-v="final"] .map .pin{width:16px;height:16px;border-radius:50%;background:var(--r);transform:translate(-50%,-50%)}
+/* header: proposal nav */
+[data-v="paper"] .hd .w{gap:40px}
+[data-v="paper"] .hd nav{gap:26px;font-size:15px}
+[data-v="paper"] .hd nav a{white-space:nowrap;background:linear-gradient(currentColor,currentColor) 0 100%/0 1.5px no-repeat;padding-bottom:3px;transition:background-size .3s var(--ease),color .2s}
+[data-v="paper"] .hd nav a:hover{background-size:100% 1.5px}
+[data-v="paper"] .hd nav a[aria-current]{box-shadow:none;padding-block:0 3px;margin-block:0;background-size:100% 1.5px}
+[data-v="paper"] .hd .side .hm{white-space:nowrap}
+[data-v="paper"] .hd.open nav{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:#fff;padding:8px var(--pad) 20px;box-shadow:0 20px 40px rgba(27,20,100,.08);z-index:30;font-size:18px}
+[data-v="paper"] .hd.open nav a{padding:12px 0;background:none}
+[data-v="paper"] .hd{position:relative;z-index:20}
+@media (max-width:1180px){[data-v="paper"] .hd nav{display:none}[data-v="paper"] .hd .menu{display:inline-flex;align-items:center}[data-v="paper"] .hd .side .hm{display:none}}
+/* buttons and links */
+[data-v="paper"] .btn{border-radius:999px;transition:transform .25s var(--ease),background .25s,box-shadow .25s}
+[data-v="paper"] .btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(27,20,100,.16)}
+[data-v="paper"] .btn.s:hover{box-shadow:none;background:var(--band)}
+[data-v="paper"] .search{border-radius:999px;padding:5px}
+[data-v="paper"] .search .go{border-radius:999px}
+[data-v="paper"] .lnk{text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;padding-bottom:2px;transition:background-size .3s var(--ease)}
+[data-v="paper"] .lnk::after{content:" \2192";display:inline-block;transition:transform .3s var(--ease)}
+[data-v="paper"] .lnk:hover::after{transform:translateX(4px)}
+[data-v="paper"] a:focus-visible,[data-v="paper"] button:focus-visible,[data-v="paper"] [tabindex]:focus-visible{outline:2px solid var(--r,#F03010);outline-offset:3px;border-radius:4px}
+[data-v="paper"] .eyebrow{font-size:14px;font-weight:500;letter-spacing:.02em;color:var(--soft);margin-bottom:18px}
+/* section rhythm */
+[data-v="paper"] .pz{padding-block:120px}
+[data-v="paper"] .pz.band{background:var(--band)}
+[data-v="paper"] .pz h2{font-size:clamp(30px,3vw,44px);line-height:1.12;max-width:20ch}
+[data-v="paper"] .pz .intro{font-size:18.5px;color:var(--ink2);max-width:56ch;margin-top:18px}
+[data-v="paper"] .row2{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+[data-v="paper"] .row2 .ph{min-height:460px}
+[data-v="paper"] .hero .w{padding-block:96px 120px}
+[data-v="paper"] .hero .ph{height:540px}
+[data-v="paper"] .hero h1{max-width:14ch}
+[data-v="paper"] .hero .acts{margin-top:28px}
+/* tabs */
+.tabs [role=tablist]{display:flex;gap:6px;flex-wrap:wrap}
+[data-v="paper"] .tabs [role=tab]{height:44px;padding:0 20px;border-radius:999px;font-weight:500;color:var(--n);background:var(--band);transition:background .25s,color .25s}
+[data-v="paper"] .tabs [role=tab]:hover{background:var(--tint)}
+[data-v="paper"] .tabs [role=tab][aria-selected=true]{background:var(--n);color:#fff}
+[role=tabpanel][hidden]{display:none}
+[data-v="paper"] .tabs [role=tabpanel]{animation:fadeup .5s var(--ease) both}
+@keyframes fadeup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+/* home: range tabs */
+[data-v="paper"] .range .top{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:40px}
+[data-v="paper"] .range .pnl{display:grid;grid-template-columns:1fr 2.4fr;gap:56px;align-items:start}
+[data-v="paper"] .range .pnl p{font-size:18px;max-width:30ch}
+[data-v="paper"] .range .pnl .lnk{display:inline-block;margin-top:20px}
+[data-v="paper"] .tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+[data-v="paper"] .tile{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:var(--n);font-weight:500;font-size:15.5px;line-height:1.35}
+[data-v="paper"] .tile .im{aspect-ratio:1/1;background:#fff;border-radius:var(--rad);display:flex;align-items:center;justify-content:center;padding:18px;overflow:hidden}
+[data-v="paper"] .tile .im img{max-height:100%;object-fit:contain;transition:transform .5s var(--ease)}
+[data-v="paper"] .tile:hover .im img{transform:scale(1.06)}
+/* partners strip */
+[data-v="paper"] .logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:48px}
+[data-v="paper"] .logo-t{display:flex;flex-direction:column;gap:18px;text-decoration:none;color:var(--ink2);font-size:15px}
+[data-v="paper"] .logo-t .lg{height:150px;border-radius:var(--rad);background:#fff;display:flex;align-items:center;justify-content:center;padding:28px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+[data-v="paper"] .band .logo-t .lg{background:#fff}
+[data-v="paper"] .pz:not(.band) .logo-t .lg{background:var(--band)}
+[data-v="paper"] .logo-t:hover .lg{transform:translateY(-3px);box-shadow:0 14px 36px rgba(27,20,100,.08)}
+[data-v="paper"] .logo-t img{max-height:72px;max-width:70%;width:auto;height:auto}
+[data-v="paper"] .logo-t b{display:block;color:var(--n);font-weight:500;font-size:16px}
+[data-v="paper"] .logo-t .lg.dk,[data-v="paper"] .pz:not(.band) .logo-t .lg.dk{background:var(--n)}
+[data-v="paper"] .brand .blogo.dk{background:var(--n);padding:12px 18px;border-radius:8px;height:72px}
+/* carousel */
+[data-v="paper"] .car .top{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px}
+[data-v="paper"] .car .ctl{display:flex;gap:8px;flex:none}
+[data-v="paper"] .car .ctl button{width:48px;height:48px;border-radius:50%;background:#fff;color:var(--n);display:flex;align-items:center;justify-content:center;transition:background .25s,opacity .25s,transform .25s var(--ease)}
+[data-v="paper"] .car .ctl button:hover:not(:disabled){background:var(--n);color:#fff}
+[data-v="paper"] .car .ctl button:disabled{opacity:.35;cursor:default}
+[data-v="paper"] .track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 32px)/2.4);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding-bottom:4px}
+[data-v="paper"] .track::-webkit-scrollbar{display:none}
+[data-v="paper"] .slide{scroll-snap-align:start;background:#fff;border-radius:var(--rad);overflow:hidden;display:flex;flex-direction:column}
+[data-v="paper"] .slide .ph{height:240px;border-radius:0}
+[data-v="paper"] .slide .in{padding:26px 28px 30px;display:flex;flex-direction:column;gap:14px;flex:1}
+[data-v="paper"] .slide q{font-size:19px;line-height:1.45;color:var(--n);quotes:none}
+[data-v="paper"] .slide .by{margin-top:auto;font-size:15px;color:var(--soft)}
+[data-v="paper"] .slide.note{background:var(--n);color:#fff;justify-content:flex-end;padding:32px}
+[data-v="paper"] .slide.note h3{color:#fff;font-size:24px;line-height:1.25}
+[data-v="paper"] .slide.note p{color:#D4D2EC;margin-top:12px;font-size:16px}
+[data-v="paper"] .slide.note .x{background:rgba(255,255,255,.14)}
+[data-v="paper"] .together{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:96px;align-items:start}
+[data-v="paper"] .together h3{font-size:26px;line-height:1.2}
+[data-v="paper"] .together p{font-size:17.5px}
+[data-v="paper"] .together p+p{margin-top:14px}
+/* Meatplus on home */
+[data-v="paper"] .mp2{padding-block:120px}
+[data-v="paper"] .mp2 .card2{display:grid;grid-template-columns:1.1fr 1fr;border-radius:16px;overflow:hidden;background:var(--band)}
+[data-v="paper"] .mp2 .txt{padding:64px 60px}
+[data-v="paper"] .mp2 .txt img{width:190px;height:auto;margin-bottom:36px}
+[data-v="paper"] .mp2 h2{font-size:clamp(28px,2.8vw,40px);line-height:1.15}
+[data-v="paper"] .mp2 p{margin-top:16px;max-width:44ch}
+[data-v="paper"] .mp2 .ph{border-radius:0;min-height:100%}
+[data-v="paper"] .mp2 .ol2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+[data-v="paper"] .mp2 .o{display:flex;flex-direction:column;gap:6px;padding:24px;border-radius:var(--rad);background:var(--band);text-decoration:none;color:var(--ink2);font-size:15.5px;transition:background .25s}
+[data-v="paper"] .mp2 .o:hover{background:var(--tint)}
+[data-v="paper"] .mp2 .o h3{font-size:18px}
+[data-v="paper"] .mp2 .acts{margin-top:32px}
+/* About: heritage */
+[data-v="paper"] .ab-top{padding-block:104px 72px}
+[data-v="paper"] .ab-top h1{font-size:clamp(40px,5vw,72px);line-height:1.02;max-width:16ch}
+[data-v="paper"] .ab-top p.intro{font-size:20px;max-width:52ch;margin-top:24px}
+[data-v="paper"] .tlx [role=tablist]{position:relative;display:flex;gap:0;justify-content:space-between;overflow-x:auto;scrollbar-width:none;padding-top:8px}
+[data-v="paper"] .tlx [role=tablist]::before{content:"";position:absolute;left:0;right:0;top:31px;height:2px;background:var(--tint)}
+[data-v="paper"] .tlx [role=tab]{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:14px;height:auto;padding:0 18px 0 0;background:none;border-radius:0;font-size:15px;color:var(--soft);min-width:96px;text-align:left}
+[data-v="paper"] .tlx [role=tab] .dot{width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 2px #C9CBD8;margin-top:17px;transition:all .3s var(--ease)}
+[data-v="paper"] .tlx [role=tab] b{font-size:22px;font-weight:500;color:var(--n);letter-spacing:-.02em}
+[data-v="paper"] .tlx [role=tab]:hover{background:none}
+[data-v="paper"] .tlx [role=tab][aria-selected=true]{background:none;color:var(--n)}
+[data-v="paper"] .tlx [role=tab][aria-selected=true] .dot{background:var(--r,#F03010);box-shadow:none;transform:scale(1.25)}
+[data-v="paper"] .tlx .pnl{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:56px}
+[data-v="paper"] .tlx .pnl p.yr{margin-top:0;max-width:none;font-size:clamp(64px,8vw,120px);line-height:1;font-weight:500;color:var(--n);letter-spacing:-.04em}
+[data-v="paper"] .tlx h3{font-size:28px;margin-top:14px}
+[data-v="paper"] .tlx .pnl p{margin-top:14px;font-size:18px;max-width:46ch}
+[data-v="paper"] .tlx .ph{min-height:420px}
+[data-v="paper"] .tlx .nav2{display:flex;gap:8px;margin-top:28px}
+[data-v="paper"] .tlx .nav2 button{height:44px;padding:0 18px;border-radius:999px;background:#fff;color:var(--n);font-weight:500}
+[data-v="paper"] .tlx .nav2 button:hover{background:var(--tint)}
+[data-v="paper"] .people{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+[data-v="paper"] .person{display:grid;grid-template-columns:160px 1fr;gap:28px;background:var(--band);border-radius:var(--rad);padding:28px}
+[data-v="paper"] .person .ph{aspect-ratio:4/5;align-items:center;justify-content:center;text-align:center;background:#fff}
+[data-v="paper"] .person h3{font-size:22px}
+[data-v="paper"] .person .role{color:var(--soft);font-size:15.5px;margin-top:2px}
+[data-v="paper"] .person p:not(.role){margin-top:14px;font-size:16px}
+[data-v="paper"] .owners{margin-top:24px;font-size:16px;color:var(--soft)}
+[data-v="paper"] .quote{font-size:clamp(24px,2.4vw,34px);line-height:1.3;color:var(--n);max-width:32ch;letter-spacing:-.015em}
+/* Brands page */
+[data-v="paper"] .brand:nth-child(even){background:var(--band)}
+[data-v="paper"] .brand .w{padding-block:96px;align-items:center}
+[data-v="paper"] .brand .blogo{height:64px;width:auto;max-width:220px;margin-bottom:28px;object-fit:contain;object-position:left center}
+[data-v="paper"] .brand .ph{min-height:380px}
+[data-v="paper"] .brand .btn{margin-top:32px}
+[data-v="paper"] .origins{background:var(--band)}
+[data-v="paper"] .origins .w{padding-block:72px}
+[data-v="paper"] .ltile{height:120px;border-radius:var(--rad);background:var(--band);display:flex;align-items:center;justify-content:center;padding:16px;text-align:center}
+[data-v="paper"] .lwall{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease,ease),transform .8s var(--ease,ease)}
+.rv.in{opacity:1;transform:none}
+#site>div{animation:pagein .45s ease both}
+@keyframes pagein{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  #site>div,[data-v="paper"] .tabs [role=tabpanel]{animation:none}
+  [data-v="paper"] *{transition:none!important}
+  [data-v="paper"] .track{scroll-behavior:auto}
+}
+@media (max-width:900px){
+  [data-v="paper"] .pz,[data-v="paper"] .mp2{padding-block:72px}
+  [data-v="paper"] .hero .w{padding-block:40px 64px}
+  [data-v="paper"] .hero .ph{height:260px}
+  [data-v="paper"] .row2,[data-v="paper"] .together,[data-v="paper"] .range .pnl,[data-v="paper"] .tlx .pnl,[data-v="paper"] .people,[data-v="paper"] .mp2 .card2{grid-template-columns:minmax(0,1fr);gap:28px}
+  [data-v="paper"] .row2 .ph,[data-v="paper"] .tlx .ph{min-height:260px}
+  [data-v="paper"] .tiles{grid-template-columns:1fr 1fr;gap:12px}
+  [data-v="paper"] .logos,[data-v="paper"] .mp2 .ol2{grid-template-columns:minmax(0,1fr)}
+  [data-v="paper"] .logo-t .lg{height:120px}
+  [data-v="paper"] .track{grid-auto-columns:86%}
+  [data-v="paper"] .car .top{flex-direction:column;align-items:flex-start}
+  [data-v="paper"] .together{margin-top:64px}
+  [data-v="paper"] .mp2 .txt{padding:36px 24px}
+  [data-v="paper"] .mp2 .ph{min-height:240px}
+  [data-v="paper"] .tlx [role=tablist]{justify-content:flex-start}
+  [data-v="paper"] .tlx [role=tab]{min-width:84px}
+  [data-v="paper"] .person{grid-template-columns:96px 1fr;gap:18px;padding:20px}
+  [data-v="paper"] .ab-top{padding-block:56px 40px}
+  [data-v="paper"] .brand .w{padding-block:56px}
+  [data-v="paper"] .brand .ph{min-height:220px}
+  [data-v="paper"] .lwall{grid-template-columns:1fr 1fr}
+}
+
+/* =====================================================================
+   6 · ROUND 2   sticky glass header, distinct sections, richer controls
+   ===================================================================== */
+#bar{position:relative}
+[data-v="paper"] .hd{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.72);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);transition:box-shadow .3s var(--ease),background .3s}
+[data-v="paper"] .hd.scd{background:rgba(255,255,255,.84);box-shadow:0 1px 0 rgba(27,20,100,.06),0 8px 30px rgba(27,20,100,.06)}
+[data-v="paper"] .hd .w{height:76px}
+@media (max-width:1180px){[data-v="paper"] .hd nav{display:none}}
+@media (min-width:1181px){[data-v="paper"] .hd nav{display:flex}[data-v="paper"] .hd .menu{display:none}}
+/* type: small caps eyebrows, display numbers */
+[data-v="paper"] .eyebrow,[data-v="paper"] .sc{display:block;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:18px}
+[data-v="paper"] small.sc{margin-bottom:6px;font-size:11px}
+[data-v="paper"] .hero h1{font-size:clamp(40px,4.6vw,66px);max-width:16ch}
+[data-v="paper"] .hero .who{max-width:44ch}
+[data-v="paper"] .top2{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+/* stats */
+[data-v="paper"] .stats .w{padding-block:24px 112px}
+[data-v="paper"] .nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px}
+[data-v="paper"] .nums b{display:block;font-size:clamp(56px,6.4vw,96px);line-height:1;font-weight:500;letter-spacing:-.045em;color:var(--n);font-variant-numeric:tabular-nums}
+[data-v="paper"] .nums span{display:block;margin-top:14px;font-size:15.5px;color:var(--soft);max-width:22ch}
+[data-v="paper"] .nums li:first-child b{color:var(--r,#F03010)}
+/* dark navy section */
+[data-v="paper"] .dark{background:var(--n);color:#D9D7EF;padding-block:120px}
+[data-v="paper"] .dark h2,[data-v="paper"] .dark h3{color:#fff}
+[data-v="paper"] .dark h2{font-size:clamp(30px,3vw,44px);line-height:1.12;max-width:20ch}
+[data-v="paper"] .dark .eyebrow,[data-v="paper"] .dark .sc{color:#A9A5D6}
+[data-v="paper"] .dark .intro{color:#D9D7EF}
+[data-v="paper"] .dark .lnk{color:#fff}
+[data-v="paper"] .dark .x{background:rgba(255,255,255,.14);color:#fff}
+[data-v="paper"] .dark .row2 .ph{min-height:520px}
+/* segmented tabs with moving indicator */
+[data-v="paper"] .tabs.seg [role=tablist]{position:relative;display:inline-flex;gap:0;padding:5px;border-radius:999px;background:#fff;box-shadow:0 1px 2px rgba(27,20,100,.05);margin-bottom:40px;flex-wrap:nowrap}
+[data-v="paper"] .tabs.seg [role=tab]{position:relative;z-index:1;background:none;height:44px;padding:0 26px;transition:color .3s}
+[data-v="paper"] .tabs.seg [role=tab]:hover{background:none;color:var(--n)}
+[data-v="paper"] .tabs.seg [role=tab][aria-selected=true]{background:none;color:#fff}
+[data-v="paper"] .tabs .ind{position:absolute;z-index:0;top:5px;bottom:5px;left:0;width:0;border-radius:999px;background:var(--n);transition:transform .45s var(--ease),width .45s var(--ease)}
+[data-v="paper"] .range .top{margin-bottom:28px}
+[data-v="paper"] .tile .im{background:#fff}
+[data-v="paper"] .tile .tb2 small{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600}
+/* full-bleed photo with overlapping panel (Arena: webstudy D) */
+[data-v="paper"] .ovl{padding-bottom:120px}
+[data-v="paper"] .ovl-img .ph{border-radius:0;height:clamp(360px,46vw,640px)}
+[data-v="paper"] .ovl-img .ph.pic::after{display:none}
+[data-v="paper"] .ovl-p{position:relative;background:#fff;max-width:720px;margin-top:calc(-1*clamp(120px,12vw,200px));padding:56px 56px 0 0}
+[data-v="paper"] .ovl-p::before{content:"";position:absolute;top:0;bottom:0;right:100%;width:100vw;background:#fff}
+[data-v="paper"] .ovl-p h2{font-size:clamp(30px,3vw,44px);line-height:1.12}
+[data-v="paper"] .ovl-p .facts{margin-top:28px}
+/* carousel progress */
+[data-v="paper"] .car .prog{position:relative;height:2px;background:var(--tint);margin-top:32px;border-radius:2px;overflow:hidden}
+[data-v="paper"] .car .prog i{position:absolute;left:0;top:0;bottom:0;background:var(--n);width:0;transition:width .35s var(--ease)}
+[data-v="paper"] .car .cnt{font-size:14px;color:var(--soft);font-variant-numeric:tabular-nums;margin-right:8px;align-self:center}
+[data-v="paper"] .pz:not(.band) .slide{background:var(--band)}
+[data-v="paper"] .pz:not(.band) .car .ctl button{background:var(--band)}
+[data-v="paper"] .track{grid-auto-columns:calc((100% - 32px)/3)}
+/* partners grid */
+[data-v="paper"] .logo-t b{margin-top:2px}
+[data-v="paper"] .band .logo-t .lg{background:#fff}
+/* Meatplus: deep green and amber */
+[data-v="paper"] .mpg{--g:#123F2C;--am:#F5A623;position:relative;overflow:hidden;background:#EEF4EF;color:#2F4A3C;padding-block:120px}
+[data-v="paper"] .mpg-mark{position:absolute;right:-90px;top:-90px;width:300px;height:300px;opacity:.9;pointer-events:none}
+[data-v="paper"] .mpg .w{position:relative}
+[data-v="paper"] .mpg-in{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center}
+[data-v="paper"] .mpg-logo{width:220px;height:auto;margin-bottom:36px}
+[data-v="paper"] .mpg h2{color:var(--g);font-size:clamp(30px,3vw,44px);line-height:1.12;max-width:18ch}
+[data-v="paper"] .mpg p{margin-top:16px;max-width:46ch}
+[data-v="paper"] .mpg .acts{margin-top:32px}
+[data-v="paper"] .mpg .ph{min-height:420px}
+[data-v="paper"] .mpg .x{background:rgba(18,63,44,.08);color:var(--g)}
+[data-v="paper"] .btn.amb{background:var(--am);border-color:var(--am);color:var(--g)}
+[data-v="paper"] .mpg-ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:56px}
+[data-v="paper"] .mpg .o{display:flex;flex-direction:column;gap:6px;padding:26px;border-radius:var(--rad);background:#fff;text-decoration:none;color:#2F4A3C;font-size:15.5px;transition:background .25s,transform .35s var(--ease)}
+[data-v="paper"] .mpg .o:hover{box-shadow:0 14px 36px rgba(18,63,44,.10);transform:translateY(-3px)}
+[data-v="paper"] .mpg .o h3{color:var(--g);font-size:18px}
+[data-v="paper"] .mpg .o .sc{color:#A86A00}
+[data-v="paper"] .mpg .o .open{margin-top:8px;color:#A86A00}
+[data-v="paper"] .outlet img{height:44px;width:auto}
+[data-v="paper"] .mprow img{width:92px}
+[data-v="paper"] .mpo-logo{width:180px;height:auto;margin-bottom:24px}
+[data-v="paper"] .mpo h2{color:#123F2C}
+[data-v="paper"] .mpo .oc{background:#F1F6F2}
+[data-v="paper"] .mpo .oc .sc{color:#123F2C}
+[data-v="paper"] .mpo .olist{margin-top:40px}
+[data-v="paper"] .ft .mpf{width:150px;margin-top:22px}
+/* About: scroll story (Arena: webstudy A) */
+[data-v="paper"] .story{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,5vw,96px);margin-top:24px}
+[data-v="paper"] .st-pics{position:sticky;top:110px;height:min(calc(100vh - 170px),560px);align-self:start}
+[data-v="paper"] .spic{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .7s var(--ease)}
+[data-v="paper"] .spic.on{opacity:1}
+[data-v="paper"] .spic .ph{height:100%}
+[data-v="paper"] .chap{min-height:min(70vh,560px);display:grid;align-content:center;gap:14px;padding-block:40px}
+[data-v="paper"] .chap h3{font-size:clamp(26px,2.4vw,34px);line-height:1.15}
+[data-v="paper"] .chap p{font-size:17.5px;max-width:42ch}
+[data-v="paper"] .chap-m{display:none}
+/* About: horizontal timeline track (Arena: webstudy B) */
+[data-v="paper"] .trk-s{--ty:clamp(56px,6vw,88px)}
+[data-v="paper"] .trk-h{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px}
+[data-v="paper"] .trk-h h2{margin:0}
+[data-v="paper"] .trk-ctl{display:flex;gap:10px}
+[data-v="paper"] .tb{width:52px;height:52px;border-radius:50%;background:var(--band);color:var(--n);display:flex;align-items:center;justify-content:center;transition:background .25s,color .25s}
+[data-v="paper"] .tb:hover{background:var(--n);color:#fff}
+[data-v="paper"] .trk{list-style:none;margin:0;display:grid;grid-auto-flow:column;grid-auto-columns:clamp(240px,22vw,300px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;padding:0 max(var(--pad),calc((100vw - 1240px)/2)) 8px;scroll-padding-inline:max(var(--pad),calc((100vw - 1240px)/2));scroll-behavior:smooth}
+[data-v="paper"] .trk::-webkit-scrollbar{display:none}
+[data-v="paper"] .trk li{scroll-snap-align:start;display:grid;gap:14px;align-content:start;justify-items:start;padding-right:32px;position:relative}
+[data-v="paper"] .trk li::before{content:"";position:absolute;left:52px;right:0;top:calc(var(--ty) + 14px + 22px);height:1px;background:#D5D7E0}
+[data-v="paper"] .trk li:last-child::before{display:none}
+[data-v="paper"] .trk .ty{font-size:var(--ty);line-height:1;height:var(--ty);font-weight:500;letter-spacing:-.045em;color:var(--n);white-space:nowrap}
+[data-v="paper"] .trk .ty .x{font-size:.3em;letter-spacing:0;vertical-align:middle}
+[data-v="paper"] .trk .ic{width:44px;height:44px;border-radius:50%;background:var(--band);display:flex;align-items:center;justify-content:center;color:var(--n);transition:background .3s,color .3s,transform .3s var(--ease)}
+[data-v="paper"] .trk .ic svg{width:20px;height:20px}
+[data-v="paper"] .trk li:hover .ic{background:var(--n);color:#fff;transform:scale(1.06)}
+[data-v="paper"] .trk li.now .ic{background:var(--r,#F03010);color:#fff}
+[data-v="paper"] .trk .nm{font-weight:500;color:var(--n);font-size:18px;line-height:1.3}
+[data-v="paper"] .trk p{font-size:15px;color:var(--soft);max-width:24em}
+/* people + accordion */
+[data-v="paper"] .people2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px}
+[data-v="paper"] .person2{display:grid;grid-template-columns:150px 1fr;gap:28px;background:rgba(255,255,255,.06);border-radius:14px;padding:28px}
+[data-v="paper"] .person2 .ph{aspect-ratio:4/5;align-items:center;justify-content:center;background:rgba(255,255,255,.08);color:#D9D7EF}
+[data-v="paper"] .person2 h3{font-size:24px}
+[data-v="paper"] .person2 .role{color:#A9A5D6;font-size:15.5px}
+[data-v="paper"] .person2 p:not(.role){margin-top:12px;font-size:16px}
+[data-v="paper"] .dark .owners{color:#A9A5D6;margin-top:32px}
+[data-v="paper"] .acc{margin-top:18px}
+[data-v="paper"] .acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:500;font-size:15.5px;padding:12px 0;color:inherit}
+[data-v="paper"] .dark .acc summary{color:#fff}
+[data-v="paper"] .acc summary::-webkit-details-marker{display:none}
+[data-v="paper"] .acc summary::after{content:"";width:12px;height:12px;flex:none;background:linear-gradient(currentColor,currentColor) center/12px 1.5px no-repeat,linear-gradient(currentColor,currentColor) center/1.5px 12px no-repeat;transition:transform .3s var(--ease)}
+[data-v="paper"] .acc[open] summary::after{transform:rotate(45deg)}
+[data-v="paper"] .acc[open]>div{animation:fadeup .4s var(--ease) both}
+[data-v="paper"] .acc p{font-size:15.5px}
+[data-v="paper"] .oc .acc{margin-top:0;color:var(--n)}
+[data-v="paper"] .ab-top h1{max-width:20ch}
+[data-v="paper"] .band .ph:not(.pic){background:#fff}
+[data-v="paper"] .mpo .oc .ph{background:#E3EDE6}
+/* stagger children in revealed grids */
+.rv .nums li,.rv .logo-t,.rv .tile{transition:opacity .7s var(--ease,ease),transform .7s var(--ease,ease)}
+.nums li:nth-child(2),.logo-t:nth-child(2){transition-delay:.08s}.nums li:nth-child(3),.logo-t:nth-child(3){transition-delay:.16s}.nums li:nth-child(4){transition-delay:.24s}
+.rv:not(.in) .nums li,.rv:not(.in) .logo-t{opacity:0;transform:translateY(14px)}
+@media (prefers-reduced-motion:reduce){.rv:not(.in) .nums li,.rv:not(.in) .logo-t{opacity:1;transform:none}[data-v="paper"] .trk{scroll-behavior:auto}}
+@media (max-width:900px){
+  [data-v="paper"] .hd .w{height:64px}
+  [data-v="paper"] .nums{grid-template-columns:1fr 1fr;gap:32px 20px}
+  [data-v="paper"] .stats .w{padding-block:8px 72px}
+  [data-v="paper"] .dark,[data-v="paper"] .mpg{padding-block:72px}
+  [data-v="paper"] .dark .row2 .ph{min-height:280px}
+  [data-v="paper"] .tabs.seg [role=tablist]{display:flex;width:100%}
+  [data-v="paper"] .tabs.seg [role=tab]{flex:1;padding:0 8px}
+  [data-v="paper"] .ovl{padding-bottom:72px}
+  [data-v="paper"] .ovl-p{margin-top:-56px;padding:32px 20px 0 0}
+  [data-v="paper"] .track{grid-auto-columns:86%}
+  [data-v="paper"] .mpg-in{grid-template-columns:minmax(0,1fr);gap:32px}
+  [data-v="paper"] .mpg .ph{min-height:240px}
+  [data-v="paper"] .mpg-mark{width:180px;height:180px;right:-60px;top:-60px}
+  [data-v="paper"] .mpg-logo{width:170px}
+  [data-v="paper"] .mpg-ol,[data-v="paper"] .people2{grid-template-columns:minmax(0,1fr)}
+  [data-v="paper"] .story{grid-template-columns:minmax(0,1fr)}
+  [data-v="paper"] .st-pics{display:none}
+  [data-v="paper"] .chap{min-height:0;padding-block:20px}
+  [data-v="paper"] .chap-m{display:block}[data-v="paper"] .chap-m .ph{height:220px}
+  [data-v="paper"] .trk{grid-auto-columns:240px}
+  [data-v="paper"] .trk-h{flex-wrap:wrap}
+  [data-v="paper"] .person2{grid-template-columns:minmax(0,1fr);padding:22px}
+  [data-v="paper"] .person2 .ph{aspect-ratio:auto;height:120px;width:96px}
+}
+
+/* =====================================================================
+   7 · ROUND 3   icons, Products hero with Meatplus, pinned timeline
+   ===================================================================== */
+[data-v="paper"] .ic{width:44px;height:44px;border-radius:50%;background:var(--tint);color:var(--n);display:inline-flex;align-items:center;justify-content:center;flex:none}
+[data-v="paper"] .ic svg{width:20px;height:20px}
+[data-v="paper"] .ic.lg{width:56px;height:56px}[data-v="paper"] .ic.lg svg{width:24px;height:24px}
+[data-v="paper"] .ic.sm{width:30px;height:30px}[data-v="paper"] .ic.sm svg{width:16px;height:16px}
+[data-v="paper"] .fi{display:inline-flex;align-items:center;gap:10px}
+[data-v="final"] .facts>div{align-items:center}
+[data-v="final"] .steps li::before{display:none}
+[data-v="final"] .steps .ic{margin-bottom:20px}
+[data-v="paper"] .nums .ic{margin-bottom:22px}
+[data-v="paper"] .dark .ic{background:rgba(255,255,255,.1);color:#fff}
+[data-v="paper"] .tabs.seg [role=tab]{display:inline-flex;align-items:center;gap:8px}
+[data-v="paper"] .tabs.seg [role=tab] svg{width:17px;height:17px}
+/* Products hero: trade left, Meatplus right */
+[data-v="paper"] .phero{background:var(--band)}
+[data-v="paper"] .phero .w{display:grid;grid-template-columns:1.6fr 1fr;gap:48px;align-items:stretch;padding-block:64px 56px}
+[data-v="paper"] .phero h1{font-size:clamp(44px,5vw,64px);line-height:1}
+[data-v="paper"] .phero .pintro{margin:18px 0 28px;font-size:18px;max-width:48ch}
+[data-v="paper"] .ptitle{display:flex;align-items:center;gap:28px;flex-wrap:wrap}[data-v="paper"] .ptitle h1{margin:0}[data-v="paper"] .pbar{width:1px;align-self:stretch;min-height:56px;background:#C9CBD8}[data-v="paper"] .pmpl{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:#4E6B5B;transition:transform .3s var(--ease)}[data-v="paper"] .pmpl:hover{transform:translateY(-2px)}[data-v="paper"] .pmpl small{font-size:12px;letter-spacing:.12em;text-transform:uppercase}[data-v="paper"] .pmpl img{height:64px;width:auto}[data-v="paper"] .phero .pr{align-self:end}
+[data-v="paper"] span.ic.ic{display:inline-flex;margin-top:0;max-width:none}
+[data-v="paper"] .pmp{background:#EEF4EF;border-radius:16px;padding:32px;display:flex;flex-direction:column;align-items:flex-start;color:#2E4A3B}
+[data-v="paper"] .pmp img{width:150px;height:auto;margin-bottom:22px}
+[data-v="paper"] .pmp .eyebrow{color:#4E6B5B;margin-bottom:8px}
+[data-v="paper"] .pmp h2{color:#123F2C;font-size:26px;line-height:1.2}
+[data-v="paper"] .pmp p{margin-top:8px;font-size:16px}
+[data-v="paper"] .pmp .lnk{color:#123F2C;margin-top:auto;padding-top:20px;background-position:0 100%}
+/* footer Meatplus tile */
+[data-v="paper"] .ft .mpf{display:inline-flex;align-items:center;margin-top:24px;padding:10px 16px;border-radius:12px;background:#EEF4EF;width:auto}
+[data-v="paper"] .ft .mpf img{width:120px;height:auto}
+/* pinned timeline */
+[data-v="paper"] .trk-pin.pinned .trk-st{position:sticky;top:76px;padding-block:24px 16px}
+[data-v="paper"] .trk-pin.pinned .trk{scroll-snap-type:none;scroll-behavior:auto;cursor:default}
+[data-v="paper"] .trk li .ty,[data-v="paper"] .trk li .nm,[data-v="paper"] .trk li p{transition:color .35s,opacity .35s}
+[data-v="paper"] .trk li:not(.on) .ty{color:#C9CBD8}
+[data-v="paper"] .trk li.on .ic{background:var(--n);color:#fff;transform:scale(1.08)}
+[data-v="paper"] .trk li.now.on .ic{background:var(--r,#F03010)}
+[data-v="paper"] .trk li.now:not(.on) .ic{background:var(--tint);color:var(--n)}
+[data-v="paper"] .trk .ic{background:var(--tint)}
+@media (max-width:900px){
+  [data-v="paper"] .phero .w{grid-template-columns:minmax(0,1fr);gap:24px;padding-block:40px}
+  [data-v="paper"] .pmp{padding:24px}
+}
+
+/* scroll story: slide leads, opacity follows; clipped in the rounded frame */
+[data-v="paper"] .st-pics{overflow:hidden;border-radius:var(--rad)}
+[data-v="paper"] .spic{opacity:0;transform:translateY(10%) scale(1.02);transition:transform .75s var(--ease),opacity .55s var(--ease) .15s}
+[data-v="paper"] .spic.before{transform:translateY(-10%) scale(1.04)}
+[data-v="paper"] .spic.on{opacity:1;transform:none;transition:transform .75s var(--ease),opacity .55s var(--ease) .1s;z-index:1}
+[data-v="paper"] .spic .ph{border-radius:0}
+@media (prefers-reduced-motion:reduce){[data-v="paper"] .spic,[data-v="paper"] .spic.before,[data-v="paper"] .spic.on{transform:none;transition:opacity .4s!important}}
 </style>
 </head>
 <body>
 <nav id="bar" aria-label="Variant switcher">
-  <div class="grp"><a class="back" href="../index.html#looks">&larr; Back to the presentation</a></div>
+  <div class="grp"><a class="back" href="../index.html#looks">&larr; Back to the presentation</a><a class="back" href="meatplus/index.html">Meatplus logo concepts &rarr;</a></div>
   <div class="grp"><span class="lbl">Page</span>
-    <a data-set-p="home" href="#">Home</a><a data-set-p="products" href="#">Products</a><a data-set-p="brands" href="#">Brands</a><a data-set-p="trade" href="#">For Trade</a><a data-set-p="about" href="#">About</a><a data-set-p="contact" href="#">Contact</a><a data-set-p="outlets" href="#">Meatplus outlets</a><a data-set-p="product" href="#">Product</a></div>
+    <a data-set-p="home" href="#">Home</a><a data-set-p="products" href="#">Products</a><a data-set-p="brands" href="#">Brands</a><a data-set-p="trade" href="#">For Trade</a><a data-set-p="about" href="#">About</a><a data-set-p="contact" href="#">Contact</a><a data-set-p="product" href="#">Product</a></div>
   <span class="note">Items in [brackets] are content to come from Sealink. Product photos are Emborg pack shots; other photos are sample stock images.</span>
 </nav>
 <div id="site"></div>
@@ -406,11 +825,11 @@ body.bare #bar{display:none}
 <script>
 /* ---------- Content ---------- */
 const IMG='products/';
-const LOGO='assets/sealink-logo-trace.svg', LOGO_W='assets/sealink-logo-trace-white.svg', MP='assets/meatplus-foods-logo-full.png';
+const LOGO='assets/sealink-logo-trace.svg', LOGO_W='assets/sealink-logo-trace-white.svg', MP='meatplus/svg/foods-regular-light.svg', MP_D='meatplus/svg/foods-regular-dark.svg', MP_M='meatplus/svg/amber-mark.svg';
 const PARTNERS=[
-  {name:'Emborg',maker:'Uhrenholt',country:'Denmark',role:'Sole distributor since 2006',lines:'Butter, cheese, cream, frozen vegetables, frozen fruit, UHT milk, yogurt'},
-  {name:'Sumich',country:'Australia',role:'Partner since 2004',lines:'Carrots and other vegetables'},
-  {name:'IOEC',country:'South Africa',role:'Partner since 1998',lines:'Apples and oranges'},
+  {name:'Emborg',logo:'emborg.svg',maker:'Uhrenholt',country:'Denmark',role:'Sole distributor since 2006',lines:'Butter, cheese, cream, frozen vegetables, frozen fruit, UHT milk, yogurt'},
+  {name:'Sumich',logo:'sumich.png',country:'Australia',role:'Sole distributor, partner since 2004',lines:'Carrots and other vegetables'},
+  {name:'IOEC',logo:'ioec.png',dark:1,country:'South Africa',role:'Partner since 1998',lines:'Apples and oranges'},
 ];
 const CATS=['Cheese','Butter and cream','Milk and yogurt','Frozen vegetables','Frozen fruit','Plant-based','Fish and sausages','Fresh produce'];
 /* Emborg range from the client name list. Pack shots from emborg.com where available. */
@@ -522,53 +941,115 @@ const ICO_S='<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentCol
 /* L(page): href to another page, keeping the current look (CUR is set by render) */
 let CUR={v:'final',p:'home',bare:false};
 const L=(p,extra='')=>`href="#v=${CUR.v}&p=${p}${extra}${CUR.bare?'&bare':''}"`;
+/* Nav from the Novas proposal sitemap. Outlets live on Contact Us; Careers is left out of the nav. */
+const NAV=[['Our Brands','brands'],['Products','products'],['HORECA','trade'],['About Us','about'],['Contact Us','contact']];
 const header=(V,P)=>`<header class="hd"><div class="w">
   <a class="logo" ${L('home')}><img src="${LOGO}" alt="Sealink Pvt Ltd, home"></a>
-  <nav aria-label="Main">${[['Products','products'],['Brands','brands'],['For Trade','trade'],['About','about']].map(([n,k])=>`<a ${L(k)}${k===P?' aria-current="page"':''}>${n}</a>`).join('')}</nav>
-  <div class="side"><a class="hm" ${L('products')}>${ICO_S}Search</a><a class="hm" ${L('contact')}>WhatsApp</a><a class="btn" ${L('trade')}>Request a quote</a><button class="menu" type="button">Menu</button></div>
+  <nav aria-label="Main" id="mainnav">${NAV.map(([n,k,id])=>`<a ${L(k)}${(id||k)===P?' aria-current="page"':''}>${n}</a>`).join('')}</nav>
+  <div class="side"><a class="hm" ${L('products')}>${ICO_S}Search</a><a class="btn" ${L('trade')}>Request a quote</a><button class="menu" type="button" aria-expanded="false" aria-controls="mainnav">Menu</button></div>
 </div></header>`;
 const search=(V,ph)=>`<form class="search" role="search" onsubmit="return false"><label class="q">${ICO_S}<span>${ph}</span></label><button class="go" type="button">Search</button></form>`;
 const stg=(name,on,V,sub)=>{
-  return `<a class="stg${on?' on':''}" href="#">${name==='All'?'':A('ta')}${name}</a>`;
+  return `<a class="stg${on?' on':''}" href="#">${name}</a>`;
 };
 const shortcuts=V=>`<div class="short"><span class="lb">Browse:</span>${['Frozen','Chilled','Fresh'].map(s=>stg(s,0,V)).join('')}</div>`;
-const sh=(t,tag='h2')=>`<div class="sh">${A('mk')}<${tag}>${t}</${tag}></div>`;
-const outlet=V=>`<div class="outlet"><div class="w"><img src="${MP}" alt="Meatplus Foods"><span>Shopping for home? Visit a Meatplus outlet in Malé.</span><span>Open today ${x('[HOURS TODAY]')}</span><a class="lnk" ${L('outlets')}>Find an outlet</a></div></div>`;
+const sh=(t,tag='h2')=>`<div class="sh"><${tag}>${t}</${tag}></div>`;
+const lg=p=>`assets/brands/${p.logo}`;
+const ARR=d=>`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="${d?'M5 12h14m-6-6 6 6-6 6':'M19 12H5m6-6-6 6 6 6'}"/></svg>`;
+/* tabs: buttons + panels, wired by the delegated handler at the bottom */
+const tabs=(id,label,items,cls='')=>`<div class="tabs ${cls}"><div role="tablist" aria-label="${label}">${cls==='seg'?'<span class="ind" aria-hidden="true"></span>':''}${items.map((t,i)=>`<button role="tab" id="${id}-t${i}" aria-controls="${id}-p${i}" aria-selected="${i===0}" tabindex="${i===0?0:-1}" type="button">${t.tab}</button>`).join('')}</div>
+  ${items.map((t,i)=>`<div role="tabpanel" id="${id}-p${i}" aria-labelledby="${id}-t${i}" tabindex="0"${i?' hidden':''}>${t.body}</div>`).join('')}</div>`;
+const carousel=(label,head,slides)=>`<div class="car" role="region" aria-roledescription="carousel" aria-label="${label}"><div class="top">${head}<div class="ctl"><span class="cnt" aria-live="polite"></span><button type="button" class="prev" aria-label="Previous">${ARR(0)}</button><button type="button" class="next" aria-label="Next">${ARR(1)}</button></div></div>
+  <div class="track" tabindex="0" aria-label="${label}, scroll sideways">${slides.join('')}</div><div class="prog" aria-hidden="true"><i></i></div></div>`;
+const outlet=V=>`<div class="outlet"><div class="w"><img src="${MP}" alt="Meatplus Foods"><span>Shopping for home? Visit a Meatplus outlet in Malé.</span><span>Open today ${x('[HOURS TODAY]')}</span><a class="lnk" ${L('contact','&to=outlets')}>Find an outlet</a></div></div>`;
 const meatplus=V=>`<section class="mps" aria-labelledby="mps-h"><div class="w">
   <div class="txt"><img class="mplogo" src="${MP}" alt="Meatplus Foods">
     <h2 id="mps-h">Buying for home? Shop at Meatplus Foods.</h2>
     <p>Meatplus Foods is Sealink’s retail brand, with shops in Malé. Anyone can walk in and buy for home.</p>
     <p>${x('[OUTLET RANGE: what the outlets sell]')}</p>
-    <a class="lnk" ${L('outlets')}>See all outlets</a></div>
-  <div class="ol">${[1,2,3].map(n=>`<a class="o" ${L('outlets')}><h3>${x(`[OUTLET ${n} NAME]`)}</h3><span>${x('[AREA, MALÉ]')}</span><span>Open today ${x('[HOURS TODAY]')}</span><span class="go">Address and hours</span></a>`).join('')}</div>
+    <a class="lnk" ${L('contact','&to=outlets')}>See all outlets</a></div>
+  <div class="ol">${[1,2,3].map(n=>`<a class="o" ${L('contact','&to=outlets')}><h3>${x(`[OUTLET ${n} NAME]`)}</h3><span>${x('[AREA, MALÉ]')}</span><span>Open today ${x('[HOURS TODAY]')}</span><span class="go">Address and hours</span></a>`).join('')}</div>
 </div></section>`;
 const footer=V=>`<footer class="ft"><div class="w"><div class="cols">
-  <div><img src="${LOGO_W}" alt="Sealink Pvt Ltd"><p style="margin-top:22px">Head office<br>G. Fanas, 5th floor, Ameenee Magu, Malé</p></div>
+  <div><img src="${LOGO_W}" alt="Sealink Pvt Ltd"><p style="margin-top:22px">Head office<br>G. Fanas, 5th floor, Ameenee Magu, Malé</p><span class="mpf"><img src="${MP}" alt="Meatplus Foods, our retail brand"></span></div>
   <div><h4>Contact</h4><p>+960 333 2933<br>WhatsApp ${x('[NUMBER]')}<br>Viber ${x('[NUMBER]')}</p></div>
-  <div><h4>Sealink</h4><ul><li><a ${L('outlets')}>Meatplus outlets</a></li><li><a ${L('contact')}>Contact</a></li><li><a href="#">Careers</a></li><li><a href="#">Legal</a></li></ul></div>
+  <div><h4>Sealink</h4><ul><li><a ${L('contact','&to=outlets')}>Meatplus outlets</a></li><li><a ${L('contact')}>Contact</a></li><li><a href="#">Legal</a></li></ul></div>
 </div></div></footer>`;
 
 /* ---------- Pages ---------- */
 function home(V){
-  const whyRows = PARTNERS.map(p=>`<div class="row"><h3>${p.name}</h3><span class="c">${p.country}</span><span class="r">${p.role}</span></div>`).join('')
-   + `<div class="row"><h3>Own cold store in Malé</h3><span class="c">${x('[CAPACITY]')}</span><span class="r">${x('[TEMPERATURE ZONES]')}</span></div>`
-   + `<div class="row"><h3>Halal and delivery</h3><span class="c">${x('[HALAL CERTIFICATE]')}</span><span class="r">${x('[DELIVERY: atolls served]')}</span></div>`;
-  const whyHead = sh('Why kitchens buy from Sealink');
-  const why = `<section class="why blk"><div class="w"><div>${whyHead}<a class="lnk more" ${L('brands')}>See all brands</a></div><div class="rows">${whyRows}</div></div></section>`;
   const hero = `<section class="hero"><div class="w"><div>
-        <h1>Fresh, chilled and frozen food, kept cold since 1994.</h1>
-        <p class="who">Supplying resorts, hotels and restaurants across the Maldives.</p>
-        ${search(V,'Search products, brands or codes')}${shortcuts(V)}
-        <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('contact')}>WhatsApp us</a></div>
-        <p class="mpline">Shopping for home? <a class="lnk" ${L('outlets')}>Visit a Meatplus outlet</a></p>
+        <p class="eyebrow">Sealink Pvt Ltd · Family owned · Malé</p>
+        <h1>A family business bringing food to the Maldives since 1994.</h1>
+        <p class="who">Sealink began as a small family business in Malé, and it is still family owned. We import fresh, chilled and frozen food for resorts, hotels and restaurants, and for home shoppers at Meatplus in Malé.</p>
+        ${search(V,'Search products, brands or codes')}
+        <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('about')}>Our family story</a></div>
       </div>${pic(...HERO[V])}</div></section>`;
-  const cats = `<section class="blk"><div class="w">${sh('Browse by category')}<div class="cats">${CATS.map(c=>`<a class="cat" ${L('products')}>${c}</a>`).join('')}</div></div></section>`;
-  const tradeBand = `<section class="trade">${A('crop')}<div class="w"><h2>Supplying a resort or restaurant? Send us your list and we reply with prices.</h2>
+  /* big numbers: all from the company profile */
+  const stats = `<section class="stats"><div class="w"><ul class="nums">
+     <li>${ic('house','lg')}<b>1994</b><span>The year the family started Sealink</span></li>
+     <li>${ic('users','lg')}<b>6</b><span>Family shareholders</span></li>
+     <li>${ic('user','lg')}<b>2</b><span>Family directors run the company day to day</span></li>
+     <li>${ic('globe','lg')}<b>1998</b><span>Our oldest partnership, with IOEC of South Africa</span></li>
+   </ul></div></section>`;
+  /* family: dark navy split */
+  const family = `<section class="dark"><div class="w row2">
+     <div><p class="eyebrow">The family</p>
+       <h2>Still owned and run by the family.</h2>
+       <p class="intro">Sealink has been in the same family since 1994. Family members own the company and run it day to day.</p>
+       <p class="intro">Some of our suppliers have worked with us for more than 25 years.</p>
+       <p style="margin-top:32px"><a class="lnk" ${L('about')}>Read the family story</a></p></div>
+     ${pic('warehouse-team','warehouse team at work','50% 55%')}
+   </div></section>`;
+  /* range: segmented tabs with a moving indicator, then a card grid */
+  const pick=(st,names)=>names.map(n=>PRODUCTS.find(p=>p.st===st&&p.name.startsWith(n))).filter(Boolean);
+  const tile=p=>`<a class="tile" ${L('product','&i='+PRODUCTS.indexOf(p))}><span class="im"><img src="${pimg(p)}" alt="" loading="lazy"></span><span class="tb2"><small>${p.brand}</small>${p.name.split(',')[0]}</span></a>`;
+  const RANGE=[
+    {tab:`${svgi('snow')}Frozen`,k:'Frozen',txt:'French fries, mixed vegetables, sweet corn, green peas, broccoli mix and strawberries from Emborg.',ps:pick('Frozen',['French Fries, straight','Mixed Vegetables','Sweet Corn','Strawberries'])},
+    {tab:`${svgi('drop')}Chilled`,k:'Chilled',txt:'Butter, cheese, cooking and whipping cream, UHT milk and yogurt from Emborg.',ps:pick('Chilled',['Butter, unsalted','Mozzarella, shredded','Whipping Cream','Yogurt'])},
+    {tab:`${svgi('leaf')}Fresh`,k:'Fresh',txt:'Australian carrots from Sumich, and apples and oranges from South Africa, Australia, New Zealand and France.',ps:pick('Fresh',['Carrots','Apples','Oranges'])},
+  ];
+  const range = `<section class="pz band range"><div class="w">
+     <div class="top"><div><p class="eyebrow">What the family imports</p><h2>The range we keep cold in our own store.</h2></div>
+     </div>
+     ${tabs('rg','Storage type',RANGE.map(r=>({tab:r.tab,body:`<div class="pnl"><div><p>${r.txt}</p><a class="lnk" ${L('products')}>All ${r.k.toLowerCase()} products</a></div><div class="tiles">${r.ps.map(tile).join('')}</div></div>`})),'seg')}
+   </div></section>`;
+  /* built together: full-bleed photo with an overlapping panel */
+  const together = `<section class="ovl"><div class="ovl-img">${pic('warehouse-pallets','pallets in the cold store','50% 60%')}</div>
+     <div class="w"><div class="ovl-p"><p class="eyebrow">Built together</p>
+       <h2>Our range is built with our customers and our team.</h2>
+       <p class="intro">Chefs tell us what their kitchens need. Our team in Malé works with our partners abroad to bring it in, keep it cold and deliver it. If you need something we do not stock yet, ask us.</p>
+       <p class="intro">${x('[EXAMPLE: a product added because a customer asked]')}</p></div></div></section>`;
+  /* customers: carousel with progress */
+  const cslide=(f,alt,pos,who)=>`<article class="slide">${pic(f,alt,pos)}<div class="in"><q>${x('[CUSTOMER QUOTE: one or two lines in their words]')}</q><p class="by">${who}<br>Customer since ${x('[YEAR]')}</p></div></article>`;
+  const customers = `<section class="pz"><div class="w">
+     ${carousel('Our customers',`<div><p class="eyebrow">Our customers</p><h2>The kitchens we supply.</h2>
+       <p class="intro">Resort and hotel kitchens, restaurants, cafés and caterers across the Maldives, and families who shop at Meatplus. We would rather be the same familiar voice on the phone year after year than a new supplier every season.</p></div>`,[
+       cslide('chefs','chefs at work in a hotel kitchen','55% 60%',x('[NAME, ROLE, RESORT]')),
+       cslide('cheese','cheese on a board','50% 50%',x('[NAME, ROLE, RESTAURANT]')),
+       cslide('fries','fries in a basket','50% 50%',x('[NAME, ROLE, HOTEL]')),
+       cslide('yogurt','yogurt in a bowl','50% 50%',x('[NAME, ROLE, CATERER]'))])}
+   </div></section>`;
+  /* partners: card grid */
+  const partners = `<section class="pz band"><div class="w">
+     <div class="top2"><div><p class="eyebrow">Our partners</p><h2>Producers the family has worked with for years.</h2></div><a class="lnk" ${L('brands')}>See our brands</a></div>
+     <div class="logos">${PARTNERS.slice().sort((a,b)=>a.role.match(/\d{4}/)[0]-b.role.match(/\d{4}/)[0]).map(p=>`<a class="logo-t" ${L('brands')}><span class="lg${p.dark?' dk':''}"${p.dark?' style="background:var(--n)"':''}><img src="${lg(p)}" alt="${p.name}"></span><span><small class="sc">Since ${p.role.match(/\d{4}/)[0]}</small><b>${p.name}, ${p.country}</b></span></a>`).join('')}</div>
+   </div></section>`;
+  const tradeBand = `<section class="trade" style="margin-top:0">${A('crop')}<div class="w"><h2>Supplying a resort or restaurant? Send us your list and we reply with prices.</h2>
      <p class="rt">We reply within ${x('[REPLY TIME]')}.</p>
      <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('trade')}>How trade accounts work</a></div></div></section>`;
-  /* Navy and Paper (and Final): categories before "why", then the trade band, then a full Meatplus section */
-  return header(V,'home')+`<main>${hero}${cats}${why.replace('why blk','why blk after')}${tradeBand}${meatplus(V)}</main>`+footer(V);
+  return header(V,'home')+`<main>${hero}${stats}${family}${range}${together}${customers}${partners}${mpSection()}${tradeBand}</main>`+footer(V);
 }
+/* Meatplus Foods: deep green and amber, variation 1 */
+const mpSection=()=>`<section class="mpg" aria-labelledby="mp-h"><img class="mpg-mark" src="${MP_M}" alt=""><div class="w">
+   <div class="mpg-in"><div class="txt"><img class="mpg-logo" src="${MP}" alt="Meatplus Foods">
+     <h2 id="mp-h">Most people in the Maldives know us as Meatplus.</h2>
+     <p>Meatplus Foods is the family’s retail and wholesale brand, with outlets in Malé. Anyone can walk in and buy for home: fruit and vegetables, cheese, butter, cream and milk.</p>
+     <div class="acts"><a class="btn amb" ${L('contact','&to=outlets')}>Find an outlet</a></div></div>
+     ${pic('apples-oranges','apples and oranges','50% 50%')}</div>
+   <div class="mpg-ol">${[1,2,3].map(n=>`<a class="o" ${L('contact','&to=outlets')}><small class="sc">Outlet ${n}</small><h3>${x(`[OUTLET ${n} NAME]`)}</h3><span>${x('[AREA, MALÉ]')}</span><span class="open">Open today ${x('[HOURS TODAY]')}</span></a>`).join('')}</div>
+ </div></section>`;
+
 function card(p,V){
   const src = p.img ? IMG+p.img : p.ph && !p.ph.startsWith('X:') ? IMG+p.ph+'.webp' : '';
   const img = src ? `<img src="${src}" alt="${p.brand} ${p.name}, ${p.pack||''}" loading="lazy">` : `<div class="nph"><b>${p.brand}</b><span>Pack photo to come</span></div>`;
@@ -581,8 +1062,10 @@ function products(V){
   const tabs = ['All','Frozen','Chilled','Fresh'].map((s,i)=>stg(s,i===0,V)).join('');
   const chk=(l,c)=>`<label><input type="checkbox"${c?' checked':''}> ${l}</label>`;
   return header(V,'products')+`<main>
-   <section class="ptop">${A('crop')}<div class="w"><div><h1>Products</h1><p class="pintro">We sell to resorts, hotels, restaurants and shops by the case. Add products to a quote list and we reply with prices.</p></div>${search(V,'Search products, brands or codes')}</div></section>
-   <div class="mprow"><div class="w"><img src="${MP}" alt="Meatplus Foods"><p>Buying for home? Shop at Meatplus Foods, Sealink’s own outlets in Malé.</p><a class="lnk" ${L('outlets')}>Find an outlet</a></div></div>
+   <section class="phero"><div class="w">
+     <div class="pl"><div class="ptitle"><h1>Products</h1><span class="pbar" aria-hidden="true"></span><a class="pmpl" ${L('contact','&to=outlets')}><small>In store at</small><img src="${MP}" alt="Meatplus Foods"></a></div><p class="pintro">We sell to resorts, hotels, restaurants and shops by the case. Add products to a quote list and we reply with prices.</p></div>
+     <div class="pr">${search(V,'Search products, brands or codes')}</div>
+   </div></section>
    <div class="stabs"><div class="w" role="tablist" aria-label="Storage">${tabs}</div></div>
    <div class="w pbody">
      <aside class="filters" aria-label="Filters">
@@ -600,20 +1083,25 @@ function products(V){
   </main>`+footer(V);
 }
 function brands(V){
-  const block=(p,i)=>{
-    const lead = false;
-    const meta = `${p.maker?p.maker+', ':''}${p.country} · ${p.role.charAt(0).toLowerCase()+p.role.slice(1)}`;
-    const linesTxt = `<div class="lines"><b>Product lines</b>${p.lines}</div>`;
-    return `<article class="brand${lead?' lead':''}">${lead?A('crop'):''}<div class="w">
-      <div class="txt"><h2>${p.name}</h2><p class="meta">${meta}</p>${linesTxt}<p class="story">${x('[STORY: 2–3 lines]')}</p>
-      <a class="btn${lead?'':' s'}" href="#">See ${p.name} products</a></div>
+  const STORY={Emborg:'Emborg is made by Uhrenholt of Denmark. Sealink and Uhrenholt have worked together since 2006, and Sealink is the sole distributor of Emborg in the Maldives.',
+    Sumich:'Sumich is an Australian grower. It has been a Sealink partner since 2004, and Sealink is its sole distributor in the Maldives.',
+    IOEC:'Sealink has imported fruit through IOEC, South Africa, since 1998. It is our longest partnership.'};
+  const block=p=>{
+    const meta = `${p.maker?p.maker+', ':''}${p.country}`;
+    return `<article class="brand"><div class="w">
+      <div class="txt"><img class="blogo${p.dark?' dk':''}" src="${lg(p)}" alt="${p.name} logo"><h2>${p.name}</h2><p class="meta">${meta}</p>
+      <p class="story">${STORY[p.name]}</p><div class="lines"><b>What we bring in</b>${p.lines}</div>
+      <a class="btn s" ${L('products')}>See ${p.name} products</a></div>
       ${pic(...PARTNER_PIC[p.name])}</div></article>`;
   };
   return header(V,'brands')+`<main>
-   <section class="btop"><div class="w"><h1>Brands</h1><p>We are the Maldives distributor for these producers, some for more than 25 years.</p></div></section>
+   <section class="ab-top"><div class="w"><p class="eyebrow">Our brands</p><h1>The producers behind our range.</h1><p class="intro">We are the Maldives distributor for these producers, some for more than 25 years.</p>
+     <div class="logos">${PARTNERS.map(p=>`<div class="logo-t"><span class="lg${p.dark?' dk':''}" style="${p.dark?'':'background:var(--band)'}"><img src="${lg(p)}" alt="${p.name}"></span></div>`).join('')}</div></div></section>
    <div class="brands">${PARTNERS.map(block).join('')}</div>
-   <section class="origins"><div class="w"><p>We also bring apples and oranges from Australia, New Zealand and France. ${x('[SEASONS]')}</p></div></section>
-   <section class="others"><div class="w">${sh('Other brands we carry')}<p class="list">${x('[FULL BRAND LIST]')}</p></div></section>
+   <section class="origins"><div class="w"><p class="eyebrow">Fruit origins</p><p>We also bring in apples and oranges from South Africa, Australia, New Zealand and France. ${x('[SEASONS]')}</p></div></section>
+   <section class="pz"><div class="w"><p class="eyebrow">Other brands</p><h2>Other brands we carry</h2>
+     <div class="lwall">${[1,2,3,4].map(n=>`<div class="ltile">${x(`[BRAND ${n} LOGO]`)}</div>`).join('')}</div>
+     <p class="intro">${x('[FULL BRAND LIST, with logo files from Sealink]')}</p></div></section>
   </main>`+footer(V);
 }
 
@@ -633,15 +1121,15 @@ const quoteForm=()=>`<form class="fform" onsubmit="return false" aria-label="Quo
 
 function trade(V){
   const steps=[
-    ['Send your list','Use the form on this page, or send the list on WhatsApp or Viber. You can also tick items on the products page with Add to quote.'],
-    ['We reply with prices',`We send a price for each item on your list within ${x('[REPLY TIME]')}.`],
-    ['Confirm the order','Tell us what you want to order and when you need it.'],
-    ['Delivery',`${x('[DELIVERY: days, order cut-off, atolls served]')}`],
+    ['list','Send your list','Use the form on this page, or send the list on WhatsApp or Viber. You can also tick items on the products page with Add to quote.'],
+    ['tag','We reply with prices',`We send a price for each item on your list within ${x('[REPLY TIME]')}.`],
+    ['check','Confirm the order','Tell us what you want to order and when you need it.'],
+    ['truck','Delivery',`${x('[DELIVERY: days, order cut-off, atolls served]')}`],
   ];
   return header(V,'trade')+`<main>
    ${pageTop('For Trade','For resorts, hotels, restaurants and caterers in the Maldives. Send us your product list and we reply with trade prices.')}
    <section class="sec"><div class="w">${sh('How a quote works')}
-     <ol class="steps">${steps.map(([h,p])=>`<li><h3>${h}</h3><p>${p}</p></li>`).join('')}</ol></div></section>
+     <ol class="steps">${steps.map(([k,h,p])=>`<li>${ic(k,'lg')}<h3>${h}</h3><p>${p}</p></li>`).join('')}</ol></div></section>
    <section class="sec"><div class="w split">
      <div>${sh('Trade accounts')}<p class="lede">Regular customers can open a trade account. ${x('[ACCOUNT: who can open one and what we need]')}</p>
        <a class="lnk" ${L('products')}>Browse products</a></div>
@@ -655,49 +1143,112 @@ function trade(V){
   </main>`+footer(V);
 }
 
+const ICO={
+  house:'<path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+  leaf:'<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/>',
+  snow:'<path d="M2 12h20"/><path d="M12 2v20"/><path d="m4.93 4.93 14.14 14.14"/><path d="m19.07 4.93-14.14 14.14"/>',
+  user:'<circle cx="12" cy="7" r="4"/><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>',
+  box:'<path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/>',
+  list:'<path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6h.01M4 12h.01M4 18h.01"/>',
+  tag:'<path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+  check:'<circle cx="12" cy="12" r="9.5"/><path d="m8 12 3 3 5-6"/>',
+  truck:'<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>',
+  users:'<circle cx="9" cy="7" r="4"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/>',
+  globe:'<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/>',
+  therm:'<path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/>',
+  drop:'<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7z"/>',
+  cube:'<path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/>',
+  pin:'<path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+  phone:'<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  chat:'<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+  mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
+  clock:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  bldg:'<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M10 22v-4h4v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"/>'};
+const svgi=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[k]}</svg>`;
+const ic=(k,c='')=>`<span class="ic ${c}" aria-hidden="true">${svgi(k)}</span>`;
+const fi=(k,t)=>`<span class="fi">${ic(k,'sm')}${t}</span>`;
 function about(V){
-  const ms=[
-    ['1994','Sealink is founded',x('[FOUNDING STORY: 2–3 lines]')],
-    ...PARTNERS.slice().sort((a,b)=>parseInt(a.role.match(/\d{4}/))-parseInt(b.role.match(/\d{4}/))).map(p=>[p.role.match(/\d{4}/)[0],
-      p.role.startsWith('Sole')?`Sole distributor for ${p.name}`:`Partnership with ${p.name}`,
-      `${p.maker?p.maker+', ':''}${p.country}. ${p.lines}.`]),
-    ['Today','Sealink today',x('[TODAY: staff, vehicles, customers served]')],
+  /* Every fact below is from the Sealink company profile; gaps are placeholders. */
+  const MS=[
+    ['1994','house','Moosa Hassan starts Sealink','Sealink Pvt Ltd is registered in the Maldives as a trading company, importing and distributing food.'],
+    ['1998','leaf','Fruit from South Africa','Sealink starts working with IOEC, South Africa, on fruit imports.'],
+    ['2004','leaf','Sumich, Australia','Sumich becomes a partner. Sealink is its sole distributor for Australian carrots and other vegetables.'],
+    ['2006','snow','Emborg, and Reena joins','Sealink and Uhrenholt of Denmark begin working together; Sealink is the sole distributor of Emborg. Reena Moosa joins the company.'],
+    ['2009','user','Dheena joins','Dheena Moosa joins after more than six years in the government sector.'],
+    [x('[YEAR]'),'box','The first Meatplus outlet',x('[MEATPLUS STORY: when and where the first outlet opened]')],
+    ['Today','bldg','Still family owned','One of the main food importers in the Maldives, with its own cold store and a retail and wholesale outlet.'],
   ];
+  const track = `<section class="pz trk-s"><div class="trk-pin"><div class="trk-st"><div class="w trk-h"><div><p class="eyebrow">Timeline</p><h2>Year by year</h2></div>
+     <div class="trk-ctl"><button type="button" class="tb" data-d="-1" aria-label="Earlier">${ARR(0)}</button><button type="button" class="tb" data-d="1" aria-label="Later">${ARR(1)}</button></div></div>
+     <ol class="trk" tabindex="0" aria-label="Timeline, 1994 to today">${MS.map(([y,k,h,p],i)=>`<li class="${i===MS.length-1?'now':''}${i===0?' on':''}"><span class="ty">${y}</span>${ic(k)}<span class="nm">${h}</span><p>${p}</p></li>`).join('')}</ol></div></div></section>`;
+  /* scroll story: the chapter in view picks the picture */
+  const CH=[
+    ['warehouse-racks','cold store racks','40% 50%','1994','A trading company in Malé','Moosa Hassan founded Sealink in 1994 to import and distribute food. Its head office is in G. Fanas, Malé.',x('[FOUNDING STORY: first products, first premises]')],
+    ['dairy-butter-cream','butter and cream','60% 50%','Partners','Long partnerships abroad','IOEC since 1998, Sumich since 2004 and Uhrenholt, the maker of Emborg, since 2006. Sealink is the sole distributor in the Maldives for Emborg and Sumich.',''],
+    ['warehouse-team','warehouse team at work','50% 55%','Family','The next generation','Reena Moosa joined in 2006 and Dheena Moosa in 2009. Together they run the company today. Sealink has six shareholders, all family.',''],
+    ['apples-oranges','apples and oranges','50% 50%','Meatplus','Better known as Meatplus','The company trades under the brand name Meatplus, and most people in the market know it by that name rather than Sealink.',''],
+  ];
+  const story = `<section class="pz band"><div class="w"><p class="eyebrow">Our story</p><h2>How a family business grew.</h2>
+     <div class="story"><div class="st-pics">${CH.map((c,i)=>`<figure class="spic${i?'':' on'}" data-i="${i}">${pic(c[0],c[1],c[2])}</figure>`).join('')}</div>
+     <div class="st-text">${CH.map((c,i)=>`<div class="chap" data-i="${i}"><div class="chap-m">${pic(c[0],c[1],c[2])}</div><small class="sc">${c[3]}</small><h3>${c[4]}</h3><p>${c[5]}</p>${c[6]?`<p>${c[6]}</p>`:''}</div>`).join('')}</div></div>
+   </div></section>`;
+  const person=(n,role,since,short,bio)=>`<article class="person2"><div class="ph">${x('[PORTRAIT]')}</div><div><small class="sc">Since ${since}</small><h3>${n}</h3><p class="role">${role}</p><p>${short}</p>
+     <details class="acc"><summary>Education and background</summary><div><p>${bio}</p></div></details></div></article>`;
   return header(V,'about')+`<main>
-   ${pageTop('About Sealink','Sealink has imported and distributed fresh, chilled and frozen food in the Maldives since 1994.')}
-   <section class="sec"><div class="w split">
-     <div>${sh('Our story')}<p class="lede">We supply resorts, hotels and restaurants across the Maldives. Home shoppers in Malé buy from us at the Meatplus Foods outlets.</p>
-       <a class="lnk" ${L('outlets')}>Meatplus outlets</a></div>
-     <ol class="tl">${ms.map(([y,h,p])=>`<li><b>${y}</b><div><h3>${h}</h3><p>${p}</p></div></li>`).join('')}</ol>
+   <section class="ab-top"><div class="w"><p class="eyebrow">About Us · Family owned since 1994</p>
+     <h1>Moosa Hassan founded Sealink in 1994. His family still owns it.</h1>
+     <p class="intro">Today Sealink is one of the main importers and distributors of fresh, chilled and frozen food in the Maldives, with its own cold store and an outlet in Malé. Most people know us by our trade name, Meatplus.</p></div></section>
+   ${story}
+   ${track}
+   <section class="dark"><div class="w"><p class="eyebrow">Leadership</p><h2>Two family directors run the company.</h2>
+     <div class="people2">
+       ${person('Reena Moosa','Managing Director','2006','Reena oversees the Finance and Accounts Department.','Before joining Sealink, Reena worked in human resources at Malé Water and Sewerage Company for five years. She holds a Bachelor of Commerce (Small Business Management) from Curtin University of Technology, Australia.')}
+       ${person('Dheena Moosa','Operations, Sales and Marketing','2009','Dheena oversees operations, sales and marketing.','Dheena worked in the government sector for over six years, on national planning and development and on social protection. She served three years on the board of the Maldives Pension Administration Office. She holds a Master of Development Economics from the Australian National University and a Bachelor of Commerce from Curtin University of Technology.')}
+     </div>
+     <p class="owners">The other shareholders are Moosa Hassan, Shaazly Shafeeg, Zeena Moosa and Lubna Moosa. They are not involved in daily operations.</p></div></section>
+   <section class="ovl"><div class="ovl-img">${pic('warehouse-pallets','pallets in the cold store','50% 60%')}</div>
+     <div class="w"><div class="ovl-p"><p class="eyebrow">Cold chain</p><h2>Our own cold store</h2><p class="intro">Frozen, chilled and fresh goods stay in our own cold storage facility until they go out to customers.</p>
+       ${facts([[fi('cube','Capacity'),x('[CAPACITY]')],[fi('snow','Frozen'),x('[TEMPERATURE]')],[fi('drop','Chilled'),x('[TEMPERATURE]')],[fi('leaf','Fresh'),x('[TEMPERATURE]')],[fi('truck','Delivery'),x('[DELIVERY: atolls served]')]])}</div></div></section>
+   <section class="pz"><div class="w row2">
+     <div><p class="eyebrow">Our customers</p><h2>Built together with the people we supply.</h2>
+       <p class="intro">Resort and hotel kitchens, restaurants and caterers, and the families who shop at Meatplus. We try to stay the same familiar people for them year after year, and to grow the range with what they ask for.</p>
+       <p class="intro">${x('[CUSTOMERS: a few names, with permission]')}</p></div>
+     ${pic('chefs','chefs at work in a hotel kitchen','55% 60%')}
    </div></section>
-   <section class="sec"><div class="w split">
-     ${pic('warehouse-racks','cold store racks and pallets','40% 50%')}
-     <div>${sh('Our cold store in Malé')}<p class="lede">Frozen, chilled and fresh goods are kept in our own cold store in Malé until they go out to customers.</p>
-       ${facts([['Capacity',x('[CAPACITY]')],['Frozen',x('[TEMPERATURE]')],['Chilled',x('[TEMPERATURE]')],['Fresh',x('[TEMPERATURE]')],['Delivery',x('[DELIVERY: atolls served]')]])}</div>
-   </div></section>
-   <section class="sec"><div class="w">${sh('Partners')}
-     ${facts(PARTNERS.map(p=>[p.name,`${p.maker?p.maker+', ':''}${p.country} · ${p.role.charAt(0).toLowerCase()+p.role.slice(1)}`]))}
-     <div class="acts"><a class="btn s" ${L('brands')}>See all brands</a></div></div></section>
-   <section class="sec last"><div class="w two">
-     <div>${sh('Leadership','h2')}<p>${x('[LEADERSHIP: names, roles and photos]')}</p></div>
-     <div>${sh('Certificates','h2')}<p>Halal: ${x('[HALAL CERTIFICATE: body, number, expiry]')}</p><p style="margin-top:8px">Food safety: ${x('[MFDA OR OTHER LICENCE]')}</p></div>
-   </div></section>
+   <section class="pz band"><div class="w"><div class="top2"><div><p class="eyebrow">Partners</p><h2>Producers we have worked with for years.</h2></div><a class="lnk" ${L('brands')}>Our brands</a></div>
+     <div class="logos">${PARTNERS.map(p=>`<a class="logo-t" ${L('brands')}><span class="lg${p.dark?' dk':''}"${p.dark?' style="background:var(--n)"':''}><img src="${lg(p)}" alt="${p.name}"></span><span><small class="sc">Since ${p.role.match(/\d{4}/)[0]}</small><b>${p.name}, ${p.country}</b></span></a>`).join('')}</div></div></section>
+   <section class="pz"><div class="w"><p class="eyebrow">Certificates</p><h2>Certificates</h2>
+     ${facts([['Halal',x('[HALAL CERTIFICATE: body, number, expiry]')],['Food safety',x('[MFDA OR OTHER LICENCE]')]])}</div></section>
    ${outlet(V)}
   </main>`+footer(V);
 }
 
 function contact(V){
+  const oc=n=>`<article class="oc"><div class="ph">${x('[OUTLET PHOTO]')}</div><div class="in">
+    <small class="sc">Outlet ${n}</small><h3>${x(`[OUTLET ${n} NAME]`)}</h3>
+    ${facts([['Address',x('[ADDRESS]')],['Phone',x('[PHONE]')],['Open today',x('[HOURS TODAY]')]])}
+    <details class="acc"><summary>Opening hours by day</summary><div><p>${x('[OPENING HOURS BY DAY]')}</p></div></details>
+    <div class="acts"><a class="btn s" href="#">Directions</a><a class="btn s" href="#">Call</a></div></div></article>`;
   return header(V,'contact')+`<main>
-   ${pageTop('Contact','Call, message or visit our head office in Malé.')}
-   <section class="sec"><div class="w split">
-     <div>${sh('Head office')}
-       ${facts([['Address',ADDR],['Phone',`<a href="tel:+9603332933">${PHONE}</a>`],['WhatsApp',x('[NUMBER]')],['Viber',x('[NUMBER]')],['Email',x('[EMAIL]')],['Office hours',x('[OFFICE HOURS]')]])}
+   <section class="ab-top"><div class="w"><p class="eyebrow">Contact Us</p><h1>Call, message or visit us in Malé.</h1>
+     <p class="intro">Our head office is in Malé. For shopping, visit a Meatplus Foods outlet.</p></div></section>
+   <section class="pz band" style="padding-top:88px"><div class="w split">
+     <div><p class="eyebrow">Head office</p><h2>Sealink Pvt Ltd</h2>
+       ${facts([[fi('pin','Address'),ADDR],[fi('phone','Phone'),`<a href="tel:+9603332933">${PHONE}</a>`],[fi('chat','WhatsApp'),x('[NUMBER]')],[fi('chat','Viber'),x('[NUMBER]')],[fi('mail','Email'),x('[EMAIL]')],[fi('clock','Office hours'),x('[OFFICE HOURS]')]])}
        <div class="acts"><a class="btn" href="tel:+9603332933">Call ${PHONE}</a><a class="btn s" href="#">WhatsApp</a><a class="btn s" href="#">Viber</a></div></div>
-     <div class="ph map">${A('pin')}${x('[MAP: head office location]')}</div>
+     <div class="ph map"><i class="pin" aria-hidden="true"></i>${x('[MAP: head office location]')}</div>
    </div></section>
-   <section class="fband"><div class="w">
-     <div class="side">${sh('Send a message')}<p>For trade prices, the quote form on the For Trade page is quicker.</p>
-       <p class="alt"><a class="lnk" ${L('trade')}>Request a quote</a><br><br>Questions about a Meatplus outlet? Outlet phone numbers are on the <a class="lnk" ${L('outlets')}>outlets page</a>.</p></div>
+   <section class="pz mpo" id="outlets"><div class="w">
+     <div class="top2"><div><img class="mpo-logo" src="${MP}" alt="Meatplus Foods"><h2>Meatplus Foods outlets</h2>
+       <p class="intro">Meatplus Foods is Sealink’s retail and wholesale brand. Anyone can walk in and buy for home.</p></div></div>
+     <div class="olist">${oc(1)}${oc(2)}</div>
+     <p class="onote">Outlet list to come: ${x('[NUMBER OF OUTLETS AND LOCATIONS]')}</p>
+     <div class="split" style="margin-top:56px"><div><p class="eyebrow">What you can buy</p><p class="lede">${x('[OUTLET RANGE: what the outlets sell]')}</p></div>
+       <div class="ph map"><i class="pin" aria-hidden="true"></i>${x('[MAP: outlet locations]')}</div></div>
+   </div></section>
+   <section class="fband" style="margin-top:0"><div class="w">
+     <div class="side"><p class="eyebrow">Send a message</p><h2>Write to us</h2><p>For trade prices, the quote form on the HORECA page is quicker.</p>
+       <p class="alt"><a class="lnk" ${L('trade')}>Request a quote</a></p></div>
      <form class="fform" onsubmit="return false" aria-label="Contact form">
        ${field('Your name')}${field('Phone or WhatsApp','tel')}
        ${field('Email','email','','(optional)')}${field('Topic',['Trade quote','Brands and partners','Meatplus outlets','Careers','Something else'])}
@@ -705,26 +1256,6 @@ function contact(V){
        <div class="send full"><button class="btn" type="button">Send message</button></div>
      </form>
    </div></section>
-  </main>`+footer(V);
-}
-
-function outlets(V){
-  const oc=n=>`<article class="oc"><div class="ph">${x('[OUTLET PHOTO]')}</div><div class="in">
-    <h3>${x(`[OUTLET ${n} NAME]`)}</h3>
-    ${facts([['Address',x('[ADDRESS]')],['Phone',x('[PHONE]')],['Open today',x('[HOURS TODAY]')],['Hours',x('[OPENING HOURS BY DAY]')]])}
-    <div class="acts"><a class="btn s" href="#">Directions</a><a class="btn s" href="#">Call</a></div></div></article>`;
-  return header(V,'outlets')+`<main>
-   ${pageTop('Meatplus Foods outlets','Meatplus Foods is Sealink’s retail brand, with shops in Malé. Visit an outlet to buy for home.',`<p class="kick"><img src="${MP}" alt="Meatplus Foods"></p>`)}
-   <section class="sec"><div class="w">${sh('Outlets')}
-     <div class="olist">${oc(1)}${oc(2)}</div>
-     <p class="onote">Outlet list to come: ${x('[NUMBER OF OUTLETS AND LOCATIONS]')}</p></div></section>
-   <section class="sec"><div class="w split">
-     <div>${sh('What you can buy')}<p class="lede">${x('[OUTLET RANGE: what the outlets sell]')}</p></div>
-     <div class="ph map">${A('pin')}${x('[MAP: outlet locations]')}</div>
-   </div></section>
-   <section class="trade" style="margin-top:96px">${A('crop')}<div class="w"><h2>Buying for a resort, hotel or restaurant? Order through a Sealink trade account.</h2>
-     <p class="rt">Send us your list and we reply with prices.</p>
-     <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('trade')}>How trade accounts work</a></div></div></section>
   </main>`+footer(V);
 }
 
@@ -756,9 +1287,10 @@ function product(V,s){
    The new pages (trade, about, contact, outlets, product) exist in the final look only. */
 const VS=['final'], PS=['home','products','brands','trade','about','contact','outlets','product'];
 const FINAL_ONLY=['trade','about','contact','outlets','product'];
-const PAGES={home,products,brands,trade,about,contact,outlets,product};
+const PAGES={home,products,brands,trade,about,contact,product,outlets:contact};
 function state(){const h=new URLSearchParams(location.hash.slice(1));
-  const s={v:VS.includes(h.get('v'))?h.get('v'):'final',p:PS.includes(h.get('p'))?h.get('p'):'home',i:h.has('i')?parseInt(h.get('i'),10):null,bare:h.has('bare')};
+  const s={v:VS.includes(h.get('v'))?h.get('v'):'final',p:PS.includes(h.get('p'))?h.get('p'):'home',i:h.has('i')?parseInt(h.get('i'),10):null,bare:h.has('bare'),to:h.get('to')};
+  if(s.p==='outlets'){s.p='contact';s.to='outlets'}
   if(FINAL_ONLY.includes(s.p)&&s.v!=='final')s.v='final';
   return s}
 function go(o){const s={...state(),...o};
@@ -774,7 +1306,80 @@ function render(){
   document.querySelectorAll('[data-set-p]').forEach(a=>a.setAttribute('aria-current',a.dataset.setP===s.p));
   document.title=`Sealink · ${s.v} · ${s.p}`;
   window.scrollTo(0,0);
+  wire(el);
+  if(s.to){const t=el.querySelector('#'+s.to);if(t)requestAnimationFrame(()=>{const hd=el.querySelector('.hd');scrollTo(0,t.getBoundingClientRect().top+scrollY-(hd?hd.offsetHeight:0)-8)})}
 }
+/* ---------- Interactions: reveal, tabs, carousels, menu ---------- */
+const RM=matchMedia('(prefers-reduced-motion: reduce)');
+let IO=null;
+function wire(el){
+  if(IO)IO.disconnect();
+  el.querySelectorAll('.tabs [role=tablist]').forEach(moveInd);
+  const hd=el.querySelector('.hd'); onscroll=()=>hd&&hd.classList.toggle('scd',scrollY>8); onscroll();
+  /* scroll story: the chapter in view picks the picture */
+  if('IntersectionObserver' in window){const pics=[...el.querySelectorAll('.spic')];
+    if(pics.length){const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const k=+e.target.dataset.i;pics.forEach(p=>{const i=+p.dataset.i;p.classList.toggle('on',i===k);p.classList.toggle('before',i<k)})}}),{rootMargin:'-45% 0px -45% 0px'});el.querySelectorAll('.chap').forEach(c=>so.observe(c))}}
+  /* timeline track: buttons, keys and drag */
+  el.querySelectorAll('.trk').forEach(trk=>{
+    const pin=trk.closest('.trk-pin'),st=pin&&pin.querySelector('.trk-st'),items=[...trk.children];
+    const pinned=()=>pin&&pin.classList.contains('pinned');
+    /* active year: the item nearest the left edge of the content column */
+    const act=()=>{const x0=trk.getBoundingClientRect().left+parseFloat(getComputedStyle(trk).paddingLeft);let b=0,bd=1e9;
+      items.forEach((li,i)=>{const d=Math.abs(li.getBoundingClientRect().left-x0);if(d<bd){bd=d;b=i}});
+      if(trk.scrollLeft+trk.clientWidth>=trk.scrollWidth-4)b=items.length-1;items.forEach((li,i)=>li.classList.toggle('on',i===b))};
+    trk.addEventListener('scroll',act,{passive:true});
+    /* pinned mode: vertical scroll through the section drives the track sideways */
+    const setup=()=>{const on=!RM.matches&&innerWidth>=768;pin.classList.toggle('pinned',on);
+      if(on){pin.style.height=(st.offsetHeight+(trk.scrollWidth-trk.clientWidth))+'px'}else pin.style.height='';drive()};
+    const drive=()=>{if(!pinned())return;const r=pin.getBoundingClientRect(),run=pin.offsetHeight-st.offsetHeight;
+      const p=Math.min(1,Math.max(0,(st.getBoundingClientRect().top-r.top)/Math.max(1,run)));trk.scrollLeft=p*(trk.scrollWidth-trk.clientWidth);act()};
+    if(pin){setup();addEventListener('scroll',drive,{passive:true});addEventListener('resize',setup);(document.fonts?document.fonts.ready:Promise.resolve()).then(setup)}
+    const move=d=>{if(pinned())scrollBy({top:d,behavior:RM.matches?'auto':'smooth'});else trk.scrollBy({left:d,behavior:RM.matches?'auto':'smooth'})};
+    el.querySelectorAll('.tb').forEach(b=>b.onclick=()=>move(+b.dataset.d*trk.clientWidth*.6));
+    trk.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();move((e.key==='ArrowRight'?1:-1)*280)}});
+    let down=false,x0=0,s0=0;
+    trk.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||pinned())return;down=true;x0=e.clientX;s0=trk.scrollLeft;trk.style.scrollSnapType='none';trk.style.scrollBehavior='auto';trk.style.cursor='grabbing'});
+    addEventListener('pointerup',()=>{if(!down)return;down=false;trk.style.scrollSnapType='';trk.style.scrollBehavior='';trk.style.cursor=''});
+    addEventListener('pointermove',e=>{if(down)trk.scrollLeft=s0-(e.clientX-x0)});
+  });
+  const els=el.querySelectorAll('main > section > .w, main > article > .w, main > div.brands > article > .w, .pz .tiles, .pz .logos, .people, .together, .lwall');
+  if(!RM.matches&&'IntersectionObserver' in window){
+    IO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');IO.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(n=>{if(n.closest('.hero'))return;n.classList.add('rv');IO.observe(n)});
+  }
+  el.querySelectorAll('.car').forEach(c=>{
+    const t=c.querySelector('.track'),pv=c.querySelector('.prev'),nx=c.querySelector('.next');
+    const upd=()=>{pv.disabled=t.scrollLeft<4;nx.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-4};
+    const step=d=>{const s=t.querySelector('.slide');t.scrollBy({left:d*(s.offsetWidth+16),behavior:RM.matches?'auto':'smooth'})};
+    pv.onclick=()=>step(-1); nx.onclick=()=>step(1);
+    t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();step(1)}if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}});
+    const pr=c.querySelector('.prog i'),cn=c.querySelector('.cnt'),n=t.querySelectorAll('.slide').length;
+    const upd2=()=>{upd();if(pr)pr.style.width=Math.min(100,(t.scrollLeft+t.clientWidth)/t.scrollWidth*100)+'%';
+      const sw=(t.querySelector('.slide')||{}).offsetWidth||1;if(cn)cn.textContent=`${Math.min(n,Math.round(t.scrollLeft/(sw+16))+1)} / ${n}`};
+    t.addEventListener('scroll',upd2,{passive:true}); upd2();
+  });
+}
+function moveInd(list){const i=list.querySelector('.ind'),t=list.querySelector('[aria-selected=true]');if(!i||!t)return;i.style.width=t.offsetWidth+'px';i.style.transform=`translateX(${t.offsetLeft}px)`}
+function selectTab(tab,focus){
+  const list=tab.closest('[role=tablist]'),root=list.parentElement;
+  list.querySelectorAll('[role=tab]').forEach(b=>{const on=b===tab;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;
+    const p=root.querySelector('#'+b.getAttribute('aria-controls'));if(p)p.hidden=!on});
+  moveInd(list);
+  if(focus)tab.focus();
+  tab.scrollIntoView({block:'nearest',inline:'nearest',behavior:RM.matches?'auto':'smooth'});
+}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('#site [role=tab]'); if(t){selectTab(t);return}
+  const st=e.target.closest('#site [data-step]'); if(st){const tl=st.closest('.tabs').querySelector('[role=tablist]'),all=[...tl.querySelectorAll('[role=tab]')],i=all.findIndex(b=>b.getAttribute('aria-selected')==='true');const n=all[Math.min(all.length-1,Math.max(0,i+ +st.dataset.step))];selectTab(n);return}
+  const m=e.target.closest('#site .hd .menu'); if(m){const h=m.closest('.hd'),o=h.classList.toggle('open');m.setAttribute('aria-expanded',o);m.textContent=o?'Close':'Menu'}
+});
+document.addEventListener('keydown',e=>{
+  const t=e.target.closest&&e.target.closest('#site [role=tab]'); if(!t)return;
+  const all=[...t.parentElement.querySelectorAll('[role=tab]')],i=all.indexOf(t);let n=null;
+  if(e.key==='ArrowRight')n=all[(i+1)%all.length]; else if(e.key==='ArrowLeft')n=all[(i-1+all.length)%all.length];
+  else if(e.key==='Home')n=all[0]; else if(e.key==='End')n=all[all.length-1];
+  if(n){e.preventDefault();selectTab(n,true)}
+});
 document.addEventListener('click',e=>{const a=e.target.closest('[data-set-v],[data-set-p]');if(!a)return;e.preventDefault();go(a.dataset.setV?{v:a.dataset.setV}:{p:a.dataset.setP})});
 /* final look: a product card's photo or name opens the product page */
 document.addEventListener('click',e=>{
@@ -784,7 +1389,7 @@ document.addEventListener('click',e=>{
   const i=PRODUCTS.findIndex(p=>p.name===name&&(!p.pack||pk.startsWith(p.pack)));
   if(i>=0)go({p:'product',i});
 });
-addEventListener('hashchange',render); render();
+addEventListener('hashchange',render); addEventListener('resize',()=>document.querySelectorAll('#site .tabs [role=tablist]').forEach(moveInd)); render();
 </script>
 </body>
 </html>
