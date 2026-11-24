@@ -192,21 +192,13 @@ body.bare #bar{display:none}
 [data-v="paper"] .btop .w{padding-block:64px 56px}
 [data-v="paper"] .btop h1{font-size:52px;line-height:1}
 [data-v="paper"] .btop p{font-size:20px;margin-top:16px;max-width:48ch}
-[data-v="paper"] .brand .w{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;padding-block:64px;border-bottom:1px solid var(--line)}
-[data-v="paper"] .brand h2{font-size:40px;line-height:1.1}
-[data-v="paper"] .brand .meta{font-size:17px;color:var(--soft);margin-top:6px}
-[data-v="paper"] .brand .lines{margin-top:20px}
-[data-v="paper"] .brand .lines b{display:block;font-weight:500;color:var(--n);font-size:15px}
-[data-v="paper"] .brand .story{margin-top:18px}
-[data-v="paper"] .brand .btn{margin-top:28px}
-[data-v="paper"] .brand .ph{min-height:280px}
 [data-v="paper"] .origins .w{padding-block:40px;border-bottom:1px solid var(--line)}
 [data-v="paper"] .origins p{font-size:19px;color:var(--n)}
 [data-v="paper"] .others .w{padding-block:56px 72px}
 [data-v="paper"] .others h2{font-size:30px;margin-bottom:12px}
 @media (max-width:900px){
   [data-v="paper"] .hd .w{height:66px;gap:12px}[data-v="paper"] .hd .logo img{width:124px}
-  [data-v="paper"] .hero .w,[data-v="paper"] .why .w,[data-v="paper"] .trade .w,[data-v="paper"] .ptop .w,[data-v="paper"] .brand .w{grid-template-columns:1fr;gap:28px}
+  [data-v="paper"] .hero .w,[data-v="paper"] .why .w,[data-v="paper"] .trade .w,[data-v="paper"] .ptop .w{grid-template-columns:1fr;gap:28px}
   [data-v="paper"] .hero .w{padding-block:40px 52px}
   [data-v="paper"] .hero .ph{height:220px}
   [data-v="paper"] .hero .short .lb{display:none}
@@ -229,11 +221,10 @@ body.bare #bar{display:none}
   [data-v="paper"] .card .nph{margin:-10px;width:calc(100% + 20px);height:calc(100% + 20px);padding:10px}[data-v="paper"] .card .nph b{font-size:20px}
   [data-v="paper"] .card .meta{padding:12px 12px 0}[data-v="paper"] .card .add{margin:12px}
   [data-v="paper"] .fbtn{display:inline-flex;height:44px;padding:0 16px;border:1px solid #C9CBD8;border-radius:4px;align-items:center;font-weight:500;color:var(--n)}
-  [data-v="paper"] .brand .ph{min-height:200px}
 }
 
 /* ruled rows: keep the rule to the content width, not the padded box */
-[data-v="paper"] .stabs .w,[data-v="paper"] .brand .w,[data-v="paper"] .origins .w{padding-inline:0;width:calc(100% - 2*var(--pad));max-width:1240px}
+[data-v="paper"] .stabs .w,[data-v="paper"] .origins .w{padding-inline:0;width:calc(100% - 2*var(--pad));max-width:1240px}
 
 /* sample photos fill the [PHOTO] slots */
 .ph.pic{position:relative;overflow:hidden;padding:0!important;border:0!important;background:#D9D7E6}
@@ -398,7 +389,7 @@ body.bare #bar{display:none}
    ===================================================================== */
 [data-v="paper"]{--ease:cubic-bezier(.22,.7,.2,1);--rad:10px}
 /* fewer lines: spacing and soft bands instead of rules */
-[data-v="paper"] .hd,[data-v="paper"] .ptop,[data-v="paper"] .btop,[data-v="paper"] .outlet,[data-v="paper"] .mprow,[data-v="paper"] .mps,[data-v="paper"] .stabs .w,[data-v="paper"] .brand .w,[data-v="paper"] .origins .w{border:0}
+[data-v="paper"] .hd,[data-v="paper"] .ptop,[data-v="paper"] .btop,[data-v="paper"] .outlet,[data-v="paper"] .mprow,[data-v="paper"] .mps,[data-v="paper"] .stabs .w,[data-v="paper"] .origins .w{border:0}
 [data-v="paper"] .x{border:0;border-radius:4px}
 [data-v="paper"] .filters h3:not(:first-child){border-top:0;padding-top:0}
 [data-v="paper"] .card{border:0;border-radius:var(--rad);transition:box-shadow .35s var(--ease),transform .35s var(--ease)}
@@ -488,7 +479,6 @@ body.bare #bar{display:none}
 [data-v="paper"] .logo-t img{max-height:72px;max-width:70%;width:auto;height:auto}
 [data-v="paper"] .logo-t b{display:block;color:var(--n);font-weight:500;font-size:16px}
 [data-v="paper"] .logo-t .lg.dk,[data-v="paper"] .pz:not(.band) .logo-t .lg.dk{background:var(--n)}
-[data-v="paper"] .brand .blogo.dk{background:var(--n);padding:12px 18px;border-radius:8px;height:72px}
 /* carousel */
 [data-v="paper"] .car .top{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px}
 [data-v="paper"] .car .ctl{display:flex;gap:8px;flex:none}
@@ -552,11 +542,6 @@ body.bare #bar{display:none}
 [data-v="paper"] .owners{margin-top:24px;font-size:16px;color:var(--soft)}
 [data-v="paper"] .quote{font-size:clamp(24px,2.4vw,34px);line-height:1.3;color:var(--n);max-width:32ch;letter-spacing:-.015em}
 /* Brands page */
-[data-v="paper"] .brand:nth-child(even){background:var(--band)}
-[data-v="paper"] .brand .w{padding-block:96px;align-items:center}
-[data-v="paper"] .brand .blogo{height:64px;width:auto;max-width:220px;margin-bottom:28px;object-fit:contain;object-position:left center}
-[data-v="paper"] .brand .ph{min-height:380px}
-[data-v="paper"] .brand .btn{margin-top:32px}
 [data-v="paper"] .origins{background:var(--band)}
 [data-v="paper"] .origins .w{padding-block:72px}
 [data-v="paper"] .ltile{height:120px;border-radius:var(--rad);background:var(--band);display:flex;align-items:center;justify-content:center;padding:16px;text-align:center}
@@ -590,8 +575,6 @@ body.bare #bar{display:none}
   [data-v="paper"] .tlx [role=tab]{min-width:84px}
   [data-v="paper"] .person{grid-template-columns:96px 1fr;gap:18px;padding:20px}
   [data-v="paper"] .ab-top{padding-block:56px 40px}
-  [data-v="paper"] .brand .w{padding-block:56px}
-  [data-v="paper"] .brand .ph{min-height:220px}
   [data-v="paper"] .lwall{grid-template-columns:1fr 1fr}
 }
 
@@ -810,6 +793,25 @@ body.bare #bar{display:none}
 [data-v="paper"] .spic.on{opacity:1;transform:none;transition:transform .75s var(--ease),opacity .55s var(--ease) .1s;z-index:1}
 [data-v="paper"] .spic .ph{border-radius:0}
 @media (prefers-reduced-motion:reduce){[data-v="paper"] .spic,[data-v="paper"] .spic.before,[data-v="paper"] .spic.on{transform:none;transition:opacity .4s!important}}
+
+/* Brands: logo cards */
+[data-v="paper"] .bcards-s{padding-block:8px 88px}
+[data-v="paper"] .bcards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+[data-v="paper"] .bcard{background:var(--band);border-radius:20px;padding:12px;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+[data-v="paper"] .bcard:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(27,20,100,.1)}
+[data-v="paper"] .bc-logo{background:#fff;border-radius:14px;height:200px;display:grid;place-items:center}
+[data-v="paper"] .bc-logo.dk{background:var(--n)}
+[data-v="paper"] .bc-logo img{max-height:84px;max-width:70%}
+[data-v="paper"] .bc-in{padding:22px 14px 18px;flex:1}
+[data-v="paper"] .bc-in h2{font-size:30px;line-height:1.1}
+[data-v="paper"] .bc-in .meta{color:var(--soft);margin-top:4px}
+[data-v="paper"] .bc-in .lines{margin-top:14px;color:var(--ink2)}
+[data-v="paper"] .bc-in .role{margin-top:6px;color:var(--soft);font-size:15px}
+[data-v="paper"] .since{display:inline-block;margin-top:14px;background:#fff;color:var(--n);border-radius:99px;padding:5px 12px;font-size:13px;font-weight:500}
+[data-v="paper"] .bc-ph{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px}
+[data-v="paper"] .bc-go{display:flex;justify-content:space-between;padding:16px 14px 6px;color:var(--n);font-weight:500;text-decoration:none}
+[data-v="paper"] .bc-go:hover span{transform:translateX(3px)}[data-v="paper"] .bc-go span{transition:transform .2s}
+@media(max-width:900px){[data-v="paper"] .bcards{grid-template-columns:1fr}[data-v="paper"] .bc-logo{height:150px}}
 </style>
 </head>
 <body>
@@ -826,9 +828,9 @@ body.bare #bar{display:none}
 const IMG='products/';
 const LOGO='assets/sealink-logo-trace.svg', LOGO_W='assets/sealink-logo-trace-white.svg', MP='meatplus/svg/foods-regular-light.svg', MP_D='meatplus/svg/foods-regular-dark.svg', MP_M='meatplus/svg/amber-mark.svg';
 const PARTNERS=[
-  {name:'Emborg',logo:'emborg.svg',maker:'Uhrenholt',country:'Denmark',role:'Sole distributor since 2006',lines:'Butter, cheese, cream, frozen vegetables, frozen fruit, UHT milk, yogurt'},
-  {name:'Sumich',logo:'sumich.png',country:'Australia',role:'Sole distributor, partner since 2004',lines:'Carrots and other vegetables'},
-  {name:'IOEC',logo:'ioec.png',dark:1,country:'South Africa',role:'Partner since 1998',lines:'Apples and oranges'},
+  {name:'Emborg',logo:'emborg.svg',maker:'Uhrenholt',country:'Denmark',since:2006,short:'Sole distributor in the Maldives.',role:'Sole distributor since 2006',lines:'Butter, cheese, cream, frozen vegetables, frozen fruit, UHT milk, yogurt'},
+  {name:'Sumich',logo:'sumich.png',country:'Australia',since:2004,short:'Sole distributor in the Maldives.',role:'Sole distributor, partner since 2004',lines:'Carrots and other vegetables'},
+  {name:'IOEC',logo:'ioec.png',dark:1,country:'South Africa',since:1998,short:'Our longest partnership.',role:'Partner since 1998',lines:'Apples and oranges'},
 ];
 const CATS=['Cheese','Butter and cream','Milk and yogurt','Frozen vegetables','Frozen fruit','Plant-based','Fish and sausages','Fresh produce'];
 /* Emborg range from the client name list. Pack shots from emborg.com where available. */
@@ -931,7 +933,6 @@ const PRODUCTS=[
 const PHOTO='assets/photos/';
 const pic=(f,alt,pos='50% 50%')=>`<div class="ph pic"><img src="${PHOTO+f}.webp" alt="Sample photo: ${alt}" style="object-position:${pos}"></div>`;
 const HERO={apex:['warehouse-racks','cold store racks and pallets','40% 50%'],cold:['warehouse-team','warehouse team at work','50% 55%'],paper:['chefs','chefs at work in a hotel kitchen','55% 60%']};
-const PARTNER_PIC={Emborg:['dairy-butter-cream','butter and cream','60% 50%'],Sumich:['carrots-crate','fresh carrots in a crate','55% 50%'],IOEC:['apples-oranges','apples and oranges','50% 50%']};
 const x=s=>`<span class="x">${s}</span>`;
 const A=(cls='')=>`<i class="A ${cls}" aria-hidden="true"></i>`;
 const ICO_S='<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>';
@@ -1082,21 +1083,18 @@ function products(V){
   </main>`+footer(V);
 }
 function brands(V){
-  const STORY={Emborg:'Emborg is made by Uhrenholt of Denmark. Sealink and Uhrenholt have worked together since 2006, and Sealink is the sole distributor of Emborg in the Maldives.',
-    Sumich:'Sumich is an Australian grower. It has been a Sealink partner since 2004, and Sealink is its sole distributor in the Maldives.',
-    IOEC:'Sealink has imported fruit through IOEC, South Africa, since 1998. It is our longest partnership.'};
-  const block=p=>{
-    const meta = `${p.maker?p.maker+', ':''}${p.country}`;
-    return `<article class="brand"><div class="w">
-      <div class="txt"><img class="blogo${p.dark?' dk':''}" src="${lg(p)}" alt="${p.name} logo"><h2>${p.name}</h2><p class="meta">${meta}</p>
-      <p class="story">${STORY[p.name]}</p><div class="lines"><b>What we bring in</b>${p.lines}</div>
-      <a class="btn s" ${L('products')}>See ${p.name} products</a></div>
-      ${pic(...PARTNER_PIC[p.name])}</div></article>`;
-  };
+  /* Lifestyle photos: free Unsplash stock (Unsplash License) until Sealink sends its own. */
+  const LIFE={Emborg:['life-breakfast','Grandmother and granddaughter at breakfast'],Sumich:['life-cooking','A mother and child cooking vegetables at home'],IOEC:['life-fruit','A bowl of oranges and apples']};
+  const card=p=>`<article class="bcard">
+      <div class="bc-logo${p.dark?' dk':''}"><img src="${lg(p)}" alt="${p.name} logo"></div>
+      <div class="bc-in"><h2>${p.name}</h2><p class="meta">${p.maker?p.maker+', ':''}${p.country}</p>
+        <p class="lines">${p.lines}</p><p class="role">${p.short}</p><span class="since">Since ${p.since}</span></div>
+      <img class="bc-ph" src="assets/photos/${LIFE[p.name][0]}.webp" alt="Sample photo: ${LIFE[p.name][1]}" loading="lazy">
+      <a class="bc-go" ${L('products')}>See ${p.name} products <span aria-hidden="true">&rarr;</span></a>
+    </article>`;
   return header(V,'brands')+`<main>
-   <section class="ab-top"><div class="w"><p class="eyebrow">Our brands</p><h1>The producers behind our range.</h1><p class="intro">We are the Maldives distributor for these producers, some for more than 25 years.</p>
-     <div class="logos">${PARTNERS.map(p=>`<div class="logo-t"><span class="lg${p.dark?' dk':''}" style="${p.dark?'':'background:var(--band)'}"><img src="${lg(p)}" alt="${p.name}"></span></div>`).join('')}</div></div></section>
-   <div class="brands">${PARTNERS.map(block).join('')}</div>
+   <section class="ab-top"><div class="w"><p class="eyebrow">Our brands</p><h1>Producers the family has worked with for years.</h1><p class="intro">We are the Maldives distributor for these producers, some for more than 25 years.</p></div></section>
+   <section class="bcards-s"><div class="w"><div class="bcards">${PARTNERS.map(card).join('')}</div></div></section>
    <section class="origins"><div class="w"><p class="eyebrow">Fruit origins</p><p>We also bring in apples and oranges from South Africa, Australia, New Zealand and France. ${x('[SEASONS]')}</p></div></section>
    <section class="pz"><div class="w"><p class="eyebrow">Other brands</p><h2>Other brands we carry</h2>
      <div class="lwall">${[1,2,3,4].map(n=>`<div class="ltile">${x(`[BRAND ${n} LOGO]`)}</div>`).join('')}</div>
@@ -1341,7 +1339,7 @@ function wire(el){
     addEventListener('pointerup',()=>{if(!down)return;down=false;trk.style.scrollSnapType='';trk.style.scrollBehavior='';trk.style.cursor=''});
     addEventListener('pointermove',e=>{if(down)trk.scrollLeft=s0-(e.clientX-x0)});
   });
-  const els=el.querySelectorAll('main > section > .w, main > article > .w, main > div.brands > article > .w, .pz .tiles, .pz .logos, .people, .together, .lwall');
+  const els=el.querySelectorAll('main > section > .w, main > article > .w, .pz .tiles, .pz .logos, .people, .together, .lwall');
   if(!RM.matches&&'IntersectionObserver' in window){
     IO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');IO.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
     els.forEach(n=>{if(n.closest('.hero'))return;n.classList.add('rv');IO.observe(n)});
