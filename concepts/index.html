@@ -987,8 +987,8 @@ function home(V){
   /* family: dark navy split */
   const family = `<section class="dark"><div class="w row2">
      <div><p class="eyebrow">The family</p>
-       <h2>Owned and run by the same people since 1994.</h2>
-       <p class="intro">The family that started Sealink still owns it. Two family directors run the company day to day.</p>
+       <h2>Still owned by the family that started it.</h2>
+       <p class="intro">The family that started Sealink in 1994 still owns it.</p>
        <p style="margin-top:32px"><a class="lnk" ${L('about')}>About Sealink</a></p></div>
      ${pic('warehouse-team','warehouse team at work','50% 55%')}
    </div></section>`;
@@ -1007,7 +1007,7 @@ function home(V){
    </div></section>`;
   /* built together: full-bleed photo with an overlapping panel */
   const together = `<section class="ovl"><div class="ovl-img">${pic('warehouse-pallets','pallets in the cold store','50% 60%')}</div>
-     <div class="w"><div class="ovl-p"><p class="eyebrow">Ask us</p>
+     <div class="w"><div class="ovl-p"><p class="eyebrow">Special requests</p>
        <h2>Need something we don’t stock? Ask us.</h2>
        <p class="intro">Chefs tell us what their kitchens need. Our team in Malé works with our partners abroad to bring it in and deliver it cold.</p>
        <p class="intro">${x('[EXAMPLE: a product added because a customer asked]')}</p></div></div></section>`;
@@ -1023,7 +1023,7 @@ function home(V){
    </div></section>`;
   /* partners: card grid */
   const partners = `<section class="pz band"><div class="w">
-     <div class="top2"><div><p class="eyebrow">Our partners</p><h2>Partners since 1998.</h2></div><a class="lnk" ${L('brands')}>See our partners</a></div>
+     <div class="top2"><div><p class="eyebrow">Our partners</p><h2>The producers behind our range.</h2></div><a class="lnk" ${L('brands')}>See our brands</a></div>
      <div class="logos">${PARTNERS.slice().sort((a,b)=>a.role.match(/\d{4}/)[0]-b.role.match(/\d{4}/)[0]).map(p=>`<a class="logo-t" ${L('brands')}><span class="lg${p.dark?' dk':''}"${p.dark?' style="background:var(--n)"':''}><img src="${lg(p)}" alt="${p.name}"></span><span><small class="sc">Since ${p.role.match(/\d{4}/)[0]}</small><b>${p.name}, ${p.country}</b></span></a>`).join('')}</div>
    </div></section>`;
   const tradeBand = `<section class="trade" style="margin-top:0">${A('crop')}<div class="w"><h2>Supplying a resort or restaurant? Send us your list and we’ll send you prices.</h2>
@@ -1176,7 +1176,7 @@ function about(V){
     ['warehouse-team','warehouse team at work','50% 55%','Family','Two directors from the family','Reena Moosa joined in 2006 and Dheena Moosa in 2009. Together they run the company today. Sealink is family owned and has six shareholders.',''],
     ['apples-oranges','apples and oranges','50% 50%','Meatplus','Better known as Meatplus','Sealink’s trading brand is Meatplus, and most people in the Maldives know the company by that name.',''],
   ];
-  const story = `<section class="pz band"><div class="w"><p class="eyebrow">Our story</p><h2>From one trading company to Meatplus.</h2>
+  const story = `<section class="pz band"><div class="w"><p class="eyebrow">Our story</p><h2>How Sealink grew.</h2>
      <div class="story"><div class="st-pics">${CH.map((c,i)=>`<figure class="spic${i?'':' on'}" data-i="${i}">${pic(c[0],c[1],c[2])}</figure>`).join('')}</div>
      <div class="st-text">${CH.map((c,i)=>`<div class="chap" data-i="${i}"><div class="chap-m">${pic(c[0],c[1],c[2])}</div><small class="sc">${c[3]}</small><h3>${c[4]}</h3><p>${c[5]}</p>${c[6]?`<p>${c[6]}</p>`:''}</div>`).join('')}</div></div>
    </div></section>`;
