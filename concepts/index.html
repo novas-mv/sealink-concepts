@@ -788,8 +788,7 @@ body.bare #bar{display:none}
 [data-v="paper"] .pmp p{margin-top:8px;font-size:16px}
 [data-v="paper"] .pmp .lnk{color:#123F2C;margin-top:auto;padding-top:20px;background-position:0 100%}
 /* footer Meatplus tile */
-[data-v="paper"] .ft .mpf{display:inline-flex;align-items:center;margin-top:24px;padding:10px 16px;border-radius:12px;background:#EEF4EF;width:auto}
-[data-v="paper"] .ft .mpf img{width:120px;height:auto}
+[data-v="paper"] .ft .mpf{display:block;width:140px;height:auto;margin-top:28px}
 /* pinned timeline */
 [data-v="paper"] .trk-pin.pinned .trk-st{position:sticky;top:76px;padding-block:24px 16px}
 [data-v="paper"] .trk-pin.pinned .trk{scroll-snap-type:none;scroll-behavior:auto;cursor:default}
@@ -971,7 +970,7 @@ const meatplus=V=>`<section class="mps" aria-labelledby="mps-h"><div class="w">
   <div class="ol">${[1,2,3].map(n=>`<a class="o" ${L('contact','&to=outlets')}><h3>${x(`[OUTLET ${n} NAME]`)}</h3><span>${x('[AREA, MALÉ]')}</span><span>Open today ${x('[HOURS TODAY]')}</span><span class="go">Address and hours</span></a>`).join('')}</div>
 </div></section>`;
 const footer=V=>`<footer class="ft"><div class="w"><div class="cols">
-  <div><img src="${LOGO_W}" alt="Sealink Pvt Ltd"><p style="margin-top:22px">Head office<br>G. Fanas, 5th floor, Ameenee Magu, Malé</p><span class="mpf"><img src="${MP}" alt="Meatplus Foods, our retail brand"></span></div>
+  <div><img src="${LOGO_W}" alt="Sealink Pvt Ltd"><p style="margin-top:22px">Head office<br>G. Fanas, 5th floor, Ameenee Magu, Malé</p><img class="mpf" src="meatplus/svg/foods-regular-white-navy.svg" alt="Meatplus Foods, our retail brand"></div>
   <div><h4>Contact</h4><p>+960 333 2933<br>WhatsApp ${x('[NUMBER]')}<br>Viber ${x('[NUMBER]')}</p></div>
   <div><h4>Sealink</h4><ul><li><a ${L('contact','&to=outlets')}>Meatplus outlets</a></li><li><a ${L('contact')}>Contact</a></li><li><a href="#">Legal</a></li></ul></div>
 </div></div></footer>`;
