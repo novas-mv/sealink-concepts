@@ -828,9 +828,9 @@ body.bare #bar{display:none}
 const IMG='products/';
 const LOGO='assets/sealink-logo-trace.svg', LOGO_W='assets/sealink-logo-trace-white.svg', MP='meatplus/svg/foods-regular-light.svg', MP_D='meatplus/svg/foods-regular-dark.svg', MP_M='meatplus/svg/amber-mark.svg';
 const PARTNERS=[
-  {name:'Emborg',logo:'emborg.svg',maker:'Uhrenholt',country:'Denmark',since:2006,short:'Sole distributor in the Maldives.',role:'Sole distributor since 2006',lines:'Butter, cheese, cream, frozen vegetables, frozen fruit, UHT milk, yogurt'},
-  {name:'Sumich',logo:'sumich.png',country:'Australia',since:2004,short:'Sole distributor in the Maldives.',role:'Sole distributor, partner since 2004',lines:'Carrots and other vegetables'},
-  {name:'IOEC',logo:'ioec.png',dark:1,country:'South Africa',since:1998,short:'Our longest partnership.',role:'Partner since 1998',lines:'Apples and oranges'},
+  {name:'Emborg',logo:'emborg.svg',maker:'Uhrenholt',country:'Denmark',since:2006,short:'We are its sole distributor in the Maldives.',role:'Sole distributor since 2006',lines:'Butter, cheese, cream, frozen vegetables, frozen fruit, UHT milk, yogurt'},
+  {name:'Sumich',logo:'sumich.png',country:'Australia',since:2004,short:'We are its sole distributor in the Maldives.',role:'Sole distributor, partner since 2004',lines:'Carrots and other vegetables'},
+  {name:'IOEC',logo:'ioec.png',dark:1,country:'South Africa',since:1998,short:'Our oldest partner.',role:'Partner since 1998',lines:'Apples and oranges'},
 ];
 const CATS=['Cheese','Butter and cream','Milk and yogurt','Frozen vegetables','Frozen fruit','Plant-based','Fish and sausages','Fresh produce'];
 /* Emborg range from the client name list. Pack shots from emborg.com where available. */
@@ -942,11 +942,11 @@ const ICO_S='<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentCol
 let CUR={v:'final',p:'home',bare:false};
 const L=(p,extra='')=>`href="#v=${CUR.v}&p=${p}${extra}${CUR.bare?'&bare':''}"`;
 /* Nav from the Novas proposal sitemap. Outlets live on Contact Us; Careers is left out of the nav. */
-const NAV=[['Our Brands','brands'],['Products','products'],['HORECA','trade'],['About Us','about'],['Contact Us','contact']];
+const NAV=[['Brands','brands'],['Products','products'],['For Trade','trade'],['About','about'],['Contact','contact']];
 const header=(V,P)=>`<header class="hd"><div class="w">
   <a class="logo" ${L('home')}><img src="${LOGO}" alt="Sealink Pvt Ltd, home"></a>
   <nav aria-label="Main" id="mainnav">${NAV.map(([n,k,id])=>`<a ${L(k)}${(id||k)===P?' aria-current="page"':''}>${n}</a>`).join('')}</nav>
-  <div class="side"><a class="hm" ${L('products')}>${ICO_S}Search</a><a class="btn" ${L('trade')}>Request a quote</a><button class="menu" type="button" aria-expanded="false" aria-controls="mainnav">Menu</button></div>
+  <div class="side"><a class="hm" ${L('products')}>${ICO_S}Find products</a><a class="btn" ${L('trade')}>Request a quote</a><button class="menu" type="button" aria-expanded="false" aria-controls="mainnav">Menu</button></div>
 </div></header>`;
 const search=(V,ph)=>`<form class="search" role="search" onsubmit="return false"><label class="q">${ICO_S}<span>${ph}</span></label><button class="go" type="button">Search</button></form>`;
 const stg=(name,on,V,sub)=>{
@@ -962,16 +962,8 @@ const tabs=(id,label,items,cls='')=>`<div class="tabs ${cls}"><div role="tablist
 const carousel=(label,head,slides)=>`<div class="car" role="region" aria-roledescription="carousel" aria-label="${label}"><div class="top">${head}<div class="ctl"><span class="cnt" aria-live="polite"></span><button type="button" class="prev" aria-label="Previous">${ARR(0)}</button><button type="button" class="next" aria-label="Next">${ARR(1)}</button></div></div>
   <div class="track" tabindex="0" aria-label="${label}, scroll sideways">${slides.join('')}</div><div class="prog" aria-hidden="true"><i></i></div></div>`;
 const outlet=V=>`<div class="outlet"><div class="w"><img src="${MP}" alt="Meatplus Foods"><span>Shopping for home? Visit a Meatplus outlet in Malé.</span><span>Open today ${x('[HOURS TODAY]')}</span><a class="lnk" ${L('contact','&to=outlets')}>Find an outlet</a></div></div>`;
-const meatplus=V=>`<section class="mps" aria-labelledby="mps-h"><div class="w">
-  <div class="txt"><img class="mplogo" src="${MP}" alt="Meatplus Foods">
-    <h2 id="mps-h">Buying for home? Shop at Meatplus Foods.</h2>
-    <p>Meatplus Foods is Sealink’s retail brand, with shops in Malé. Anyone can walk in and buy for home.</p>
-    <p>${x('[OUTLET RANGE: what the outlets sell]')}</p>
-    <a class="lnk" ${L('contact','&to=outlets')}>See all outlets</a></div>
-  <div class="ol">${[1,2,3].map(n=>`<a class="o" ${L('contact','&to=outlets')}><h3>${x(`[OUTLET ${n} NAME]`)}</h3><span>${x('[AREA, MALÉ]')}</span><span>Open today ${x('[HOURS TODAY]')}</span><span class="go">Address and hours</span></a>`).join('')}</div>
-</div></section>`;
 const footer=V=>`<footer class="ft"><div class="w"><div class="cols">
-  <div><img src="${LOGO_W}" alt="Sealink Pvt Ltd"><p style="margin-top:22px">Head office<br>G. Fanas, 5th floor, Ameenee Magu, Malé</p><img class="mpf" src="meatplus/svg/foods-regular-white-navy.svg" alt="Meatplus Foods, our retail brand"></div>
+  <div><img src="${LOGO_W}" alt="Sealink Pvt Ltd"><p style="margin-top:22px">Head office<br>G. Fanas, 5th floor, Ameenee Magu, Malé</p><img class="mpf" src="meatplus/svg/foods-regular-white-navy.svg" alt="Meatplus Foods, Sealink’s trading brand"></div>
   <div><h4>Contact</h4><p>+960 333 2933<br>WhatsApp ${x('[NUMBER]')}<br>Viber ${x('[NUMBER]')}</p></div>
   <div><h4>Sealink</h4><ul><li><a ${L('contact','&to=outlets')}>Meatplus outlets</a></li><li><a ${L('contact')}>Contact</a></li><li><a href="#">Legal</a></li></ul></div>
 </div></div></footer>`;
@@ -983,48 +975,47 @@ function home(V){
         <h1>A family business bringing food to the Maldives since 1994.</h1>
         <p class="who">Sealink began as a small family business in Malé, and it is still family owned. We import fresh, chilled and frozen food for resorts, hotels and restaurants, and for home shoppers at Meatplus in Malé.</p>
         ${search(V,'Search products, brands or codes')}
-        <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('about')}>Our family story</a></div>
+        <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('about')}>Our story</a></div>
       </div>${pic(...HERO[V])}</div></section>`;
   /* big numbers: all from the company profile */
   const stats = `<section class="stats"><div class="w"><ul class="nums">
-     <li>${ic('house','lg')}<b>1994</b><span>The year the family started Sealink</span></li>
-     <li>${ic('users','lg')}<b>6</b><span>Family shareholders</span></li>
-     <li>${ic('user','lg')}<b>2</b><span>Family directors run the company day to day</span></li>
-     <li>${ic('globe','lg')}<b>1998</b><span>Our oldest partnership, with IOEC of South Africa</span></li>
+     <li>${ic('house','lg')}<b>1994</b><span>Sealink founded in Malé</span></li>
+     <li>${ic('users','lg')}<b>6</b><span>Shareholders</span></li>
+     <li>${ic('user','lg')}<b>2</b><span>Family directors in charge day to day</span></li>
+     <li>${ic('globe','lg')}<b>1998</b><span>First year with IOEC, South Africa, our oldest partner</span></li>
    </ul></div></section>`;
   /* family: dark navy split */
   const family = `<section class="dark"><div class="w row2">
      <div><p class="eyebrow">The family</p>
-       <h2>Still owned and run by the family.</h2>
-       <p class="intro">Sealink has been in the same family since 1994. Family members own the company and run it day to day.</p>
-       <p class="intro">Some of our suppliers have worked with us for more than 25 years.</p>
-       <p style="margin-top:32px"><a class="lnk" ${L('about')}>Read the family story</a></p></div>
+       <h2>Still owned by the family that started it.</h2>
+       <p class="intro">The family that started Sealink in 1994 still owns it.</p>
+       <p style="margin-top:32px"><a class="lnk" ${L('about')}>About Sealink</a></p></div>
      ${pic('warehouse-team','warehouse team at work','50% 55%')}
    </div></section>`;
   /* range: segmented tabs with a moving indicator, then a card grid */
   const pick=(st,names)=>names.map(n=>PRODUCTS.find(p=>p.st===st&&p.name.startsWith(n))).filter(Boolean);
   const tile=p=>`<a class="tile" ${L('product','&i='+PRODUCTS.indexOf(p))}><span class="im"><img src="${pimg(p)}" alt="" loading="lazy"></span><span class="tb2"><small>${p.brand}</small>${p.name.split(',')[0]}</span></a>`;
   const RANGE=[
-    {tab:`${svgi('snow')}Frozen`,k:'Frozen',txt:'French fries, mixed vegetables, sweet corn, green peas, broccoli mix and strawberries from Emborg.',ps:pick('Frozen',['French Fries, straight','Mixed Vegetables','Sweet Corn','Strawberries'])},
+    {tab:`${svgi('snow')}Frozen`,k:'Frozen',txt:'Fries, vegetables and fruit from Emborg of Denmark.',ps:pick('Frozen',['French Fries, straight','Mixed Vegetables','Sweet Corn','Strawberries'])},
     {tab:`${svgi('drop')}Chilled`,k:'Chilled',txt:'Butter, cheese, cooking and whipping cream, UHT milk and yogurt from Emborg.',ps:pick('Chilled',['Butter, unsalted','Mozzarella, shredded','Whipping Cream','Yogurt'])},
-    {tab:`${svgi('leaf')}Fresh`,k:'Fresh',txt:'Australian carrots from Sumich, and apples and oranges from South Africa, Australia, New Zealand and France.',ps:pick('Fresh',['Carrots','Apples','Oranges'])},
+    {tab:`${svgi('leaf')}Fresh`,k:'Fresh',txt:'Carrots from Sumich in Australia. Apples and oranges from South Africa, Australia, New Zealand and France.',ps:pick('Fresh',['Carrots','Apples','Oranges'])},
   ];
   const range = `<section class="pz band range"><div class="w">
-     <div class="top"><div><p class="eyebrow">What the family imports</p><h2>The range we keep cold in our own store.</h2></div>
+     <div class="top"><div><p class="eyebrow">Our range</p><h2>Frozen, chilled and fresh food from our own cold store.</h2></div>
      </div>
      ${tabs('rg','Storage type',RANGE.map(r=>({tab:r.tab,body:`<div class="pnl"><div><p>${r.txt}</p><a class="lnk" ${L('products')}>All ${r.k.toLowerCase()} products</a></div><div class="tiles">${r.ps.map(tile).join('')}</div></div>`})),'seg')}
    </div></section>`;
   /* built together: full-bleed photo with an overlapping panel */
   const together = `<section class="ovl"><div class="ovl-img">${pic('warehouse-pallets','pallets in the cold store','50% 60%')}</div>
-     <div class="w"><div class="ovl-p"><p class="eyebrow">Built together</p>
-       <h2>Our range is built with our customers and our team.</h2>
-       <p class="intro">Chefs tell us what their kitchens need. Our team in Malé works with our partners abroad to bring it in, keep it cold and deliver it. If you need something we do not stock yet, ask us.</p>
+     <div class="w"><div class="ovl-p"><p class="eyebrow">Special requests</p>
+       <h2>Need something we don’t stock? Ask us.</h2>
+       <p class="intro">Chefs tell us what their kitchens need. Our team in Malé works with our partners abroad to bring it in and deliver it cold.</p>
        <p class="intro">${x('[EXAMPLE: a product added because a customer asked]')}</p></div></div></section>`;
   /* customers: carousel with progress */
   const cslide=(f,alt,pos,who)=>`<article class="slide">${pic(f,alt,pos)}<div class="in"><q>${x('[CUSTOMER QUOTE: one or two lines in their words]')}</q><p class="by">${who}<br>Customer since ${x('[YEAR]')}</p></div></article>`;
   const customers = `<section class="pz"><div class="w">
-     ${carousel('Our customers',`<div><p class="eyebrow">Our customers</p><h2>The kitchens we supply.</h2>
-       <p class="intro">Resort and hotel kitchens, restaurants, cafés and caterers across the Maldives, and families who shop at Meatplus. We would rather be the same familiar voice on the phone year after year than a new supplier every season.</p></div>`,[
+     ${carousel('Our customers',`<div><p class="eyebrow">Our customers</p><h2>Who we supply</h2>
+       <p class="intro">We supply resort and hotel kitchens, restaurants, cafés and caterers across the Maldives, and people who shop at Meatplus.</p></div>`,[
        cslide('chefs','chefs at work in a hotel kitchen','55% 60%',x('[NAME, ROLE, RESORT]')),
        cslide('cheese','cheese on a board','50% 50%',x('[NAME, ROLE, RESTAURANT]')),
        cslide('fries','fries in a basket','50% 50%',x('[NAME, ROLE, HOTEL]')),
@@ -1032,19 +1023,19 @@ function home(V){
    </div></section>`;
   /* partners: card grid */
   const partners = `<section class="pz band"><div class="w">
-     <div class="top2"><div><p class="eyebrow">Our partners</p><h2>Producers the family has worked with for years.</h2></div><a class="lnk" ${L('brands')}>See our brands</a></div>
+     <div class="top2"><div><p class="eyebrow">Our partners</p><h2>The producers behind our range.</h2></div><a class="lnk" ${L('brands')}>See our brands</a></div>
      <div class="logos">${PARTNERS.slice().sort((a,b)=>a.role.match(/\d{4}/)[0]-b.role.match(/\d{4}/)[0]).map(p=>`<a class="logo-t" ${L('brands')}><span class="lg${p.dark?' dk':''}"${p.dark?' style="background:var(--n)"':''}><img src="${lg(p)}" alt="${p.name}"></span><span><small class="sc">Since ${p.role.match(/\d{4}/)[0]}</small><b>${p.name}, ${p.country}</b></span></a>`).join('')}</div>
    </div></section>`;
-  const tradeBand = `<section class="trade" style="margin-top:0">${A('crop')}<div class="w"><h2>Supplying a resort or restaurant? Send us your list and we reply with prices.</h2>
+  const tradeBand = `<section class="trade" style="margin-top:0">${A('crop')}<div class="w"><h2>Supplying a resort or restaurant? Send us your list and we’ll send you prices.</h2>
      <p class="rt">We reply within ${x('[REPLY TIME]')}.</p>
-     <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('trade')}>How trade accounts work</a></div></div></section>`;
+     <div class="acts"><a class="btn" ${L('trade')}>Request a quote</a><a class="btn s" ${L('trade')}>About trade accounts</a></div></div></section>`;
   return header(V,'home')+`<main>${hero}${stats}${family}${range}${together}${customers}${partners}${mpSection()}${tradeBand}</main>`+footer(V);
 }
 /* Meatplus Foods: deep green and amber, variation 1 */
 const mpSection=()=>`<section class="mpg" aria-labelledby="mp-h"><img class="mpg-mark" src="${MP_M}" alt=""><div class="w">
    <div class="mpg-in"><div class="txt"><img class="mpg-logo" src="${MP}" alt="Meatplus Foods">
      <h2 id="mp-h">Most people in the Maldives know us as Meatplus.</h2>
-     <p>Meatplus Foods is the family’s retail and wholesale brand, with outlets in Malé. Anyone can walk in and buy for home: fruit and vegetables, cheese, butter, cream and milk.</p>
+     <p>Meatplus is Sealink’s trading brand, with outlets in Malé. Anyone can walk in and shop: fruit and vegetables, cheese, butter, cream and milk.</p>
      <div class="acts"><a class="btn amb" ${L('contact','&to=outlets')}>Find an outlet</a></div></div>
      ${pic('apples-oranges','apples and oranges','50% 50%')}</div>
    <div class="mpg-ol">${[1,2,3].map(n=>`<a class="o" ${L('contact','&to=outlets')}><small class="sc">Outlet ${n}</small><h3>${x(`[OUTLET ${n} NAME]`)}</h3><span>${x('[AREA, MALÉ]')}</span><span class="open">Open today ${x('[HOURS TODAY]')}</span></a>`).join('')}</div>
@@ -1056,30 +1047,30 @@ function card(p,V){
   const pack = (p.pack || '[PACK]') + (p.origin ? ' · '+p.origin : '');
   const st = `<p class="st">${p.st}</p>`;
   const meta = `<div class="meta"><p class="br">${p.brand}</p><h3>${p.name}</h3><div class="chips"><span class="pk">${pack}</span>${st.replace('<p','<span').replace('</p>','</span>')}</div></div>`;
-  return `<article class="card"><div class="img">${img}</div>${meta}<button class="add${p.inq?' in':''}" type="button">${p.inq?'In quote list':'Add to quote'}</button></article>`;
+  return `<article class="card"><div class="img">${img}</div>${meta}<button class="add${p.inq?' in':''}" type="button">${p.inq?'Added to quote':'Add to quote'}</button></article>`;
 }
 function products(V){
   const tabs = ['All','Frozen','Chilled','Fresh'].map((s,i)=>stg(s,i===0,V)).join('');
   const chk=(l,c)=>`<label><input type="checkbox"${c?' checked':''}> ${l}</label>`;
   return header(V,'products')+`<main>
    <section class="phero"><div class="w">
-     <div class="pl"><div class="ptitle"><h1>Products</h1><span class="pbar" aria-hidden="true"></span><a class="pmpl" ${L('contact','&to=outlets')}><small>In store at</small><img src="${MP}" alt="Meatplus Foods"></a></div><p class="pintro">We sell to resorts, hotels, restaurants and shops by the case. Add products to a quote list and we reply with prices.</p></div>
+     <div class="pl"><div class="ptitle"><h1>Products</h1><span class="pbar" aria-hidden="true"></span><a class="pmpl" ${L('contact','&to=outlets')}><small>In store at</small><img src="${MP}" alt="Meatplus Foods"></a></div><p class="pintro">Trade customers buy by the case. Add products to your quote list and we’ll send you prices. Shopping for home? Visit a Meatplus outlet.</p></div>
      <div class="pr">${search(V,'Search products, brands or codes')}</div>
    </div></section>
    <div class="stabs"><div class="w" role="tablist" aria-label="Storage">${tabs}</div></div>
    <div class="w pbody">
      <aside class="filters" aria-label="Filters">
-       <h3>Storage</h3>${['Frozen','Chilled','Fresh'].map(s=>chk(s)).join('')}
+       <h3>Type</h3>${['Frozen','Chilled','Fresh'].map(s=>chk(s)).join('')}
        <h3>Category</h3>${CATS.map(c=>chk(c)).join('')}
        <h3>Brand</h3>${['Emborg','Sumich','IOEC'].map(b=>chk(b)).join('')}
      </aside>
      <div class="res">
        <div class="rbar"><b>${PRODUCTS.length} products</b><button class="fbtn" type="button">Filters</button><span class="sort">Sort: A to Z</span></div>
        <div class="grid">${PRODUCTS.map(p=>card(p,V)).join('')}</div>
-       <div class="nores"><span class="tag">When a search finds nothing</span><p>No match for ‘lamb shank’. Try a category, or ask us on WhatsApp. We may stock it.</p></div>
+       <div class="nores"><span class="tag">When a search finds nothing</span><p>No results for ‘lamb shank’. Try another word or a category, or ask us on WhatsApp. We may be able to bring it in.</p></div>
      </div>
    </div>
-   <div class="qbar"><div class="w"><b>Quote list</b><span class="n">3 items</span><a class="btn" ${L('trade')}>Send list</a></div></div>
+   <div class="qbar"><div class="w"><b>Your quote list</b><span class="n">3 items</span><a class="btn" ${L('trade')}>Send quote request</a></div></div>
   </main>`+footer(V);
 }
 function brands(V){
@@ -1093,10 +1084,10 @@ function brands(V){
       <a class="bc-go" ${L('products')}>See ${p.name} products <span aria-hidden="true">&rarr;</span></a>
     </article>`;
   return header(V,'brands')+`<main>
-   <section class="ab-top"><div class="w"><p class="eyebrow">Our brands</p><h1>Producers the family has worked with for years.</h1><p class="intro">We are the Maldives distributor for these producers, some for more than 25 years.</p></div></section>
+   <section class="ab-top"><div class="w"><p class="eyebrow">Our brands</p><h1>The brands we bring to the Maldives.</h1><p class="intro">We are the sole Maldives distributor for Emborg and Sumich, and we have worked with IOEC since 1998.</p></div></section>
    <section class="bcards-s"><div class="w"><div class="bcards">${PARTNERS.map(card).join('')}</div></div></section>
-   <section class="origins"><div class="w"><p class="eyebrow">Fruit origins</p><p>We also bring in apples and oranges from South Africa, Australia, New Zealand and France. ${x('[SEASONS]')}</p></div></section>
-   <section class="pz"><div class="w"><p class="eyebrow">Other brands</p><h2>Other brands we carry</h2>
+   <section class="origins"><div class="w"><p class="eyebrow">Where our fruit comes from</p><p>We also bring in apples and oranges from South Africa, Australia, New Zealand and France. ${x('[SEASONS]')}</p></div></section>
+   <section class="pz"><div class="w"><h2>Other brands we carry</h2>
      <div class="lwall">${[1,2,3,4].map(n=>`<div class="ltile">${x(`[BRAND ${n} LOGO]`)}</div>`).join('')}</div>
      <p class="intro">${x('[FULL BRAND LIST, with logo files from Sealink]')}</p></div></section>
   </main>`+footer(V);
@@ -1113,23 +1104,23 @@ const quoteForm=()=>`<form class="fform" onsubmit="return false" aria-label="Quo
   ${field('Phone or WhatsApp','tel')}${field('Email','email','','(optional)')}
   ${field('Business type',['Resort','Hotel','Restaurant or café','Caterer','Other'])}${field('Island or atoll')}
   ${field('Your product list','area','full')}
-  <div class="send full"><button class="btn" type="button">Send request</button><p>We reply within ${x('[REPLY TIME]')}.</p></div>
+  <div class="send full"><button class="btn" type="button">Send quote request</button><p>We reply within ${x('[REPLY TIME]')}.</p></div>
 </form>`;
 
 function trade(V){
   const steps=[
-    ['list','Send your list','Use the form on this page, or send the list on WhatsApp or Viber. You can also tick items on the products page with Add to quote.'],
-    ['tag','We reply with prices',`We send a price for each item on your list within ${x('[REPLY TIME]')}.`],
+    ['list','Send your list','Fill in the form below, or send your list by WhatsApp or Viber. You can also build a list on the Products page with the Add to quote button.'],
+    ['tag','We send prices',`We send a price for each item on your list within ${x('[REPLY TIME]')}.`],
     ['check','Confirm the order','Tell us what you want to order and when you need it.'],
-    ['truck','Delivery',`${x('[DELIVERY: days, order cut-off, atolls served]')}`],
+    ['truck','We deliver',`${x('[DELIVERY: days, order cut-off, atolls served]')}`],
   ];
   return header(V,'trade')+`<main>
-   ${pageTop('For Trade','For resorts, hotels, restaurants and caterers in the Maldives. Send us your product list and we reply with trade prices.')}
+   ${pageTop('For Trade','If you buy for a resort, hotel, restaurant or catering business in the Maldives, send us your product list. We’ll send you trade prices.')}
    <section class="sec"><div class="w">${sh('How a quote works')}
      <ol class="steps">${steps.map(([k,h,p])=>`<li>${ic(k,'lg')}<h3>${h}</h3><p>${p}</p></li>`).join('')}</ol></div></section>
    <section class="sec"><div class="w split">
      <div>${sh('Trade accounts')}<p class="lede">Regular customers can open a trade account. ${x('[ACCOUNT: who can open one and what we need]')}</p>
-       <a class="lnk" ${L('products')}>Browse products</a></div>
+       <a class="lnk" ${L('products')}>See products</a></div>
      ${facts([['Prices',x('[PRICE TERMS]')],['Payment',x('[PAYMENT TERMS]')],['Minimum order',x('[MINIMUM ORDER]')],['Delivery',x('[DELIVERY: atolls served]')],['Certificates',x('[HALAL CERTIFICATE]')]])}
    </div></section>
    <section class="fband" id="quote"><div class="w">
@@ -1170,51 +1161,51 @@ function about(V){
     ['1994','house','Moosa Hassan starts Sealink','Sealink Pvt Ltd is registered in the Maldives as a trading company, importing and distributing food.'],
     ['1998','leaf','Fruit from South Africa','Sealink starts working with IOEC, South Africa, on fruit imports.'],
     ['2004','leaf','Sumich, Australia','Sumich becomes a partner. Sealink is its sole distributor for Australian carrots and other vegetables.'],
-    ['2006','snow','Emborg, and Reena joins','Sealink and Uhrenholt of Denmark begin working together; Sealink is the sole distributor of Emborg. Reena Moosa joins the company.'],
+    ['2006','snow','Emborg, Denmark','Sealink becomes sole distributor of Emborg, made by Uhrenholt of Denmark. Reena Moosa joins the company.'],
     ['2009','user','Dheena joins','Dheena Moosa joins after more than six years in the government sector.'],
     [x('[YEAR]'),'box','The first Meatplus outlet',x('[MEATPLUS STORY: when and where the first outlet opened]')],
-    ['Today','bldg','Still family owned','One of the main food importers in the Maldives, with its own cold store and a retail and wholesale outlet.'],
+    ['Today','bldg','Still family owned','Sealink is one of the main food importers in the Maldives, with its own cold store and Meatplus outlets.'],
   ];
   const track = `<section class="pz trk-s"><div class="trk-pin"><div class="trk-st"><div class="w trk-h"><div><p class="eyebrow">Timeline</p><h2>Year by year</h2></div>
      <div class="trk-ctl"><button type="button" class="tb" data-d="-1" aria-label="Earlier">${ARR(0)}</button><button type="button" class="tb" data-d="1" aria-label="Later">${ARR(1)}</button></div></div>
      <ol class="trk" tabindex="0" aria-label="Timeline, 1994 to today">${MS.map(([y,k,h,p],i)=>`<li class="${i===MS.length-1?'now':''}${i===0?' on':''}"><span class="ty">${y}</span>${ic(k)}<span class="nm">${h}</span><p>${p}</p></li>`).join('')}</ol></div></div></section>`;
   /* scroll story: the chapter in view picks the picture */
   const CH=[
-    ['warehouse-racks','cold store racks','40% 50%','1994','A trading company in Malé','Moosa Hassan founded Sealink in 1994 to import and distribute food. Its head office is in G. Fanas, Malé.',x('[FOUNDING STORY: first products, first premises]')],
-    ['dairy-butter-cream','butter and cream','60% 50%','Partners','Long partnerships abroad','IOEC since 1998, Sumich since 2004 and Uhrenholt, the maker of Emborg, since 2006. Sealink is the sole distributor in the Maldives for Emborg and Sumich.',''],
-    ['warehouse-team','warehouse team at work','50% 55%','Family','The next generation','Reena Moosa joined in 2006 and Dheena Moosa in 2009. Together they run the company today. Sealink has six shareholders, all family.',''],
-    ['apples-oranges','apples and oranges','50% 50%','Meatplus','Better known as Meatplus','The company trades under the brand name Meatplus, and most people in the market know it by that name rather than Sealink.',''],
+    ['warehouse-racks','cold store racks','40% 50%','1994','A trading company in Malé','Sealink started as a trading company in Malé, importing and distributing food.',x('[FOUNDING STORY: first products, first premises]')],
+    ['dairy-butter-cream','butter and cream','60% 50%','Partners','Long partnerships abroad','We have worked with IOEC since 1998, Sumich since 2004 and Uhrenholt, the maker of Emborg, since 2006. Sealink is the sole distributor in the Maldives for Emborg and Sumich.',''],
+    ['warehouse-team','warehouse team at work','50% 55%','Family','Two directors from the family','Reena Moosa joined in 2006 and Dheena Moosa in 2009. Together they run the company today. Sealink is family owned and has six shareholders.',''],
+    ['apples-oranges','apples and oranges','50% 50%','Meatplus','Better known as Meatplus','Sealink’s trading brand is Meatplus, and most people in the Maldives know the company by that name.',''],
   ];
-  const story = `<section class="pz band"><div class="w"><p class="eyebrow">Our story</p><h2>How a family business grew.</h2>
+  const story = `<section class="pz band"><div class="w"><p class="eyebrow">Our story</p><h2>How Sealink grew.</h2>
      <div class="story"><div class="st-pics">${CH.map((c,i)=>`<figure class="spic${i?'':' on'}" data-i="${i}">${pic(c[0],c[1],c[2])}</figure>`).join('')}</div>
      <div class="st-text">${CH.map((c,i)=>`<div class="chap" data-i="${i}"><div class="chap-m">${pic(c[0],c[1],c[2])}</div><small class="sc">${c[3]}</small><h3>${c[4]}</h3><p>${c[5]}</p>${c[6]?`<p>${c[6]}</p>`:''}</div>`).join('')}</div></div>
    </div></section>`;
   const person=(n,role,since,short,bio)=>`<article class="person2"><div class="ph">${x('[PORTRAIT]')}</div><div><small class="sc">Since ${since}</small><h3>${n}</h3><p class="role">${role}</p><p>${short}</p>
      <details class="acc"><summary>Education and background</summary><div><p>${bio}</p></div></details></div></article>`;
   return header(V,'about')+`<main>
-   <section class="ab-top"><div class="w"><p class="eyebrow">About Us · Family owned since 1994</p>
+   <section class="ab-top"><div class="w"><p class="eyebrow">About</p>
      <h1>Moosa Hassan founded Sealink in 1994. His family still owns it.</h1>
-     <p class="intro">Today Sealink is one of the main importers and distributors of fresh, chilled and frozen food in the Maldives, with its own cold store and an outlet in Malé. Most people know us by our trade name, Meatplus.</p></div></section>
+     <p class="intro">Today Sealink is one of the main importers of fresh, chilled and frozen food in the Maldives, with its own cold store and Meatplus outlets in Malé.</p></div></section>
    ${story}
    ${track}
    <section class="dark"><div class="w"><p class="eyebrow">Leadership</p><h2>Two family directors run the company.</h2>
      <div class="people2">
-       ${person('Reena Moosa','Managing Director','2006','Reena oversees the Finance and Accounts Department.','Before joining Sealink, Reena worked in human resources at Malé Water and Sewerage Company for five years. She holds a Bachelor of Commerce (Small Business Management) from Curtin University of Technology, Australia.')}
+       ${person('Reena Moosa','Managing Director','2006','Reena oversees finance and accounts.','Before joining Sealink, Reena worked in human resources at Malé Water and Sewerage Company for five years. She holds a Bachelor of Commerce (Small Business Management) from Curtin University of Technology, Australia.')}
        ${person('Dheena Moosa','Operations, Sales and Marketing','2009','Dheena oversees operations, sales and marketing.','Dheena worked in the government sector for over six years, on national planning and development and on social protection. She served three years on the board of the Maldives Pension Administration Office. She holds a Master of Development Economics from the Australian National University and a Bachelor of Commerce from Curtin University of Technology.')}
      </div>
-     <p class="owners">The other shareholders are Moosa Hassan, Shaazly Shafeeg, Zeena Moosa and Lubna Moosa. They are not involved in daily operations.</p></div></section>
+     <p class="owners">Founder Moosa Hassan is still a shareholder, with Shaazly Shafeeg, Zeena Moosa and Lubna Moosa. They do not work in the daily running of the company.</p></div></section>
    <section class="ovl"><div class="ovl-img">${pic('warehouse-pallets','pallets in the cold store','50% 60%')}</div>
-     <div class="w"><div class="ovl-p"><p class="eyebrow">Cold chain</p><h2>Our own cold store</h2><p class="intro">Frozen, chilled and fresh goods stay in our own cold storage facility until they go out to customers.</p>
+     <div class="w"><div class="ovl-p"><p class="eyebrow">Cold store</p><h2>Our own cold store</h2><p class="intro">Frozen, chilled and fresh food is kept in our cold store until it goes out to customers.</p>
        ${facts([[fi('cube','Capacity'),x('[CAPACITY]')],[fi('snow','Frozen'),x('[TEMPERATURE]')],[fi('drop','Chilled'),x('[TEMPERATURE]')],[fi('leaf','Fresh'),x('[TEMPERATURE]')],[fi('truck','Delivery'),x('[DELIVERY: atolls served]')]])}</div></div></section>
    <section class="pz"><div class="w row2">
-     <div><p class="eyebrow">Our customers</p><h2>Built together with the people we supply.</h2>
-       <p class="intro">Resort and hotel kitchens, restaurants and caterers, and the families who shop at Meatplus. We try to stay the same familiar people for them year after year, and to grow the range with what they ask for.</p>
+     <div><p class="eyebrow">Our customers</p><h2>Who we supply</h2>
+       <p class="intro">We supply resort and hotel kitchens, restaurants and caterers, and people who shop at Meatplus. When customers ask for something we don’t stock, we try to bring it in.</p>
        <p class="intro">${x('[CUSTOMERS: a few names, with permission]')}</p></div>
      ${pic('chefs','chefs at work in a hotel kitchen','55% 60%')}
    </div></section>
-   <section class="pz band"><div class="w"><div class="top2"><div><p class="eyebrow">Partners</p><h2>Producers we have worked with for years.</h2></div><a class="lnk" ${L('brands')}>Our brands</a></div>
+   <section class="pz band"><div class="w"><div class="top2"><div><p class="eyebrow">Partners</p><h2>Our partners abroad</h2></div><a class="lnk" ${L('brands')}>Our brands</a></div>
      <div class="logos">${PARTNERS.map(p=>`<a class="logo-t" ${L('brands')}><span class="lg${p.dark?' dk':''}"${p.dark?' style="background:var(--n)"':''}><img src="${lg(p)}" alt="${p.name}"></span><span><small class="sc">Since ${p.role.match(/\d{4}/)[0]}</small><b>${p.name}, ${p.country}</b></span></a>`).join('')}</div></div></section>
-   <section class="pz"><div class="w"><p class="eyebrow">Certificates</p><h2>Certificates</h2>
+   <section class="pz"><div class="w"><h2>Certificates</h2>
      ${facts([['Halal',x('[HALAL CERTIFICATE: body, number, expiry]')],['Food safety',x('[MFDA OR OTHER LICENCE]')]])}</div></section>
    ${outlet(V)}
   </main>`+footer(V);
@@ -1227,8 +1218,8 @@ function contact(V){
     <details class="acc"><summary>Opening hours by day</summary><div><p>${x('[OPENING HOURS BY DAY]')}</p></div></details>
     <div class="acts"><a class="btn s" href="#">Directions</a><a class="btn s" href="#">Call</a></div></div></article>`;
   return header(V,'contact')+`<main>
-   <section class="ab-top"><div class="w"><p class="eyebrow">Contact Us</p><h1>Call, message or visit us in Malé.</h1>
-     <p class="intro">Our head office is in Malé. For shopping, visit a Meatplus Foods outlet.</p></div></section>
+   <section class="ab-top"><div class="w"><p class="eyebrow">Contact</p><h1>Call, message or visit us in Malé.</h1>
+     <p class="intro">Our head office is in Malé. To shop for home, visit a Meatplus outlet.</p></div></section>
    <section class="pz band" style="padding-top:88px"><div class="w split">
      <div><p class="eyebrow">Head office</p><h2>Sealink Pvt Ltd</h2>
        ${facts([[fi('pin','Address'),ADDR],[fi('phone','Phone'),`<a href="tel:+9603332933">${PHONE}</a>`],[fi('chat','WhatsApp'),x('[NUMBER]')],[fi('chat','Viber'),x('[NUMBER]')],[fi('mail','Email'),x('[EMAIL]')],[fi('clock','Office hours'),x('[OFFICE HOURS]')]])}
@@ -1236,15 +1227,15 @@ function contact(V){
      <div class="ph map"><i class="pin" aria-hidden="true"></i>${x('[MAP: head office location]')}</div>
    </div></section>
    <section class="pz mpo" id="outlets"><div class="w">
-     <div class="top2"><div><img class="mpo-logo" src="${MP}" alt="Meatplus Foods"><h2>Meatplus Foods outlets</h2>
-       <p class="intro">Meatplus Foods is Sealink’s retail and wholesale brand. Anyone can walk in and buy for home.</p></div></div>
+     <div class="top2"><div><img class="mpo-logo" src="${MP}" alt="Meatplus Foods"><h2>Meatplus outlets</h2>
+       <p class="intro">Meatplus is Sealink’s trading brand. Anyone can walk in and shop.</p></div></div>
      <div class="olist">${oc(1)}${oc(2)}</div>
      <p class="onote">Outlet list to come: ${x('[NUMBER OF OUTLETS AND LOCATIONS]')}</p>
      <div class="split" style="margin-top:56px"><div><p class="eyebrow">What you can buy</p><p class="lede">${x('[OUTLET RANGE: what the outlets sell]')}</p></div>
        <div class="ph map"><i class="pin" aria-hidden="true"></i>${x('[MAP: outlet locations]')}</div></div>
    </div></section>
    <section class="fband" style="margin-top:0"><div class="w">
-     <div class="side"><p class="eyebrow">Send a message</p><h2>Write to us</h2><p>For trade prices, the quote form on the HORECA page is quicker.</p>
+     <div class="side"><h2>Write to us</h2><p>Need trade prices? The quote form is quicker.</p>
        <p class="alt"><a class="lnk" ${L('trade')}>Request a quote</a></p></div>
      <form class="fform" onsubmit="return false" aria-label="Contact form">
        ${field('Your name')}${field('Phone or WhatsApp','tel')}
@@ -1269,8 +1260,8 @@ function product(V,s){
        <p class="br">${p.brand}</p><h1>${p.name}</h1>
        <div class="chips"><span>${p.pack||x('[PACK]')}</span><span class="tag-st">${p.st}</span></div>
        <p class="desc">${x('[DESCRIPTION: 2–3 lines]')}</p>
-       <div class="acts"><button class="btn" type="button">Add to quote</button><a class="btn s" ${L('contact')}>Ask on WhatsApp</a></div>
-       <p class="pnote">Prices are sent with your quote.</p>
+       <div class="acts"><button class="btn" type="button">Add to quote</button><a class="btn s" ${L('contact')}>Ask us</a></div>
+       <p class="pnote">We send prices with your quote.</p>
        ${facts([['Pack size',p.pack||x('[PACK]')],['Origin',p.origin||x('[ORIGIN]')],['Storage',`${p.st}, ${x('[STORAGE TEMPERATURE]')}`],['Category',p.cat],['Product code',x('[SKU CODE]')],['Shelf life',x('[SHELF LIFE]')],['Halal',x('[HALAL STATUS]')],['Spec sheet',x('[SPEC SHEET PDF]')]])}
      </div>
    </section>
